@@ -14,6 +14,8 @@
 #import "PersonalDataViewController.h"
 #import "MeViewController.h"
 #import "OpeningTimeViewController.h"
+#import "PrinterSettingViewController.h"
+#import "PrinterChoosingViewController.h"
 #import "HomeModel.h"
 #import "Utility.h"
 #import "PushSync.h"
@@ -33,6 +35,13 @@
     HomeModel *_homeModel;
     NSMutableDictionary *_dicTimer;
 }
+//printer part
+@property (nonatomic) NSInteger selectedIndex;
+
+@property (nonatomic) LanguageIndex selectedLanguage;
+
+- (void)loadParam;
+//end printer part
 @end
 
 extern BOOL globalRotateFromSeg;
@@ -70,9 +79,28 @@ void myExceptionHandler(NSException *exception)
     
 }
 
+//-(void)applicationReceivedRemoteMessage:(FIRMessagingRemoteMessage *)remoteMessage
+//{
+//    NSLog(@"remoteMessageAppData: %@",remoteMessage.appData);
+//}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //printer part
+    [NSThread sleepForTimeInterval:1.0];     // 1000mS!!!
+    
+    _selectedIndex     = 0;
+    _selectedLanguage  = LanguageIndexEnglish;
+    
+    _settingManager = [SettingManager new];
+    
+    [self loadParam];
+    //end printer part
+//    NSString *key = [NSString stringWithFormat:@"dismiss verion:1.2"];
+//        [[NSUserDefaults standardUserDefaults] setValue:@0 forKey:key];
+//
+    
+    
     UIBarButtonItem *barButtonAppearance = [UIBarButtonItem appearance];
     [barButtonAppearance setBackgroundImage:[self imageWithColor:[UIColor clearColor]] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault]; // Change to your colour
     
@@ -119,7 +147,7 @@ void myExceptionHandler(NSException *exception)
     
     //write exception of latest app crash to log file
     NSSetUncaughtExceptionHandler(&myExceptionHandler);
-    NSString *stackTrace = [[NSUserDefaults standardUserDefaults] stringForKey:@"exception"];
+    NSString *stackTrace = [[NSUserDefaults standardUserDefaults] stringForKey:@"exception"];    
     if(!stackTrace)
     {
         [[NSUserDefaults standardUserDefaults] setValue:@"" forKey:@"exception"];
@@ -133,16 +161,16 @@ void myExceptionHandler(NSException *exception)
     
     //push notification
     {
-        if(SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(@"10.0"))
+//        [FIRApp configure];
+        if ([UNUserNotificationCenter class] != nil)//version >= 10
         {
-      
+            
             UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
             center.delegate = self;
             [center requestAuthorizationWithOptions:(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge) completionHandler:^(BOOL granted, NSError * _Nullable error)
              {
                  if( !error )
                  {
-                     [[UIApplication sharedApplication] registerForRemoteNotifications];  // required to get the app to do anything at all about push notifications
                      NSLog( @"Push registration success." );
                  }
                  else
@@ -158,9 +186,9 @@ void myExceptionHandler(NSException *exception)
             UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
             UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
             [application registerUserNotificationSettings:settings];
-            [application registerForRemoteNotifications];
-            [[UIApplication sharedApplication] registerForRemoteNotifications];
         }
+        [application registerForRemoteNotifications];  // required to get the app to do anything at all about push notifications
+//        [FIRMessaging messaging].delegate = self;
     }
     
     
@@ -205,6 +233,38 @@ void myExceptionHandler(NSException *exception)
     //Called when a notification is delivered to a foreground app.
     NSDictionary *userInfo = notification.request.content.userInfo;
     NSLog(@"notification is delivered to a foreground app: %@", userInfo);
+    
+    ////////
+    //Get current vc
+    CustomViewController *currentVc;
+    CustomViewController *parentViewController = (CustomViewController *)[[[UIApplication sharedApplication] delegate] window].rootViewController;
+    
+    while (parentViewController.presentedViewController != nil && ![parentViewController.presentedViewController isKindOfClass:[UIAlertController class]])
+    {
+        parentViewController = (CustomViewController *)parentViewController.presentedViewController;
+    }
+    if([parentViewController isKindOfClass:[UITabBarController class]])
+    {
+        currentVc = ((UITabBarController *)parentViewController).selectedViewController;
+    }
+    else
+    {
+        currentVc = parentViewController;
+    }
+    
+    
+    
+    if([currentVc isKindOfClass:[CustomerKitchenViewController class]])
+    {
+    }
+    else if([currentVc isKindOfClass:[OrderDetailViewController class]])
+    {
+    }
+    else
+    {
+        completionHandler(UNNotificationPresentationOptionAlert);
+    }
+    ////////
     
     if([userInfo objectForKey:@"localNoti"])
     {
@@ -253,16 +313,18 @@ void myExceptionHandler(NSException *exception)
     {
         NSDictionary *myAps = [userInfo objectForKey:@"aps"];
         NSString *categoryIdentifier = [myAps objectForKey:@"category"];
-        if([categoryIdentifier isEqualToString:@"cancelOrder"] || [categoryIdentifier isEqualToString:@"printKitchenBill"] || [categoryIdentifier isEqualToString:@"reminder"] || [categoryIdentifier isEqualToString:@"processing"] || [categoryIdentifier isEqualToString:@"delivered"] || [categoryIdentifier isEqualToString:@"clear"])
+        if([categoryIdentifier isEqualToString:@"updateStatus"] || [categoryIdentifier isEqualToString:@"printKitchenBill"] || [categoryIdentifier isEqualToString:@"reminder"] || [categoryIdentifier isEqualToString:@"processing"] || [categoryIdentifier isEqualToString:@"delivered"] || [categoryIdentifier isEqualToString:@"clear"])
         {
-            NSNumber *receiptID = [myAps objectForKey:@"receiptID"];
+            NSDictionary *data = [myAps objectForKey:@"data"];
+            NSNumber *receiptID = [data objectForKey:@"receiptID"];
             _homeModel = [[HomeModel alloc]init];
             _homeModel.delegate = self;
             [_homeModel downloadItems:dbJummumReceipt withData:receiptID];
         }
         else if([categoryIdentifier isEqualToString:@"openingTime"])
         {
-            NSNumber *settingID = [myAps objectForKey:@"receiptID"];
+            NSDictionary *data = [myAps objectForKey:@"data"];
+            NSNumber *settingID = [data objectForKey:@"settingID"];
             _homeModel = [[HomeModel alloc]init];
             _homeModel.delegate = self;
             [_homeModel downloadItems:dbSetting withData:settingID];
@@ -331,37 +393,42 @@ void myExceptionHandler(NSException *exception)
     }
     else
     {
-        if([categoryIdentifier isEqualToString:@"cancelOrder"])
+        if([categoryIdentifier isEqualToString:@"updateStatus"])
         {
-            NSNumber *receiptID = [myAps objectForKey:@"receiptID"];
+            NSDictionary *data = [myAps objectForKey:@"data"];
+            NSNumber *receiptID = [data objectForKey:@"receiptID"];
             _homeModel = [[HomeModel alloc]init];
             _homeModel.delegate = self;
             [_homeModel downloadItems:dbJummumReceiptTapNotificationIssue withData:receiptID];
         }
         else if([categoryIdentifier isEqualToString:@"printKitchenBill"] || [categoryIdentifier isEqualToString:@"reminder"])
         {
-            NSNumber *receiptID = [myAps objectForKey:@"receiptID"];
+            NSDictionary *data = [myAps objectForKey:@"data"];
+            NSNumber *receiptID = [data objectForKey:@"receiptID"];
             _homeModel = [[HomeModel alloc]init];
             _homeModel.delegate = self;
             [_homeModel downloadItems:dbJummumReceiptTapNotification withData:receiptID];
         }
         else if([categoryIdentifier isEqualToString:@"processing"])
         {
-            NSNumber *receiptID = [myAps objectForKey:@"receiptID"];
+            NSDictionary *data = [myAps objectForKey:@"data"];
+            NSNumber *receiptID = [data objectForKey:@"receiptID"];
             _homeModel = [[HomeModel alloc]init];
             _homeModel.delegate = self;
             [_homeModel downloadItems:dbJummumReceiptTapNotificationProcessing withData:receiptID];
         }
         else if([categoryIdentifier isEqualToString:@"delivered"])
         {
-            NSNumber *receiptID = [myAps objectForKey:@"receiptID"];
+            NSDictionary *data = [myAps objectForKey:@"data"];
+            NSNumber *receiptID = [data objectForKey:@"receiptID"];
             _homeModel = [[HomeModel alloc]init];
             _homeModel.delegate = self;
             [_homeModel downloadItems:dbJummumReceiptTapNotificationDelivered withData:receiptID];
         }
         else if([categoryIdentifier isEqualToString:@"clear"])
         {
-            NSNumber *receiptID = [myAps objectForKey:@"receiptID"];
+            NSDictionary *data = [myAps objectForKey:@"data"];
+            NSNumber *receiptID = [data objectForKey:@"receiptID"];
             _homeModel = [[HomeModel alloc]init];
             _homeModel.delegate = self;
             [_homeModel downloadItems:dbJummumReceiptTapNotificationClear withData:receiptID];
@@ -380,6 +447,16 @@ void myExceptionHandler(NSException *exception)
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
+//- (void)messaging:(FIRMessaging *)messaging didReceiveRegistrationToken:(NSString *)fcmToken {
+//    NSLog(@"FCM registration token: %@", fcmToken);
+//    // Notify about received token.
+//    NSDictionary *dataDict = [NSDictionary dictionaryWithObject:fcmToken forKey:@"token"];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:
+//     @"FCMToken" object:nil userInfo:dataDict];
+//    // TODO: If necessary send token to application server.
+//    // Note: This callback is fired at each app startup and whenever a new token is generated.
+//}
+
 -(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
 {
     //    NSLog([error localizedDescription]);
@@ -392,10 +469,11 @@ void myExceptionHandler(NSException *exception)
     
     NSDictionary *myAps = [userInfo objectForKey:@"aps"];
     NSString *categoryIdentifier = [myAps objectForKey:@"category"];
-    if([categoryIdentifier isEqualToString:@"cancelOrder"] || [categoryIdentifier isEqualToString:@"printKitchenBill"] || [categoryIdentifier isEqualToString:@"reminder"] || [categoryIdentifier isEqualToString:@"processing"] || [categoryIdentifier isEqualToString:@"delivered"] || [categoryIdentifier isEqualToString:@"clear"])
+    if([categoryIdentifier isEqualToString:@"updateStatus"] || [categoryIdentifier isEqualToString:@"printKitchenBill"] || [categoryIdentifier isEqualToString:@"reminder"] || [categoryIdentifier isEqualToString:@"processing"] || [categoryIdentifier isEqualToString:@"delivered"] || [categoryIdentifier isEqualToString:@"clear"])
     {
         NSDictionary *myAps = [userInfo objectForKey:@"aps"];
-        NSNumber *receiptID = [myAps objectForKey:@"receiptID"];
+        NSDictionary *data = [myAps objectForKey:@"data"];
+        NSNumber *receiptID = [data objectForKey:@"receiptID"];
         _homeModel = [[HomeModel alloc]init];
         _homeModel.delegate = self;
         [_homeModel downloadItems:dbJummumReceipt withData:receiptID];
@@ -403,7 +481,8 @@ void myExceptionHandler(NSException *exception)
     }
     else if([categoryIdentifier isEqualToString:@"openingTime"])
     {
-        NSNumber *settingID = [myAps objectForKey:@"receiptID"];
+        NSDictionary *data = [myAps objectForKey:@"data"];
+        NSNumber *settingID = [data objectForKey:@"settingID"];
         _homeModel = [[HomeModel alloc]init];
         _homeModel.delegate = self;
         [_homeModel downloadItems:dbSetting withData:settingID];
@@ -418,9 +497,6 @@ void myExceptionHandler(NSException *exception)
         [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil];
         NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:reminderInterval target:self selector:@selector(updateTimer:) userInfo:myAps repeats:YES];///test 5 sec
         NSString *strReceiptID = [NSString stringWithFormat:@"%@",[myAps valueForKey:@"receiptID"]];
-//        NSMutableDictionary *mutDicAps = [myAps mutableCopy];
-//        [mutDicAps setValue:strReceiptID forKey:@"receiptID"];
-//        myAps = [mutDicAps copy];
         [_dicTimer setValue:timer forKey:strReceiptID];
         [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     }
@@ -640,7 +716,7 @@ void myExceptionHandler(NSException *exception)
             CustomerKitchenViewController *vc = (CustomerKitchenViewController *)currentVc;
             [vc reloadTableViewNewOrderTab];
         }
-        else if([currentVc isKindOfClass:[OrderDetailViewController class]] || [currentVc isKindOfClass:[PersonalDataViewController class]] || [currentVc isKindOfClass:[TosAndPrivacyPolicyViewController class]])
+        else if([currentVc isKindOfClass:[OrderDetailViewController class]] || [currentVc isKindOfClass:[PersonalDataViewController class]] || [currentVc isKindOfClass:[TosAndPrivacyPolicyViewController class]] || [currentVc isKindOfClass:[PrinterSettingViewController class]] || [currentVc isKindOfClass:[PrinterChoosingViewController class]])
         {
             CustomViewController *vc = (CustomViewController *)currentVc;
             vc.newOrderComing = 1;
@@ -683,7 +759,7 @@ void myExceptionHandler(NSException *exception)
             CustomerKitchenViewController *vc = (CustomerKitchenViewController *)currentVc;
             [vc reloadTableViewIssueTab];
         }
-        else if([currentVc isKindOfClass:[OrderDetailViewController class]] || [currentVc isKindOfClass:[PersonalDataViewController class]] || [currentVc isKindOfClass:[TosAndPrivacyPolicyViewController class]])
+        else if([currentVc isKindOfClass:[OrderDetailViewController class]] || [currentVc isKindOfClass:[PersonalDataViewController class]] || [currentVc isKindOfClass:[TosAndPrivacyPolicyViewController class]] || [currentVc isKindOfClass:[PrinterSettingViewController class]] || [currentVc isKindOfClass:[PrinterChoosingViewController class]])
         {
             CustomViewController *vc = (CustomViewController *)currentVc;
             vc.issueComing = 1;
@@ -726,7 +802,7 @@ void myExceptionHandler(NSException *exception)
             CustomerKitchenViewController *vc = (CustomerKitchenViewController *)currentVc;
             [vc reloadTableViewProcessingTab];
         }
-        else if([currentVc isKindOfClass:[OrderDetailViewController class]] || [currentVc isKindOfClass:[PersonalDataViewController class]] || [currentVc isKindOfClass:[TosAndPrivacyPolicyViewController class]])
+        else if([currentVc isKindOfClass:[OrderDetailViewController class]] || [currentVc isKindOfClass:[PersonalDataViewController class]] || [currentVc isKindOfClass:[TosAndPrivacyPolicyViewController class]] || [currentVc isKindOfClass:[PrinterSettingViewController class]] || [currentVc isKindOfClass:[PrinterChoosingViewController class]])
         {
             CustomViewController *vc = (CustomViewController *)currentVc;
             vc.issueComing = 1;
@@ -769,7 +845,7 @@ void myExceptionHandler(NSException *exception)
             CustomerKitchenViewController *vc = (CustomerKitchenViewController *)currentVc;
             [vc reloadTableViewDeliveredTab];
         }
-        else if([currentVc isKindOfClass:[OrderDetailViewController class]] || [currentVc isKindOfClass:[PersonalDataViewController class]] || [currentVc isKindOfClass:[TosAndPrivacyPolicyViewController class]])
+        else if([currentVc isKindOfClass:[OrderDetailViewController class]] || [currentVc isKindOfClass:[PersonalDataViewController class]] || [currentVc isKindOfClass:[TosAndPrivacyPolicyViewController class]] || [currentVc isKindOfClass:[PrinterSettingViewController class]] || [currentVc isKindOfClass:[PrinterChoosingViewController class]])
         {
             CustomViewController *vc = (CustomViewController *)currentVc;
             vc.issueComing = 1;
@@ -811,7 +887,7 @@ void myExceptionHandler(NSException *exception)
             CustomerKitchenViewController *vc = (CustomerKitchenViewController *)currentVc;
             [vc reloadTableViewClearTab];
         }
-        else if([currentVc isKindOfClass:[OrderDetailViewController class]] || [currentVc isKindOfClass:[PersonalDataViewController class]] || [currentVc isKindOfClass:[TosAndPrivacyPolicyViewController class]])
+        else if([currentVc isKindOfClass:[OrderDetailViewController class]] || [currentVc isKindOfClass:[PersonalDataViewController class]] || [currentVc isKindOfClass:[TosAndPrivacyPolicyViewController class]] || [currentVc isKindOfClass:[PrinterSettingViewController class]] || [currentVc isKindOfClass:[PrinterChoosingViewController class]])
         {
             CustomViewController *vc = (CustomViewController *)currentVc;
             vc.issueComing = 1;
@@ -1000,5 +1076,153 @@ void myExceptionHandler(NSException *exception)
     UILabel *label = [[defaultAction valueForKey:@"__representer"] valueForKey:@"label"];
     label.attributedText = attrString;
 }
+
+//printer part
+- (void)loadParam {
+    AppDelegate *delegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    
+    [delegate.settingManager load];
+}
+
++ (NSString *)getPortName {
+    AppDelegate *delegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    
+    return delegate.settingManager.settings[0].portName;
+}
+
++ (void)setPortName:(NSString *)portName {
+    AppDelegate *delegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    
+    delegate.settingManager.settings[0].portName = portName;
+    [delegate.settingManager save];
+}
+
++ (NSString *)getPortSettings {
+    AppDelegate *delegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    
+    return delegate.settingManager.settings[0].portSettings;
+}
+
++ (void)setPortSettings:(NSString *)portSettings {
+    AppDelegate *delegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    
+    delegate.settingManager.settings[0].portSettings = portSettings;
+    [delegate.settingManager save];
+}
+
++ (NSString *)getModelName {
+    AppDelegate *delegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    
+    return delegate.settingManager.settings[0].modelName;
+}
+
++ (void)setModelName:(NSString *)modelName {
+    AppDelegate *delegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    delegate.settingManager.settings[0].modelName = modelName;
+    [delegate.settingManager save];
+}
+
++ (NSString *)getMacAddress {
+    AppDelegate *delegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    
+    return delegate.settingManager.settings[0].macAddress;
+}
+
++ (void)setMacAddress:(NSString *)macAddress {
+    AppDelegate *delegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    
+    delegate.settingManager.settings[0].macAddress = macAddress;
+    [delegate.settingManager save];
+}
+
++ (StarIoExtEmulation)getEmulation {
+    AppDelegate *delegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    
+    return delegate.settingManager.settings[0].emulation;
+}
+
++ (void)setEmulation:(StarIoExtEmulation)emulation {
+    AppDelegate *delegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    
+    delegate.settingManager.settings[0].emulation = emulation;
+    [delegate.settingManager save];
+}
+
++ (BOOL)getCashDrawerOpenActiveHigh {
+    AppDelegate *delegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    
+    return delegate.settingManager.settings[0].cashDrawerOpenActiveHigh;
+}
+
++ (void)setCashDrawerOpenActiveHigh:(BOOL)activeHigh {
+    AppDelegate *delegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    
+    delegate.settingManager.settings[0].cashDrawerOpenActiveHigh = activeHigh;
+    [delegate.settingManager save];
+}
+
++ (NSInteger)getAllReceiptsSettings {
+    AppDelegate *delegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    
+    return delegate.settingManager.settings[0].allReceiptsSettings;
+}
+
++ (void)setAllReceiptsSettings:(NSInteger)allReceiptsSettings {
+    AppDelegate *delegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    
+    delegate.settingManager.settings[0].allReceiptsSettings = allReceiptsSettings;
+    [delegate.settingManager save];
+}
+
++ (NSInteger)getSelectedIndex {
+    AppDelegate *delegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    
+    return delegate.selectedIndex;
+}
+
++ (void)setSelectedIndex:(NSInteger)index {
+    AppDelegate *delegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    
+    delegate.selectedIndex = index;
+}
+
++ (LanguageIndex)getSelectedLanguage {
+    AppDelegate *delegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    
+    return delegate.selectedLanguage;
+}
+
++ (void)setSelectedLanguage:(LanguageIndex)index {
+    AppDelegate *delegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    
+    delegate.selectedLanguage = index;
+}
+
++ (PaperSizeIndex)getSelectedPaperSize {
+    AppDelegate *delegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    
+    return delegate.settingManager.settings[0].selectedPaperSize;
+}
+
++ (void)setSelectedPaperSize:(PaperSizeIndex)index {
+    AppDelegate *delegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    
+    delegate.settingManager.settings[0].selectedPaperSize = index;
+    [delegate.settingManager save];
+}
+
++ (ModelIndex)getSelectedModelIndex {
+    AppDelegate *delegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    
+    return delegate.settingManager.settings[0].selectedModelIndex;
+}
+
++ (void)setSelectedModelIndex:(ModelIndex)modelIndex {
+    AppDelegate *delegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    
+    delegate.settingManager.settings[0].selectedModelIndex = modelIndex;
+    [delegate.settingManager save];
+}
+//end printer part
 @end
         
