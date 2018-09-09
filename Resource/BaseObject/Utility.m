@@ -22,9 +22,9 @@ extern NSString *globalPingAddress;
 extern NSString *globalDomainName;
 extern NSString *globalSubjectNoConnection;
 extern NSString *globalDetailNoConnection;
-//extern BOOL globalFinishLoadSharedData;
 extern NSString *globalKey;
 extern NSString *globalModifiedUser;
+extern NSString *globalBundleID;
 
 
 
@@ -139,6 +139,15 @@ extern NSString *globalModifiedUser;
 + (NSString *) dbName
 {
     return [[NSUserDefaults standardUserDefaults] stringForKey:BRANCH];
+}
+
++(void)setBundleID:(NSString *)bundleID
+{
+    globalBundleID = bundleID;
+}
++(NSString *)bundleID
+{
+    return globalBundleID;
 }
 
 + (NSString *) url:(enum enumUrl)eUrl

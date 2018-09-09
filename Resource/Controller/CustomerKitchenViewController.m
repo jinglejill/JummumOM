@@ -1407,24 +1407,23 @@ static NSString * const reuseIdentifierButton = @"CustomTableViewCellButton";
                             timeout:10000
                   completionHandler:^(BOOL result, NSString *title, NSString *message) {
                       dispatch_async(dispatch_get_main_queue(), ^{
-                          if(result)
-                          {
-                              receipt.toBePrinting = NO;
-                              
-                              NSInteger receiptIndex = [Receipt getIndex:_receiptList receipt:receipt];
-                              NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:receiptIndex];
-                              CustomTableViewCellReceiptSummary *cell = [tbvData cellForRowAtIndexPath:indexPath];
-                              NSMutableArray *orderTakingList = [OrderTaking getOrderTakingListWithReceiptID:receipt.receiptID branchID:credentialsDb.branchID];
-                              orderTakingList = [OrderTaking createSumUpOrderTakingWithTheSameMenuAndNote:orderTakingList];
-                              NSIndexPath *indexPathOrderDetail = [NSIndexPath indexPathForRow:[orderTakingList count]+4-1 inSection:0];
-                              CustomTableViewCellButton *cellButton = [cell.tbvOrderDetail cellForRowAtIndexPath:indexPathOrderDetail];
-                              
-                              cellButton.indicator.alpha = 0;
-                              [cellButton.indicator stopAnimating];
-                              cellButton.indicator.hidden = YES;
-                              cellButton.btnValue.enabled = YES;
-                          }
-                          else
+                          receipt.toBePrinting = NO;
+                          
+                          NSInteger receiptIndex = [Receipt getIndex:_receiptList receipt:receipt];
+                          NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:receiptIndex];
+                          CustomTableViewCellReceiptSummary *cell = [tbvData cellForRowAtIndexPath:indexPath];
+                          NSMutableArray *orderTakingList = [OrderTaking getOrderTakingListWithReceiptID:receipt.receiptID branchID:credentialsDb.branchID];
+                          orderTakingList = [OrderTaking createSumUpOrderTakingWithTheSameMenuAndNote:orderTakingList];
+                          NSIndexPath *indexPathOrderDetail = [NSIndexPath indexPathForRow:[orderTakingList count]+4-1 inSection:0];
+                          CustomTableViewCellButton *cellButton = [cell.tbvOrderDetail cellForRowAtIndexPath:indexPathOrderDetail];
+                          
+                          cellButton.indicator.alpha = 0;
+                          [cellButton.indicator stopAnimating];
+                          cellButton.indicator.hidden = YES;
+                          cellButton.btnValue.enabled = YES;
+
+                          
+                          if(!result)
                           {
                               [self showAlert:title message:message];
                           }

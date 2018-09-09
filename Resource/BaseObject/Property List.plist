@@ -5,12 +5,14 @@
 	<key>Key</key>
 	<string>jmmjmm</string>
 	<key>DomainName</key>
-	<string>http://www.jummum.co/Production1.2.1/JUMMUM_OM/</string>
+	<string>http://www.jummum.co/Production_JUMMUM_OM1.3.1/</string>
 	<key>PingAddress</key>
 	<string>www.google.com</string>
 	<key>SubjectNoConnection</key>
 	<string>No network connection</string>
 	<key>DetailNoConnection</key>
 	<string>You must be connected to the internet to use this app.</string>
+	<key>BundleID</key>
+	<string>com.JummumCo.JummumShop</string>
 </dict>
 </plist>

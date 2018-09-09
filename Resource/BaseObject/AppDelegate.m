@@ -138,7 +138,7 @@ void myExceptionHandler(NSException *exception)
         [Utility setDetailNoConnection:[temp objectForKey:@"DetailNoConnection"]];
         [Utility setDetailNoConnection:[temp objectForKey:@"DetailNoConnection"]];
         [Utility setKey:[temp objectForKey:@"Key"]];
-        
+        [Utility setBundleID:[temp objectForKey:@"BundleID"]];
         
         
     }

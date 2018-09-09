@@ -299,6 +299,7 @@
 		EF880098213A78610062D9D4 /* PrinterChoosingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF880095213A78600062D9D4 /* PrinterChoosingViewController.m */; };
 		EF88009B213A78790062D9D4 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF88009A213A78790062D9D4 /* CoreBluetooth.framework */; };
 		EF88009E213A788F0062D9D4 /* NewVersionUpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF88009C213A788E0062D9D4 /* NewVersionUpdateViewController.m */; };
+		EF8800A0213BA26F0062D9D4 /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = EF88009F213BA26E0062D9D4 /* refresh.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -502,7 +503,6 @@
 		EF5DBD262115960A00FFEA60 /* SharedReceiptPrint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedReceiptPrint.h; sourceTree = "<group>"; };
 		EF5DBD272115960A00FFEA60 /* Receipt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Receipt.h; sourceTree = "<group>"; };
 		EF5DBD282115960A00FFEA60 /* Printer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Printer.m; sourceTree = "<group>"; };
-		EF5DBD292115960A00FFEA60 /* FacebookComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookComment.h; sourceTree = "<group>"; };
 		EF5DBD2A2115960A00FFEA60 /* InvoiceComposer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvoiceComposer.h; sourceTree = "<group>"; };
 		EF5DBD2B2115960A00FFEA60 /* UserRewardRedemptionUsed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserRewardRedemptionUsed.h; sourceTree = "<group>"; };
 		EF5DBD2C2115960A00FFEA60 /* SharedPromoCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedPromoCode.m; sourceTree = "<group>"; };
@@ -767,6 +767,7 @@
 		EF88009A213A78790062D9D4 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		EF88009C213A788E0062D9D4 /* NewVersionUpdateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewVersionUpdateViewController.m; sourceTree = "<group>"; };
 		EF88009D213A788E0062D9D4 /* NewVersionUpdateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewVersionUpdateViewController.h; sourceTree = "<group>"; };
+		EF88009F213BA26E0062D9D4 /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -917,6 +918,7 @@
 		EF5DBC442115960A00FFEA60 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				EF88009F213BA26E0062D9D4 /* refresh.png */,
 				EF880067213A77C50062D9D4 /* printer.png */,
 				EF880068213A77C50062D9D4 /* printerWhite.png */,
 				EF880069213A77C50062D9D4 /* printerWhiteNo.png */,
@@ -1031,7 +1033,6 @@
 				EF5DBD182115960A00FFEA60 /* Dispute.m */,
 				EF5DBD032115960A00FFEA60 /* DisputeReason.h */,
 				EF5DBD472115960A00FFEA60 /* DisputeReason.m */,
-				EF5DBD292115960A00FFEA60 /* FacebookComment.h */,
 				EF5DBD432115960A00FFEA60 /* HotDeal.h */,
 				EF5DBD062115960A00FFEA60 /* HotDeal.m */,
 				EF5DBD2A2115960A00FFEA60 /* InvoiceComposer.h */,
@@ -1640,6 +1641,7 @@
 				EF5DBEE92115960B00FFEA60 /* Icon-Small-50.png in Resources */,
 				EF5DBF792115960C00FFEA60 /* CustomCollectionReusableView.xib in Resources */,
 				EF88006B213A77C50062D9D4 /* printerWhite.png in Resources */,
+				EF8800A0213BA26F0062D9D4 /* refresh.png in Resources */,
 				EF5DBFAB2115960C00FFEA60 /* Prompt-BoldItalic.ttf in Resources */,
 				EF5DBFD42115960C00FFEA60 /* Prompt-Italic.ttf in Resources */,
 				EF5DBFA82115960C00FFEA60 /* Kanit-Bold.otf in Resources */,

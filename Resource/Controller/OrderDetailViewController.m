@@ -2628,18 +2628,18 @@ static NSString * const reuseIdentifierLabelRemark = @"CustomTableViewCellLabelR
                             timeout:10000
                   completionHandler:^(BOOL result, NSString *title, NSString *message) {
                       dispatch_async(dispatch_get_main_queue(), ^{
-                          if(result)
-                          {
-                              receipt.toBePrinting = NO;
-                              
-                              NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:3];
-                              CustomTableViewCellButton *cell = [tbvData cellForRowAtIndexPath:indexPath];
-                              cell.indicator.alpha = 0;
-                              [cell.indicator stopAnimating];
-                              cell.indicator.hidden = YES;
-                              cell.btnValue.enabled = YES;                              
-                          }
-                          else
+                          
+                          
+                          receipt.toBePrinting = NO;
+                          NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:3];
+                          CustomTableViewCellButton *cell = [tbvData cellForRowAtIndexPath:indexPath];
+                          cell.indicator.alpha = 0;
+                          [cell.indicator stopAnimating];
+                          cell.indicator.hidden = YES;
+                          cell.btnValue.enabled = YES;
+                          
+                        
+                          if(!result)
                           {
                               [self showAlert:title message:message];
                           }

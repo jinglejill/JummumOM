@@ -114,7 +114,7 @@
     NSString* appID = infoDictionary[@"CFBundleIdentifier"];
     //test
 //    NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.jummum.co/DEV/DEV_JUMMUM_OM/test.php"]];
-    NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"http://itunes.apple.com/lookup?bundleId=%@", appID]];
+    NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"http://itunes.apple.com/lookup?bundleId=%@", [Utility bundleID]]];
     NSData* data = [NSData dataWithContentsOfURL:url];
     NSDictionary* lookup = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     
