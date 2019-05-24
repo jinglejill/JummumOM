@@ -27,11 +27,14 @@ typedef NS_ENUM(NSInteger, PaperSizeIndex) {
                              portSettings:(nonnull NSString *)portSettings
                                 modelName:(nonnull NSString *)modelName
                                macAddress:(nonnull NSString *)macAddress
+                               printerBrand:(nonnull NSString *)printerBrand
                                 emulation:(StarIoExtEmulation)emulation
                  cashDrawerOpenActiveHigh:(BOOL)cashDrawerOpenActiveHigh
                       allReceiptsSettings:(NSInteger)allReceiptsSettings
                         selectedPaperSize:(NSInteger)selectedPaperSize
                        selectedModelIndex:(NSInteger)selectedModelIndex;
+
+@property (nonatomic) NSString *printerBrand; //1=star,2=epson,3=gprinter
 
 @property (nonatomic) NSString *portName;
 

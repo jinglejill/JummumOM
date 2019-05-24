@@ -27,7 +27,6 @@ extern NSString *globalModifiedUser;
 extern NSString *globalBundleID;
 
 
-
 @implementation Utility
 + (NSString *) randomStringWithLength: (int) len
 {
@@ -145,6 +144,7 @@ extern NSString *globalBundleID;
 {
     globalBundleID = bundleID;
 }
+
 +(NSString *)bundleID
 {
     return globalBundleID;
@@ -162,7 +162,7 @@ extern NSString *globalBundleID;
             url = @"/JMM/JUMMUM3/uploadPhoto.php";
             break;
         case urlDownloadPhoto:
-            url = @"/JMM/JUMMUM3/downloadImage.php";
+            url = @"JMSDownloadImage.php";
             break;
         case urlDownloadFile:
             url = @"/JMM/JUMMUM3/downloadFile.php";
@@ -229,6 +229,36 @@ extern NSString *globalBundleID;
             break;
         case urlContactUs:
             url = @"HtmlContactUs.php";
+            break;
+        case urlReportDailyGetList:
+            url = @"JMSReportDailyGetList.php";
+            break;
+        case urlReportSummaryByDayGet:
+            url = @"JMSReportSummaryByDayGet.php";
+            break;
+        case urlReportDetailsByDayGetList:
+            url = @"JMSReportDetailsByDayGetList.php";
+            break;
+        case urlReportDetailsByOrderGetList:
+            url = @"JMSReportDetailsByOrderGetList.php";
+            break;
+        case urlReceiptBuffetPageGetList:
+            url = @"JMSReceiptBuffetPageGetList.php";
+            break;
+        case urlReceiptBuffetEndedPageGetList:
+            url = @"JMSReceiptBuffetEndedPageGetList.php";
+            break;
+        case urlReceiptBuffetEndedUpdate:
+            url = @"JMSReceiptBuffetEndedUpdate.php";
+            break;
+        case urlPrinterGetList:
+            url = @"JMSPrinterGetList.php";
+            break;
+        case urlReceiptUpdate:
+            url = @"JMSReceiptPrintUpdate.php";
+            break;
+        case urlReceiptPrintGetList:
+            url = @"JMSReceiptPrintGetList.php";
             break;
         default:
             break;
@@ -877,6 +907,16 @@ extern NSString *globalBundleID;
     }
 }
 
++ (NSDate *)addMonth:(NSDate *)dateFrom numberOfMonth:(NSInteger)months
+{
+    NSDateComponents *monthComponent = [[NSDateComponents alloc] init];
+    monthComponent.month = months;
+    
+    NSCalendar *theCalendar = [NSCalendar currentCalendar];
+    NSDate *addedDate = [theCalendar dateByAddingComponents:monthComponent toDate:dateFrom options:0];
+    return addedDate;
+}
+
 + (NSDate *)addDay:(NSDate *)dateFrom numberOfDay:(NSInteger)days
 {
     NSDateComponents *dayComponent = [[NSDateComponents alloc] init];
@@ -1483,6 +1523,84 @@ extern NSString *globalBundleID;
 +(void)setShowPrintButton:(BOOL)show
 {
     [[NSUserDefaults standardUserDefaults] setBool:show forKey:@"showPrintButton"];
+}
+
++(BOOL)isWeekend:(NSDate *)date;
+{
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSRange weekdayRange = [calendar maximumRangeOfUnit:NSCalendarUnitWeekday];
+    NSDateComponents *components = [calendar components:NSCalendarUnitWeekday fromDate:date];
+    NSUInteger weekdayOfDate = [components weekday];
+    
+    if (weekdayOfDate == weekdayRange.location || weekdayOfDate == weekdayRange.length) {
+        //the date falls somewhere on the first or last days of the week
+        return YES;
+    }
+    
+    return NO;
+}
+
++(NSString *)encloseWithBracket:(NSString *)text
+{
+    return [NSString stringWithFormat:@"(%@)",text];
+}
+
++(void)createCacheFoler:(NSString *)folderName
+{
+    NSError *error;
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *cachesDirectory = [paths objectAtIndex:0]; // Get Caches folder
+    NSString *dataPath = [cachesDirectory stringByAppendingPathComponent:folderName];
+
+    if (![[NSFileManager defaultManager] fileExistsAtPath:dataPath])
+        [[NSFileManager defaultManager] createDirectoryAtPath:dataPath withIntermediateDirectories:NO attributes:nil error:&error];
+    
+        if(error)
+        {
+            NSLog(@"create folder error:%@",error.description);
+        }
+        else
+        {
+            NSLog(@"create folder success:%@",dataPath);
+        }
+}
+
++(UIImage *)getImageFromCache:(NSString *)imageName
+{
+    NSString *strPath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0];
+    NSString *imagePath = [NSString stringWithFormat:@"%@%@",strPath,imageName];
+    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfFile:imagePath]];
+    return image;
+}
+
++(void)saveImageInCache:(UIImage *)image imageName:(NSString *)imageName
+{
+    NSString *strPath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0];
+    NSString *imagePath = [NSString stringWithFormat:@"%@%@",strPath,imageName];
+    BOOL writeSuccess =  [UIImagePNGRepresentation(image) writeToFile:imagePath atomically:YES];
+}
+
++(void)deleteFileInCache:(NSString *)fileName
+{
+    NSString *strPath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0];
+    NSString *filePath = [NSString stringWithFormat:@"%@%@",strPath,fileName];
+    
+    NSLog(@"delete filename:%@",filePath);
+    NSError *error;
+    
+    if([[NSFileManager defaultManager] isDeletableFileAtPath:filePath])
+    {
+        [[NSFileManager defaultManager]removeItemAtPath:filePath error:&error];
+        if (error)
+        {
+          // file deletion failed
+          NSLog(@"file deletion failed: %@, %@, %@",error.localizedDescription,error.description,error.description);
+        }
+    }
+    else
+    {
+        NSLog(@"not deletable");
+    }
 }
 @end
 

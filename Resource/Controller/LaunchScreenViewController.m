@@ -9,7 +9,6 @@
 #import "LaunchScreenViewController.h"
 #import "LogInViewController.h"
 #import "NewVersionUpdateViewController.h"
-#import "CredentialsDb.h"
 #import "Credentials.h"
 #import "Device.h"
 #import "Message.h"
@@ -57,7 +56,7 @@
     
     
     NSString *title = [Setting getValue:@"054t" example:@"Welcome"];
-    NSString *message = [Setting getValue:@"054m" example:@"Pay for your order, earn and track rewards, check your balance and more, all from your mobile device"];
+    NSString *message = [Setting getValue:@"054m" example:@"Pay for your order, earn and track rewards, ckeck your balance and more, all from your mobile device"];
     lblTitle.text = title;
     lblMessage.text = message;
     
@@ -107,15 +106,14 @@
 
 -(BOOL) needsUpdate
 {
-//    //test
-//    _appStoreVersion = @"1.2";
-//    return YES;
     NSDictionary* infoDictionary = [[NSBundle mainBundle] infoDictionary];
     NSString* appID = infoDictionary[@"CFBundleIdentifier"];
-    //test
-//    NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.jummum.co/DEV/DEV_JUMMUM_OM/test.php"]];
-    NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"http://itunes.apple.com/lookup?bundleId=%@", [Utility bundleID]]];
+    NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"http://itunes.apple.com/lookup?bundleId=%@", appID]];
     NSData* data = [NSData dataWithContentsOfURL:url];
+    if(!data)
+    {
+        return NO;
+    }
     NSDictionary* lookup = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     
     if ([lookup[@"resultCount"] integerValue] == 1)

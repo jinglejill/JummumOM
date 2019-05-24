@@ -26,7 +26,6 @@
 #import "UserRewardRedemptionUsed.h"
 #import "DisputeReason.h"
 #import "Dispute.h"
-#import "CredentialsDb.h"
 #import "Device.h"
 #import "CustomViewController.h"
 
@@ -118,15 +117,12 @@
         }
             break;
         case dbReceipt:
+        case dbReceiptBuffetPage:
+        case dbReceiptBuffetEndedPage:
         {
             arrClassName = @[@"Receipt"];
         }
             break;
-        case dbReceiptWithModifiedDate:
-        {
-            arrClassName = @[@"Receipt",@"Dispute"];
-        }
-        break;
         case dbDisputeReasonList:
         {
             arrClassName = @[@"DisputeReason"];
@@ -142,6 +138,8 @@
         case dbReceiptMaxModifiedDate:
         case dbJummumReceiptTapNotification:
         case dbJummumReceiptTapNotificationIssue:
+        case dbReceiptBuffetEndedGet:
+        case dbReceiptBuffetEndedTapGet:
         {
             arrClassName = @[@"Receipt",@"OrderTaking",@"OrderNote",@"Dispute"];
         }
@@ -160,6 +158,22 @@
         case dbSettingWithKey:
         {
             arrClassName = @[@"Setting"];
+        }
+            break;
+        case dbReportDaily:
+        case dbReportDetailsByDay:
+        {
+            arrClassName = @[@"ReportDaily",@"ReportDetailsByOrder"];
+        }
+            break;
+        case dbPrinter:
+        {
+            arrClassName = @[@"Printer"];
+        }
+            break;
+        case dbReceiptPrint:
+        {
+            arrClassName = @[@"Receipt",@"ReceiptPrint"];
         }
             break;
         default:
@@ -236,7 +250,7 @@
                 // Ready to notify delegate that data is ready and pass back items
                 if (self.delegate)
                 {
-                    if(propCurrentDB == dbJummumReceipt || propCurrentDB == dbJummumReceiptTapNotification || propCurrentDB == dbJummumReceiptTapNotificationIssue || propCurrentDB == dbOpeningTimeText || propCurrentDB == dbSetting)
+                    if(propCurrentDB == dbJummumReceipt || propCurrentDB == dbJummumReceiptTapNotification || propCurrentDB == dbJummumReceiptTapNotificationIssue || propCurrentDB == dbReceiptBuffetEndedGet || propCurrentDB == dbReceiptBuffetEndedTapGet || propCurrentDB == dbOpeningTimeText || propCurrentDB == dbSetting || propCurrentDB == dbReportDetailsByDay || propCurrentDB == dbReportDetailsByOrder || propCurrentDB == dbReceiptBuffetPage || propCurrentDB == dbReceiptBuffetEndedPage || propCurrentDB == dbPrinter || propCurrentDB == dbReceiptPrint || propCurrentDB == dbReceiptSummary || propCurrentDB == dbReceiptMaxModifiedDate)
                     {
                         [self.delegate itemsDownloaded:arrItem manager:self];
                     }
@@ -387,13 +401,13 @@
         {
             url = [NSURL URLWithString:[Utility appendRandomParam:[Utility url:urlOpeningTimeTextGet]]];
         }
-            break;
+            break;        
         default:
         break;
     }
     
 
-    noteDataString = [NSString stringWithFormat:@"%@&modifiedDeviceToken=%@&modifiedUser=%@&branchID=%ld",noteDataString,[Utility deviceToken],[Utility modifiedUser],[Utility branchID]];
+    noteDataString = [NSString stringWithFormat:@"%@&modifiedDeviceToken=%@&modifiedUser=%@&branchID=%ld",noteDataString,[Utility deviceToken],[Utility modifiedUser],[Branch getCurrentBranch].branchID];
     
     
 
@@ -439,11 +453,11 @@
         {
             NSArray *dataList = (NSArray *)data;
             Receipt *receipt = dataList[0];
-            CredentialsDb *credentialDb = dataList[1];
+            Branch *branch = dataList[1];
             NSString *strReceiptDate = [Utility dateToString:receipt.receiptDate toFormat:@"yyyy-MM-dd HH:mm:ss"];
             
             
-            noteDataString = [NSString stringWithFormat:@"receiptDate=%@&receiptID=%ld&branchID=%ld&status=%ld",strReceiptDate,receipt.receiptID,credentialDb.branchID,receipt.status];
+            noteDataString = [NSString stringWithFormat:@"receiptDate=%@&receiptID=%ld&branchID=%ld&status=%ld",strReceiptDate,receipt.receiptID,branch.branchID,receipt.status];
             url = [NSURL URLWithString:[Utility appendRandomParam:[Utility url:urlReceiptSummaryGetList]]];
             
         }
@@ -457,18 +471,10 @@
         case dbReceiptMaxModifiedDate:
         {
             NSArray *dataList = (NSArray *)data;
-            CredentialsDb *credentialsDb = dataList[0];
+            Branch *branch = dataList[0];
             NSDate *maxReceiptModifiedDate = dataList[1];
-            noteDataString = [NSString stringWithFormat:@"branchID=%ld&modifiedDate=%@",credentialsDb.branchID,maxReceiptModifiedDate];
+            noteDataString = [NSString stringWithFormat:@"branchID=%ld&maxModifiedDate=%@",branch.branchID,maxReceiptModifiedDate];
             url = [NSURL URLWithString:[Utility appendRandomParam:[Utility url:urlReceiptMaxModifiedDateGetList]]];
-        }
-            break;
-        case dbReceiptWithModifiedDate:
-        {
-            Receipt *receipt = (Receipt *)data;
-            
-            noteDataString = [Utility getNoteDataString:receipt];
-            url = [NSURL URLWithString:[Utility appendRandomParam:[Utility url:urlReceiptWithModifiedDateGet]]];
         }
             break;
         case dbReceipt:
@@ -496,10 +502,12 @@
         case dbJummumReceipt:
         case dbJummumReceiptTapNotification:
         case dbJummumReceiptTapNotificationIssue:
+        case dbReceiptBuffetEndedGet:
+        case dbReceiptBuffetEndedTapGet:
         {
             NSNumber *receiptID = (NSNumber *)data;
             
-            noteDataString = [NSString stringWithFormat:@"receiptID=%ld&branchID=%ld",[receiptID integerValue],[Utility branchID]];
+            noteDataString = [NSString stringWithFormat:@"receiptID=%ld&branchID=%ld",[receiptID integerValue],[Branch getCurrentBranch].branchID];
             url = [NSURL URLWithString:[Utility appendRandomParam:[Utility url:urlJummumReceiptGetList]]];
         }
             break;
@@ -523,10 +531,65 @@
             noteDataString = [Utility getNoteDataString:data];
             url = [NSURL URLWithString:[Utility appendRandomParam:[Utility url:urlSettingWithKeyGet]]];
         }
+            break;
+        case dbReportDaily:
+        {
+            NSArray *dataList = (NSArray *)data;
+            Branch *branch = dataList[0];
+            NSString *strMonthYear = dataList[1];
+            noteDataString = [NSString stringWithFormat:@"branch=%ld&monthYear=%@",branch.branchID, strMonthYear];
+            url = [NSURL URLWithString:[Utility appendRandomParam:[Utility url:urlReportDailyGetList]]];
+        }
+            break;
+        case dbReportDetailsByDay:
+        {
+            NSArray *dataList = (NSArray *)data;
+            Branch *branch = dataList[0];
+            NSString *strReceiptDate = dataList[1];
+            noteDataString = [NSString stringWithFormat:@"branch=%ld&receiptDate=%@",branch.branchID, strReceiptDate];
+            url = [NSURL URLWithString:[Utility appendRandomParam:[Utility url:urlReportDetailsByDayGetList]]];
+        }
+            break;
+        case dbReceiptBuffetPage:
+        {
+            NSArray *dataList = (NSArray *)data;
+            Branch *branch = dataList[0];
+            NSNumber *objPage = dataList[1];
+            NSNumber *objPerPage = dataList[2];
+            
+            noteDataString = [NSString stringWithFormat:@"branchID=%ld&page=%ld&perPage=%ld",branch.branchID,[objPage integerValue],[objPerPage integerValue]];
+            url = [NSURL URLWithString:[Utility appendRandomParam:[Utility url:urlReceiptBuffetPageGetList]]];
+        }
+            break;
+        case dbReceiptBuffetEndedPage:
+        {
+            NSArray *dataList = (NSArray *)data;
+            Branch *branch = dataList[0];
+            NSNumber *objPage = dataList[1];
+            NSNumber *objPerPage = dataList[2];
+            
+            noteDataString = [NSString stringWithFormat:@"branchID=%ld&page=%ld&perPage=%ld",branch.branchID,[objPage integerValue],[objPerPage integerValue]];
+            url = [NSURL URLWithString:[Utility appendRandomParam:[Utility url:urlReceiptBuffetEndedPageGetList]]];
+        }
+            break;
+        case dbPrinter:
+        {
+            Branch *branch = (Branch *)data;
+            noteDataString = [NSString stringWithFormat:@"branchID=%ld",branch.branchID];
+            url = [NSURL URLWithString:[Utility appendRandomParam:[Utility url:urlPrinterGetList]]];
+        }
+            break;
+        case dbReceiptPrint:
+        {
+            Receipt *receipt = (Receipt *)data;
+            noteDataString = [NSString stringWithFormat:@"receiptID=%ld",receipt.receiptID];
+            url = [NSURL URLWithString:[Utility appendRandomParam:[Utility url:urlReceiptPrintGetList]]];
+        }
+            break;
         default:
             break;
     }
-    noteDataString = [NSString stringWithFormat:@"%@&modifiedDeviceToken=%@&modifiedUser=%@&branchID=%ld",noteDataString,[Utility deviceToken],[Utility modifiedUser],[Utility branchID]];
+    noteDataString = [NSString stringWithFormat:@"%@&modifiedDeviceToken=%@&modifiedUser=%@&branchID=%ld",noteDataString,[Utility deviceToken],[Utility modifiedUser],[Branch getCurrentBranch].branchID];
     NSLog(@"url: %@",url);
     NSLog(@"notedatastring: %@",noteDataString);
     
@@ -751,7 +814,7 @@
         default:
             break;
     }
-    noteDataString = [NSString stringWithFormat:@"%@&modifiedDeviceToken=%@&modifiedUser=%@&branchID=%ld&actionScreen=%@",noteDataString,[Utility deviceToken],[Utility modifiedUser],[Utility branchID],actionScreen];
+    noteDataString = [NSString stringWithFormat:@"%@&modifiedDeviceToken=%@&modifiedUser=%@&branchID=%ld&actionScreen=%@",noteDataString,[Utility deviceToken],[Utility modifiedUser],[Branch getCurrentBranch].branchID,actionScreen];
     NSLog(@"url: %@",url);
     NSLog(@"notedatastring: %@",noteDataString);
     
@@ -804,7 +867,7 @@
                         }
                         else
                         {
-                            arrClassName = @[@"UserAccount",@"Setting",@"CustomerTable",@"MenuType",@"Menu",@"NoteType",@"Note",@"Receipt",@"OrderTaking",@"OrderNote",@"Dispute",@"DisputeReason",@"Branch"];
+                            arrClassName = @[@"UserAccount",@"Setting",@"CustomerTable",@"MenuType",@"Menu",@"NoteType",@"Note",@"Receipt",@"OrderTaking",@"OrderNote",@"Dispute",@"DisputeReason",@"Printer",@"PrinterMenu",@"Branch"];
                         }
                     }
                     else if([strTableName isEqualToString:@"UserAccountForgotPassword"])
@@ -869,7 +932,9 @@
         {
             if (self.delegate)
             {
-                [self.delegate itemsFail];
+                CustomViewController *vc = (CustomViewController *)self.delegate;
+                [vc showAlert:@"" message:[error localizedDescription] method:@selector(removeOverlayViews)];
+//                [self.delegate itemsFail];
                 //                [self.delegate connectionFail];
             }
             
@@ -1009,11 +1074,7 @@
         case dbJummumReceiptSendToKitchen:
         case dbJummumReceiptDelivered:
         {
-            NSArray *dataList =  (NSArray *)data;
-            Receipt *receipt = dataList[0];
-//            NSDate *maxModifiedDate = dataList[1];
-            noteDataString = [Utility getNoteDataString:receipt];
-//            noteDataString = [NSString stringWithFormat:@"%@&maxModifiedDate=%@",noteDataString,maxModifiedDate];
+            noteDataString = [Utility getNoteDataString:data];
             url = [NSURL URLWithString:[Utility url:urlJummumReceiptSendToKitchen]];
         }
         break;
@@ -1022,12 +1083,25 @@
             noteDataString = [Utility getNoteDataString:data];
             url = [NSURL URLWithString:[Utility url:urlSettingUpdate]];
         }
+        break;
+        case dbReceiptBuffetEnded:
+        {
+            noteDataString = [Utility getNoteDataString:data];
+            url = [NSURL URLWithString:[Utility url:urlReceiptBuffetEndedUpdate]];
+        }
+        break;
+        case dbReceiptPrint:
+        {
+            noteDataString = [Utility getNoteDataString:data];
+            url = [NSURL URLWithString:[Utility url:urlReceiptUpdate]];
+        }
+        break;
         default:
             break;
     }
     
     
-    noteDataString = [NSString stringWithFormat:@"%@&modifiedDeviceToken=%@&modifiedUser=%@&branchID=%ld&actionScreen=%@",noteDataString,[Utility deviceToken],[Utility modifiedUser],[Utility branchID],actionScreen];
+    noteDataString = [NSString stringWithFormat:@"%@&modifiedDeviceToken=%@&modifiedUser=%@&branchID=%ld&actionScreen=%@",noteDataString,[Utility deviceToken],[Utility modifiedUser],[Branch getCurrentBranch].branchID,actionScreen];
     NSLog(@"url: %@",url);
     NSLog(@"notedatastring: %@",noteDataString);
     
@@ -1260,7 +1334,7 @@
     }
     
     
-    noteDataString = [NSString stringWithFormat:@"%@&modifiedDeviceToken=%@&modifiedUser=%@&branchID=%ld&actionScreen=%@",noteDataString,[Utility deviceToken],[Utility modifiedUser],[Utility branchID],actionScreen];
+    noteDataString = [NSString stringWithFormat:@"%@&modifiedDeviceToken=%@&modifiedUser=%@&branchID=%ld&actionScreen=%@",noteDataString,[Utility deviceToken],[Utility modifiedUser],[Branch getCurrentBranch].branchID,actionScreen];
     NSLog(@"url: %@",url);
     NSLog(@"notedatastring: %@",noteDataString);
     
@@ -1326,7 +1400,7 @@
 {
     NSString *bodyPercentEscape = [Utility percentEscapeString:body];
     NSString *noteDataString = [NSString stringWithFormat:@"toAddress=%@&subject=%@&body=%@", toAddress,subject,bodyPercentEscape];
-    noteDataString = [NSString stringWithFormat:@"%@&modifiedDeviceToken=%@&modifiedUser=%@&branchID=%ld",noteDataString,[Utility deviceToken],[Utility modifiedUser],[Utility branchID]];
+    noteDataString = [NSString stringWithFormat:@"%@&modifiedDeviceToken=%@&modifiedUser=%@&branchID=%ld",noteDataString,[Utility deviceToken],[Utility modifiedUser],[Branch getCurrentBranch].branchID];
     
     
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -1387,7 +1461,7 @@
     if (imageData != nil)
     {
         NSString *noteDataString = @"";
-        noteDataString = [NSString stringWithFormat:@"%@&modifiedDeviceToken=%@&modifiedUser=%@&branchID=%ld",noteDataString,[Utility deviceToken],[Utility modifiedUser],[Utility branchID]];
+        noteDataString = [NSString stringWithFormat:@"%@&modifiedDeviceToken=%@&modifiedUser=%@&branchID=%ld",noteDataString,[Utility deviceToken],[Utility modifiedUser],[Branch getCurrentBranch].branchID];
         
         NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
         NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
@@ -1450,7 +1524,7 @@
 {
     NSString* escapeString = [Utility percentEscapeString:fileName];
     NSString *noteDataString = [NSString stringWithFormat:@"imageFileName=%@",escapeString];
-    noteDataString = [NSString stringWithFormat:@"%@&modifiedDeviceToken=%@&modifiedUser=%@&branchID=%ld",noteDataString,[Utility deviceToken],[Utility modifiedUser],[Utility branchID]];
+    noteDataString = [NSString stringWithFormat:@"%@&modifiedDeviceToken=%@&modifiedUser=%@&branchID=%ld",noteDataString,[Utility deviceToken],[Utility modifiedUser],[Branch getCurrentBranch].branchID];
     NSURL * url = [NSURL URLWithString:[Utility url:urlDownloadPhoto]];
     
     
@@ -1502,7 +1576,7 @@
 {
     NSString* escapeString = [Utility percentEscapeString:fileName];
     NSString *noteDataString = [NSString stringWithFormat:@"fileName=%@",escapeString];
-    noteDataString = [NSString stringWithFormat:@"%@&modifiedDeviceToken=%@&modifiedUser=%@&branchID=%ld",noteDataString,[Utility deviceToken],[Utility modifiedUser],[Utility branchID]];
+    noteDataString = [NSString stringWithFormat:@"%@&modifiedDeviceToken=%@&modifiedUser=%@&branchID=%ld",noteDataString,[Utility deviceToken],[Utility modifiedUser],[Branch getCurrentBranch].branchID];
     NSURL * url = [NSURL URLWithString:[Utility url:urlDownloadFile]];
     
     
@@ -1550,5 +1624,58 @@
     [dataTask resume];
 }
 
+- (void)downloadImageWithFileName:(NSString *)fileName type:(NSInteger)type branchID:(NSInteger)branchID completionBlock:(void (^)(BOOL succeeded, UIImage *image))completionBlock
+{
+    NSString* escapeString = [Utility percentEscapeString:fileName];
+    NSString *noteDataString = [NSString stringWithFormat:@"imageFileName=%@",escapeString];
+    noteDataString = [NSString stringWithFormat:@"%@&modifiedDeviceToken=%@&modifiedUser=%@&type=%ld&branchID=%ld&lang=%@",noteDataString,[Utility deviceToken],[Utility modifiedUser],type,branchID,@"TH"];
+    NSURL * url = [NSURL URLWithString:[Utility appendRandomParam:[Utility url:urlDownloadPhoto]]];
+    
+    
+    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
+    
+    NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:url];
+    [urlRequest setHTTPMethod:@"POST"];
+    [urlRequest setHTTPBody:[noteDataString dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *dataRaw, NSURLResponse *header, NSError *error) {
+        if(error)
+        {
+            completionBlock(NO,nil);
+        }
+        else
+        {
+            NSDictionary *json = [NSJSONSerialization
+                                  JSONObjectWithData:dataRaw
+                                  options:kNilOptions error:&error];
+            
+            
+            NSString *status = json[@"status"];
+            if([status integerValue] == 3)
+            {
+                CustomViewController *vc = (CustomViewController *)self.delegate;
+                [vc performSegueWithIdentifier:@"segUnwindToLaunchScreen" sender:self];
+            }
+            else
+            {
+                NSString *base64String = json[@"base64String"];
+                if(json && base64String && ![base64String isEqualToString:@""])
+                {
+                    NSData *nsDataEncrypted = [[NSData alloc] initWithBase64EncodedString:base64String options:NSDataBase64DecodingIgnoreUnknownCharacters];
+                    
+                    UIImage *image = [[UIImage alloc] initWithData:nsDataEncrypted];
+                    completionBlock(YES,image);
+                }
+                else
+                {
+                    completionBlock(NO,nil);
+                }
+            }
+        }
+    }];
+    
+    [dataTask resume];
+}
 @end
 

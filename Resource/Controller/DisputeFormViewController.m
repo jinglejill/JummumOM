@@ -40,7 +40,6 @@ static NSString * const reuseIdentifierHeaderFooterOkCancel = @"CustomTableViewH
 @synthesize receipt;
 @synthesize fromType;
 @synthesize tbvAction;
-@synthesize credentialsDb;
 @synthesize topViewHeight;
 @synthesize bottomViewHeight;
 
@@ -398,7 +397,7 @@ static NSString * const reuseIdentifierHeaderFooterOkCancel = @"CustomTableViewH
                 
                 
                 NSString *strTitle = @"จำนวนเงิน";
-                NSString *strTotalAmount = [Utility formatDecimal:[Receipt getTotalAmount:receipt] withMinFraction:2 andMaxFraction:2];
+                NSString *strTotalAmount = [Utility formatDecimal:receipt.netTotal withMinFraction:2 andMaxFraction:2];
                 NSString *strRemark = [NSString stringWithFormat:@"จำนวนเงิน: THB 0.01 to %@",strTotalAmount];
                 
                 
@@ -444,7 +443,7 @@ static NSString * const reuseIdentifierHeaderFooterOkCancel = @"CustomTableViewH
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 
                 
-                NSString *message = [Setting getValue:@"024m" example:@"เหตุผลเพิ่มเติมในการขอเงินคืน"];
+                NSString *message = @"เหตุผลเพิ่มเติมในการขอเงินคืน";
                 NSString *strTitle = message;
                 
                 
@@ -769,7 +768,7 @@ static NSString * const reuseIdentifierHeaderFooterOkCancel = @"CustomTableViewH
         _dispute.modifiedDate = [Utility currentDateTime];
         
 
-        [self.homeModel insertItems:dbDisputeCancel withData:@[_dispute,@(credentialsDb.branchID)] actionScreen:@"insert dispute cancel"];
+        [self.homeModel insertItems:dbDisputeCancel withData:@[_dispute,@([Branch getCurrentBranch].branchID)] actionScreen:@"insert dispute cancel"];
     }
     else if(fromType == 4)
     {
@@ -851,7 +850,7 @@ static NSString * const reuseIdentifierHeaderFooterOkCancel = @"CustomTableViewH
             
             NSString *message = [Setting getValue:@"029t" example:@"กรุณาใส่จำนวนเงินระหว่าง %@"];
             NSString *message2 = [Setting getValue:@"029m" example:@"THB 0.01 to %@"];
-            float totalAmount = [Receipt getTotalAmount:receipt];
+            float totalAmount = receipt.netTotal;
             NSString *strTotalAmount = [Utility formatDecimal:totalAmount withMinFraction:2 andMaxFraction:2];
             NSString *strRemark = [NSString stringWithFormat:message2,strTotalAmount];
             NSString *strMessage = [NSString stringWithFormat:message,strRemark];

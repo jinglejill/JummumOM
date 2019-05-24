@@ -7,6 +7,60 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF18415121FF0F57004452C5 /* PrinterChoosingEpsonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF18414721FF0F56004452C5 /* PrinterChoosingEpsonViewController.m */; };
+		EF18415221FF0F57004452C5 /* PrinterChoosingGPrinterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF18414921FF0F56004452C5 /* PrinterChoosingGPrinterViewController.m */; };
+		EF18415321FF0F57004452C5 /* PrinterBrandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF18414A21FF0F56004452C5 /* PrinterBrandViewController.m */; };
+		EF18415421FF0F57004452C5 /* ReportDetailsByDayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF18414D21FF0F56004452C5 /* ReportDetailsByDayViewController.m */; };
+		EF18415521FF0F57004452C5 /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF18414E21FF0F57004452C5 /* ReportViewController.m */; };
+		EF18415621FF0F57004452C5 /* RunningReceiptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF18415021FF0F57004452C5 /* RunningReceiptViewController.m */; };
+		EF18417621FF0F7D004452C5 /* CustomTableViewCellReportSummaryByDay.m in Sources */ = {isa = PBXBuildFile; fileRef = EF18415821FF0F79004452C5 /* CustomTableViewCellReportSummaryByDay.m */; };
+		EF18417721FF0F7D004452C5 /* CustomTableViewCellReportDaily.m in Sources */ = {isa = PBXBuildFile; fileRef = EF18415921FF0F7A004452C5 /* CustomTableViewCellReportDaily.m */; };
+		EF18417821FF0F7D004452C5 /* CustomTableViewCellLogo.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF18415A21FF0F7A004452C5 /* CustomTableViewCellLogo.xib */; };
+		EF18417921FF0F7D004452C5 /* CustomTableViewCellReportDailyHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = EF18415B21FF0F7A004452C5 /* CustomTableViewCellReportDailyHeader.m */; };
+		EF18417A21FF0F7D004452C5 /* CustomTableViewCellLogo.m in Sources */ = {isa = PBXBuildFile; fileRef = EF18415C21FF0F7A004452C5 /* CustomTableViewCellLogo.m */; };
+		EF18417B21FF0F7D004452C5 /* CustomTableViewCellButtonDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF18415D21FF0F7A004452C5 /* CustomTableViewCellButtonDetail.xib */; };
+		EF18417C21FF0F7D004452C5 /* CustomTableViewCellSeparatorLine.m in Sources */ = {isa = PBXBuildFile; fileRef = EF18415E21FF0F7A004452C5 /* CustomTableViewCellSeparatorLine.m */; };
+		EF18417D21FF0F7D004452C5 /* CustomTableViewCellButtonDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = EF18416221FF0F7B004452C5 /* CustomTableViewCellButtonDetail.m */; };
+		EF18417E21FF0F7D004452C5 /* CustomTableViewCellReportDailyHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF18416321FF0F7B004452C5 /* CustomTableViewCellReportDailyHeader.xib */; };
+		EF18417F21FF0F7D004452C5 /* CustomTableViewCellSeparatorLine.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF18416421FF0F7B004452C5 /* CustomTableViewCellSeparatorLine.xib */; };
+		EF18418021FF0F7D004452C5 /* CustomTableViewCellMonthYear.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF18416521FF0F7B004452C5 /* CustomTableViewCellMonthYear.xib */; };
+		EF18418121FF0F7D004452C5 /* CustomTableViewCellMonthYearBalance.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF18416721FF0F7B004452C5 /* CustomTableViewCellMonthYearBalance.xib */; };
+		EF18418221FF0F7D004452C5 /* CustomTableViewCellReportSummaryByDay.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF18416A21FF0F7C004452C5 /* CustomTableViewCellReportSummaryByDay.xib */; };
+		EF18418321FF0F7D004452C5 /* CustomTableViewCellReportDaily.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF18416C21FF0F7C004452C5 /* CustomTableViewCellReportDaily.xib */; };
+		EF18418421FF0F7D004452C5 /* NTMonthYearPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = EF18416F21FF0F7C004452C5 /* NTMonthYearPicker.m */; };
+		EF18418521FF0F7D004452C5 /* CustomTableViewCellMonthYear.m in Sources */ = {isa = PBXBuildFile; fileRef = EF18417221FF0F7C004452C5 /* CustomTableViewCellMonthYear.m */; };
+		EF18418621FF0F7D004452C5 /* CustomTableViewCellMonthYearBalance.m in Sources */ = {isa = PBXBuildFile; fileRef = EF18417321FF0F7D004452C5 /* CustomTableViewCellMonthYearBalance.m */; };
+		EF18418721FF0F7D004452C5 /* CustomTableViewCellButtonLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF18417421FF0F7D004452C5 /* CustomTableViewCellButtonLabel.xib */; };
+		EF18418821FF0F7D004452C5 /* CustomTableViewCellButtonLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EF18417521FF0F7D004452C5 /* CustomTableViewCellButtonLabel.m */; };
+		EF1841A721FF0F8E004452C5 /* hourGlass.png in Resources */ = {isa = PBXBuildFile; fileRef = EF18418921FF0F8D004452C5 /* hourGlass.png */; };
+		EF1841A821FF0F8E004452C5 /* 3842284.png in Resources */ = {isa = PBXBuildFile; fileRef = EF18418A21FF0F8D004452C5 /* 3842284.png */; };
+		EF1841AF21FF0F8E004452C5 /* badgeGray.png in Resources */ = {isa = PBXBuildFile; fileRef = EF18419221FF0F8D004452C5 /* badgeGray.png */; };
+		EF1841B021FF0F8E004452C5 /* printerGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = EF18419321FF0F8D004452C5 /* printerGreen.png */; };
+		EF1841B121FF0F8E004452C5 /* printerGreenNo.png in Resources */ = {isa = PBXBuildFile; fileRef = EF18419421FF0F8D004452C5 /* printerGreenNo.png */; };
+		EF1841B221FF0F8E004452C5 /* promoBanner3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF18419521FF0F8D004452C5 /* promoBanner3.jpg */; };
+		EF1841B321FF0F8E004452C5 /* report.png in Resources */ = {isa = PBXBuildFile; fileRef = EF18419621FF0F8D004452C5 /* report.png */; };
+		EF1841B421FF0F8E004452C5 /* badgeWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = EF18419721FF0F8E004452C5 /* badgeWhite.png */; };
+		EF1841C121FF0F8E004452C5 /* hourGlass2.png in Resources */ = {isa = PBXBuildFile; fileRef = EF1841A621FF0F8E004452C5 /* hourGlass2.png */; };
+		EF1841CC21FF0FAA004452C5 /* ReportDetailsByOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1841C221FF0FA9004452C5 /* ReportDetailsByOrder.m */; };
+		EF1841CD21FF0FAA004452C5 /* SharedPrinterMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1841C421FF0FA9004452C5 /* SharedPrinterMenu.m */; };
+		EF1841CE21FF0FAA004452C5 /* ReportDaily.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1841C521FF0FA9004452C5 /* ReportDaily.m */; };
+		EF1841CF21FF0FAA004452C5 /* PrinterMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1841C621FF0FA9004452C5 /* PrinterMenu.m */; };
+		EF1841D021FF0FAA004452C5 /* SharedCurrentBranch.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1841C821FF0FA9004452C5 /* SharedCurrentBranch.m */; };
+		EF1841FF21FF0FC1004452C5 /* libeposeasyselect.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF1841E921FF0FC1004452C5 /* libeposeasyselect.a */; };
+		EF18420021FF0FC1004452C5 /* libepos2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF1841EB21FF0FC1004452C5 /* libepos2.a */; };
+		EF18420121FF0FC1004452C5 /* libGprinterSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF1841F021FF0FC1004452C5 /* libGprinterSDK.a */; };
+		EF18421021FF10CA004452C5 /* OmiseTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF18420321FF10CA004452C5 /* OmiseTokenRequest.swift */; };
+		EF18421121FF10CA004452C5 /* OmiseToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF18420421FF10CA004452C5 /* OmiseToken.swift */; };
+		EF18421221FF10CA004452C5 /* OmiseAuthorizingPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF18420721FF10CA004452C5 /* OmiseAuthorizingPaymentViewController.swift */; };
+		EF18421321FF10CA004452C5 /* OmiseJsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF18420821FF10CA004452C5 /* OmiseJsonParser.swift */; };
+		EF18421421FF10CA004452C5 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF18420921FF10CA004452C5 /* Globals.swift */; };
+		EF18421521FF10CA004452C5 /* CardBrand.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF18420B21FF10CA004452C5 /* CardBrand.swift */; };
+		EF18421621FF10CA004452C5 /* OmiseCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF18420C21FF10CA004452C5 /* OmiseCard.swift */; };
+		EF18421721FF10CA004452C5 /* CardNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF18420D21FF10CA004452C5 /* CardNumber.swift */; };
+		EF18421821FF10CA004452C5 /* OmiseSDKClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF18420E21FF10CA004452C5 /* OmiseSDKClient.swift */; };
+		EF18421921FF10CA004452C5 /* OmiseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF18420F21FF10CA004452C5 /* OmiseError.swift */; };
+		EF18421B21FF119F004452C5 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF18421A21FF119F004452C5 /* ExternalAccessory.framework */; };
+		EF18421D21FF11AD004452C5 /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EF18421C21FF11AD004452C5 /* libxml2.2.tbd */; };
 		EF33CDEB211C323600560C69 /* triangle_dev_om.png in Resources */ = {isa = PBXBuildFile; fileRef = EF33CDEA211C323600560C69 /* triangle_dev_om.png */; };
 		EF5DBB73211595EA00FFEA60 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5DBB72211595EA00FFEA60 /* ViewController.m */; };
 		EF5DBB78211595EE00FFEA60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF5DBB77211595EE00FFEA60 /* Assets.xcassets */; };
@@ -72,7 +126,6 @@
 		EF5DBF072115960B00FFEA60 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5DBCC22115960A00FFEA60 /* MeViewController.m */; };
 		EF5DBF082115960B00FFEA60 /* OpeningTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5DBCC42115960A00FFEA60 /* OpeningTimeViewController.m */; };
 		EF5DBF092115960B00FFEA60 /* TosAndPrivacyPolicyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5DBCC52115960A00FFEA60 /* TosAndPrivacyPolicyViewController.m */; };
-		EF5DBF0A2115960B00FFEA60 /* RegisterNowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5DBCC72115960A00FFEA60 /* RegisterNowViewController.m */; };
 		EF5DBF0B2115960B00FFEA60 /* CustomerKitchenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5DBCC82115960A00FFEA60 /* CustomerKitchenViewController.m */; };
 		EF5DBF0D2115960B00FFEA60 /* ConfirmDisputeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5DBCCE2115960A00FFEA60 /* ConfirmDisputeViewController.m */; };
 		EF5DBF0E2115960B00FFEA60 /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EF5DBCD02115960A00FFEA60 /* beep.mp3 */; };
@@ -82,7 +135,6 @@
 		EF5DBF132115960B00FFEA60 /* SharedReceiptPrint.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5DBCD72115960A00FFEA60 /* SharedReceiptPrint.m */; };
 		EF5DBF142115960B00FFEA60 /* Receipt.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5DBCD82115960A00FFEA60 /* Receipt.m */; };
 		EF5DBF152115960B00FFEA60 /* SharedSubMenuType.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5DBCDB2115960A00FFEA60 /* SharedSubMenuType.m */; };
-		EF5DBF162115960B00FFEA60 /* SharedCurrentCredentialsDb.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5DBCDD2115960A00FFEA60 /* SharedCurrentCredentialsDb.m */; };
 		EF5DBF172115960B00FFEA60 /* SharedMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5DBCDE2115960A00FFEA60 /* SharedMenu.m */; };
 		EF5DBF182115960B00FFEA60 /* MenuType.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5DBCE12115960A00FFEA60 /* MenuType.m */; };
 		EF5DBF192115960B00FFEA60 /* SharedRewardPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5DBCE22115960A00FFEA60 /* SharedRewardPoint.m */; };
@@ -103,7 +155,6 @@
 		EF5DBF282115960B00FFEA60 /* SharedOrderTaking.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5DBD052115960A00FFEA60 /* SharedOrderTaking.m */; };
 		EF5DBF292115960B00FFEA60 /* HotDeal.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5DBD062115960A00FFEA60 /* HotDeal.m */; };
 		EF5DBF2A2115960B00FFEA60 /* SharedCurrentOrderTaking.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5DBD072115960A00FFEA60 /* SharedCurrentOrderTaking.m */; };
-		EF5DBF2B2115960B00FFEA60 /* SharedPushSync.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5DBD082115960A00FFEA60 /* SharedPushSync.m */; };
 		EF5DBF2C2115960B00FFEA60 /* SharedHotDeal.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5DBD0A2115960A00FFEA60 /* SharedHotDeal.m */; };
 		EF5DBF2D2115960B00FFEA60 /* NoteType.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5DBD0C2115960A00FFEA60 /* NoteType.m */; };
 		EF5DBF2E2115960B00FFEA60 /* SharedOrderNote.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5DBD0D2115960A00FFEA60 /* SharedOrderNote.m */; };
@@ -136,12 +187,10 @@
 		EF5DBF492115960C00FFEA60 /* PromoCode.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5DBD3B2115960A00FFEA60 /* PromoCode.m */; };
 		EF5DBF4A2115960C00FFEA60 /* SharedCustomerTable.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5DBD3C2115960A00FFEA60 /* SharedCustomerTable.m */; };
 		EF5DBF4B2115960C00FFEA60 /* OrderKitchen.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5DBD3D2115960A00FFEA60 /* OrderKitchen.m */; };
-		EF5DBF4C2115960C00FFEA60 /* PushSync.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5DBD3E2115960A00FFEA60 /* PushSync.m */; };
 		EF5DBF4D2115960C00FFEA60 /* Device.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5DBD3F2115960A00FFEA60 /* Device.m */; };
 		EF5DBF4E2115960C00FFEA60 /* SharedMenuType.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5DBD452115960A00FFEA60 /* SharedMenuType.m */; };
 		EF5DBF4F2115960C00FFEA60 /* DisputeReason.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5DBD472115960A00FFEA60 /* DisputeReason.m */; };
 		EF5DBF502115960C00FFEA60 /* SubMenuType.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5DBD482115960A00FFEA60 /* SubMenuType.m */; };
-		EF5DBF512115960C00FFEA60 /* CredentialsDb.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5DBD4A2115960A00FFEA60 /* CredentialsDb.m */; };
 		EF5DBF522115960C00FFEA60 /* SharedOrderKitchen.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5DBD4B2115960A00FFEA60 /* SharedOrderKitchen.m */; };
 		EF5DBF532115960C00FFEA60 /* SharedPromotion.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5DBD4D2115960A00FFEA60 /* SharedPromotion.m */; };
 		EF5DBF542115960C00FFEA60 /* SharedMenuTypeNote.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5DBD4F2115960A00FFEA60 /* SharedMenuTypeNote.m */; };
@@ -277,24 +326,22 @@
 		EF5DBFD62115960C00FFEA60 /* Kanit-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF5DBE0C2115960B00FFEA60 /* Kanit-ExtraLightItalic.ttf */; };
 		EF5DBFD72115960C00FFEA60 /* Kanit-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF5DBE0D2115960B00FFEA60 /* Kanit-Medium.ttf */; };
 		EF5DBFD82115960C00FFEA60 /* Kanit-SemiBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EF5DBE0E2115960B00FFEA60 /* Kanit-SemiBoldItalic.otf */; };
+		EF759FB3220027E300A6146F /* GlobalQueueManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EF759F9D220027E300A6146F /* GlobalQueueManager.m */; };
+		EF759FB4220027E300A6146F /* CommonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF759F9E220027E300A6146F /* CommonViewController.m */; };
+		EF759FB5220027E300A6146F /* SearchPortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF759FA0220027E300A6146F /* SearchPortViewController.m */; };
+		EF759FB6220027E300A6146F /* PrinterSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = EF759FA1220027E300A6146F /* PrinterSetting.m */; };
+		EF759FB7220027E300A6146F /* StarIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF759FA2220027E300A6146F /* StarIO.framework */; };
+		EF759FB8220027E300A6146F /* SettingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EF759FA3220027E300A6146F /* SettingManager.m */; };
+		EF759FB9220027E300A6146F /* ModelCapability.m in Sources */ = {isa = PBXBuildFile; fileRef = EF759FA4220027E300A6146F /* ModelCapability.m */; };
+		EF759FBA220027E300A6146F /* SMCloudServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF759FA8220027E300A6146F /* SMCloudServices.framework */; };
+		EF759FBB220027E300A6146F /* StarIO_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF759FA9220027E300A6146F /* StarIO_Extension.framework */; };
+		EF759FBC220027E300A6146F /* PrinterInfo+Builder.m in Sources */ = {isa = PBXBuildFile; fileRef = EF759FAA220027E300A6146F /* PrinterInfo+Builder.m */; };
+		EF759FBD220027E300A6146F /* PrinterInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = EF759FAC220027E300A6146F /* PrinterInfo.m */; };
+		EF759FBE220027E300A6146F /* Communication.m in Sources */ = {isa = PBXBuildFile; fileRef = EF759FB0220027E300A6146F /* Communication.m */; };
 		EF880065213A77B90062D9D4 /* CustomTableViewCellReceiptSummary2.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF880062213A77B80062D9D4 /* CustomTableViewCellReceiptSummary2.xib */; };
 		EF880066213A77B90062D9D4 /* CustomTableViewCellReceiptSummary2.m in Sources */ = {isa = PBXBuildFile; fileRef = EF880064213A77B90062D9D4 /* CustomTableViewCellReceiptSummary2.m */; };
 		EF88006A213A77C50062D9D4 /* printer.png in Resources */ = {isa = PBXBuildFile; fileRef = EF880067213A77C50062D9D4 /* printer.png */; };
-		EF88006B213A77C50062D9D4 /* printerWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = EF880068213A77C50062D9D4 /* printerWhite.png */; };
-		EF88006C213A77C50062D9D4 /* printerWhiteNo.png in Resources */ = {isa = PBXBuildFile; fileRef = EF880069213A77C50062D9D4 /* printerWhiteNo.png */; };
 		EF88006F213A77D20062D9D4 /* SharedDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = EF88006E213A77D20062D9D4 /* SharedDevice.m */; };
-		EF880087213A77DF0062D9D4 /* GlobalQueueManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EF880071213A77DF0062D9D4 /* GlobalQueueManager.m */; };
-		EF880088213A77DF0062D9D4 /* CommonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF880072213A77DF0062D9D4 /* CommonViewController.m */; };
-		EF880089213A77DF0062D9D4 /* SearchPortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF880074213A77DF0062D9D4 /* SearchPortViewController.m */; };
-		EF88008A213A77DF0062D9D4 /* PrinterSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = EF880075213A77DF0062D9D4 /* PrinterSetting.m */; };
-		EF88008B213A77DF0062D9D4 /* StarIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF880076213A77DF0062D9D4 /* StarIO.framework */; };
-		EF88008C213A77DF0062D9D4 /* SettingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EF880077213A77DF0062D9D4 /* SettingManager.m */; };
-		EF88008D213A77DF0062D9D4 /* ModelCapability.m in Sources */ = {isa = PBXBuildFile; fileRef = EF880078213A77DF0062D9D4 /* ModelCapability.m */; };
-		EF88008E213A77DF0062D9D4 /* SMCloudServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF88007C213A77DF0062D9D4 /* SMCloudServices.framework */; };
-		EF88008F213A77DF0062D9D4 /* StarIO_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF88007D213A77DF0062D9D4 /* StarIO_Extension.framework */; };
-		EF880090213A77DF0062D9D4 /* PrinterInfo+Builder.m in Sources */ = {isa = PBXBuildFile; fileRef = EF88007E213A77DF0062D9D4 /* PrinterInfo+Builder.m */; };
-		EF880091213A77DF0062D9D4 /* PrinterInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = EF880080213A77DF0062D9D4 /* PrinterInfo.m */; };
-		EF880092213A77DF0062D9D4 /* Communication.m in Sources */ = {isa = PBXBuildFile; fileRef = EF880084213A77DF0062D9D4 /* Communication.m */; };
 		EF880097213A78610062D9D4 /* PrinterSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF880093213A78600062D9D4 /* PrinterSettingViewController.m */; };
 		EF880098213A78610062D9D4 /* PrinterChoosingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF880095213A78600062D9D4 /* PrinterChoosingViewController.m */; };
 		EF88009B213A78790062D9D4 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF88009A213A78790062D9D4 /* CoreBluetooth.framework */; };
@@ -320,6 +367,91 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EF18414521FF0F55004452C5 /* PrinterChoosingGPrinterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrinterChoosingGPrinterViewController.h; sourceTree = "<group>"; };
+		EF18414621FF0F55004452C5 /* PrinterChoosingEpsonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrinterChoosingEpsonViewController.h; sourceTree = "<group>"; };
+		EF18414721FF0F56004452C5 /* PrinterChoosingEpsonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrinterChoosingEpsonViewController.m; sourceTree = "<group>"; };
+		EF18414821FF0F56004452C5 /* ReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportViewController.h; sourceTree = "<group>"; };
+		EF18414921FF0F56004452C5 /* PrinterChoosingGPrinterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrinterChoosingGPrinterViewController.m; sourceTree = "<group>"; };
+		EF18414A21FF0F56004452C5 /* PrinterBrandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrinterBrandViewController.m; sourceTree = "<group>"; };
+		EF18414B21FF0F56004452C5 /* PrinterBrandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrinterBrandViewController.h; sourceTree = "<group>"; };
+		EF18414C21FF0F56004452C5 /* ReportDetailsByDayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportDetailsByDayViewController.h; sourceTree = "<group>"; };
+		EF18414D21FF0F56004452C5 /* ReportDetailsByDayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportDetailsByDayViewController.m; sourceTree = "<group>"; };
+		EF18414E21FF0F57004452C5 /* ReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportViewController.m; sourceTree = "<group>"; };
+		EF18414F21FF0F57004452C5 /* RunningReceiptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunningReceiptViewController.h; sourceTree = "<group>"; };
+		EF18415021FF0F57004452C5 /* RunningReceiptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunningReceiptViewController.m; sourceTree = "<group>"; };
+		EF18415721FF0F79004452C5 /* CustomTableViewCellReportDailyHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCellReportDailyHeader.h; sourceTree = "<group>"; };
+		EF18415821FF0F79004452C5 /* CustomTableViewCellReportSummaryByDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCellReportSummaryByDay.m; sourceTree = "<group>"; };
+		EF18415921FF0F7A004452C5 /* CustomTableViewCellReportDaily.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCellReportDaily.m; sourceTree = "<group>"; };
+		EF18415A21FF0F7A004452C5 /* CustomTableViewCellLogo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCellLogo.xib; sourceTree = "<group>"; };
+		EF18415B21FF0F7A004452C5 /* CustomTableViewCellReportDailyHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCellReportDailyHeader.m; sourceTree = "<group>"; };
+		EF18415C21FF0F7A004452C5 /* CustomTableViewCellLogo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCellLogo.m; sourceTree = "<group>"; };
+		EF18415D21FF0F7A004452C5 /* CustomTableViewCellButtonDetail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCellButtonDetail.xib; sourceTree = "<group>"; };
+		EF18415E21FF0F7A004452C5 /* CustomTableViewCellSeparatorLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCellSeparatorLine.m; sourceTree = "<group>"; };
+		EF18415F21FF0F7A004452C5 /* CustomTableViewCellButtonDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCellButtonDetail.h; sourceTree = "<group>"; };
+		EF18416021FF0F7A004452C5 /* CustomTableViewCellButtonLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCellButtonLabel.h; sourceTree = "<group>"; };
+		EF18416121FF0F7B004452C5 /* CustomTableViewCellMonthYear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCellMonthYear.h; sourceTree = "<group>"; };
+		EF18416221FF0F7B004452C5 /* CustomTableViewCellButtonDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCellButtonDetail.m; sourceTree = "<group>"; };
+		EF18416321FF0F7B004452C5 /* CustomTableViewCellReportDailyHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCellReportDailyHeader.xib; sourceTree = "<group>"; };
+		EF18416421FF0F7B004452C5 /* CustomTableViewCellSeparatorLine.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCellSeparatorLine.xib; sourceTree = "<group>"; };
+		EF18416521FF0F7B004452C5 /* CustomTableViewCellMonthYear.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCellMonthYear.xib; sourceTree = "<group>"; };
+		EF18416621FF0F7B004452C5 /* CustomTableViewCellLogo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCellLogo.h; sourceTree = "<group>"; };
+		EF18416721FF0F7B004452C5 /* CustomTableViewCellMonthYearBalance.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCellMonthYearBalance.xib; sourceTree = "<group>"; };
+		EF18416821FF0F7B004452C5 /* CustomTableViewCellReportDaily.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCellReportDaily.h; sourceTree = "<group>"; };
+		EF18416921FF0F7C004452C5 /* CustomTableViewCellMonthYearBalance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCellMonthYearBalance.h; sourceTree = "<group>"; };
+		EF18416A21FF0F7C004452C5 /* CustomTableViewCellReportSummaryByDay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCellReportSummaryByDay.xib; sourceTree = "<group>"; };
+		EF18416B21FF0F7C004452C5 /* CustomTableViewCellReportSummaryByDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCellReportSummaryByDay.h; sourceTree = "<group>"; };
+		EF18416C21FF0F7C004452C5 /* CustomTableViewCellReportDaily.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCellReportDaily.xib; sourceTree = "<group>"; };
+		EF18416D21FF0F7C004452C5 /* CustomTableViewCellSeparatorLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCellSeparatorLine.h; sourceTree = "<group>"; };
+		EF18416F21FF0F7C004452C5 /* NTMonthYearPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTMonthYearPicker.m; sourceTree = "<group>"; };
+		EF18417021FF0F7C004452C5 /* NTMonthYearPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTMonthYearPicker.h; sourceTree = "<group>"; };
+		EF18417121FF0F7C004452C5 /* NTMonthYearPicker-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NTMonthYearPicker-Prefix.pch"; sourceTree = "<group>"; };
+		EF18417221FF0F7C004452C5 /* CustomTableViewCellMonthYear.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCellMonthYear.m; sourceTree = "<group>"; };
+		EF18417321FF0F7D004452C5 /* CustomTableViewCellMonthYearBalance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCellMonthYearBalance.m; sourceTree = "<group>"; };
+		EF18417421FF0F7D004452C5 /* CustomTableViewCellButtonLabel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCellButtonLabel.xib; sourceTree = "<group>"; };
+		EF18417521FF0F7D004452C5 /* CustomTableViewCellButtonLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCellButtonLabel.m; sourceTree = "<group>"; };
+		EF18418921FF0F8D004452C5 /* hourGlass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hourGlass.png; sourceTree = "<group>"; };
+		EF18418A21FF0F8D004452C5 /* 3842284.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3842284.png; sourceTree = "<group>"; };
+		EF18419221FF0F8D004452C5 /* badgeGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = badgeGray.png; sourceTree = "<group>"; };
+		EF18419321FF0F8D004452C5 /* printerGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = printerGreen.png; sourceTree = "<group>"; };
+		EF18419421FF0F8D004452C5 /* printerGreenNo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = printerGreenNo.png; sourceTree = "<group>"; };
+		EF18419521FF0F8D004452C5 /* promoBanner3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = promoBanner3.jpg; sourceTree = "<group>"; };
+		EF18419621FF0F8D004452C5 /* report.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = report.png; sourceTree = "<group>"; };
+		EF18419721FF0F8E004452C5 /* badgeWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = badgeWhite.png; sourceTree = "<group>"; };
+		EF1841A621FF0F8E004452C5 /* hourGlass2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hourGlass2.png; sourceTree = "<group>"; };
+		EF1841C221FF0FA9004452C5 /* ReportDetailsByOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportDetailsByOrder.m; sourceTree = "<group>"; };
+		EF1841C321FF0FA9004452C5 /* ReportDetailsByOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportDetailsByOrder.h; sourceTree = "<group>"; };
+		EF1841C421FF0FA9004452C5 /* SharedPrinterMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedPrinterMenu.m; sourceTree = "<group>"; };
+		EF1841C521FF0FA9004452C5 /* ReportDaily.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportDaily.m; sourceTree = "<group>"; };
+		EF1841C621FF0FA9004452C5 /* PrinterMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrinterMenu.m; sourceTree = "<group>"; };
+		EF1841C721FF0FA9004452C5 /* SharedPrinterMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedPrinterMenu.h; sourceTree = "<group>"; };
+		EF1841C821FF0FA9004452C5 /* SharedCurrentBranch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedCurrentBranch.m; sourceTree = "<group>"; };
+		EF1841C921FF0FA9004452C5 /* PrinterMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrinterMenu.h; sourceTree = "<group>"; };
+		EF1841CA21FF0FAA004452C5 /* ReportDaily.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportDaily.h; sourceTree = "<group>"; };
+		EF1841CB21FF0FAA004452C5 /* SharedCurrentBranch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedCurrentBranch.h; sourceTree = "<group>"; };
+		EF1841E921FF0FC1004452C5 /* libeposeasyselect.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libeposeasyselect.a; sourceTree = "<group>"; };
+		EF1841EA21FF0FC1004452C5 /* ePOS2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ePOS2.h; sourceTree = "<group>"; };
+		EF1841EB21FF0FC1004452C5 /* libepos2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libepos2.a; sourceTree = "<group>"; };
+		EF1841EC21FF0FC1004452C5 /* ePOSEasySelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ePOSEasySelect.h; sourceTree = "<group>"; };
+		EF1841EE21FF0FC1004452C5 /* GprinterReceiptCheckCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GprinterReceiptCheckCommand.h; sourceTree = "<group>"; };
+		EF1841EF21FF0FC1004452C5 /* GprinterReceiptCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GprinterReceiptCommand.h; sourceTree = "<group>"; };
+		EF1841F021FF0FC1004452C5 /* libGprinterSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGprinterSDK.a; sourceTree = "<group>"; };
+		EF1841F121FF0FC1004452C5 /* GprinterBluetooth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GprinterBluetooth.h; sourceTree = "<group>"; };
+		EF1841F221FF0FC1004452C5 /* GprinterLabelCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GprinterLabelCommand.h; sourceTree = "<group>"; };
+		EF18420321FF10CA004452C5 /* OmiseTokenRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmiseTokenRequest.swift; sourceTree = "<group>"; };
+		EF18420421FF10CA004452C5 /* OmiseToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmiseToken.swift; sourceTree = "<group>"; };
+		EF18420521FF10CA004452C5 /* OmiseSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OmiseSDK.h; sourceTree = "<group>"; };
+		EF18420621FF10CA004452C5 /* OmiseSDK.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = OmiseSDK.modulemap; sourceTree = "<group>"; };
+		EF18420721FF10CA004452C5 /* OmiseAuthorizingPaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmiseAuthorizingPaymentViewController.swift; sourceTree = "<group>"; };
+		EF18420821FF10CA004452C5 /* OmiseJsonParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmiseJsonParser.swift; sourceTree = "<group>"; };
+		EF18420921FF10CA004452C5 /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		EF18420A21FF10CA004452C5 /* Jummum-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Jummum-Bridging-Header.h"; sourceTree = "<group>"; };
+		EF18420B21FF10CA004452C5 /* CardBrand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardBrand.swift; sourceTree = "<group>"; };
+		EF18420C21FF10CA004452C5 /* OmiseCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmiseCard.swift; sourceTree = "<group>"; };
+		EF18420D21FF10CA004452C5 /* CardNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardNumber.swift; sourceTree = "<group>"; };
+		EF18420E21FF10CA004452C5 /* OmiseSDKClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmiseSDKClient.swift; sourceTree = "<group>"; };
+		EF18420F21FF10CA004452C5 /* OmiseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmiseError.swift; sourceTree = "<group>"; };
+		EF18421A21FF119F004452C5 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
+		EF18421C21FF11AD004452C5 /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
 		EF33CDEA211C323600560C69 /* triangle_dev_om.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = triangle_dev_om.png; sourceTree = "<group>"; };
 		EF5DBB6B211595EA00FFEA60 /* JummumOM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JummumOM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF5DBB71211595EA00FFEA60 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -394,7 +526,6 @@
 		EF5DBCAF2115960A00FFEA60 /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
 		EF5DBCB12115960A00FFEA60 /* OrderDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailViewController.m; sourceTree = "<group>"; };
 		EF5DBCB22115960A00FFEA60 /* CustomerKitchenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerKitchenViewController.h; sourceTree = "<group>"; };
-		EF5DBCB32115960A00FFEA60 /* RegisterNowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterNowViewController.h; sourceTree = "<group>"; };
 		EF5DBCB42115960A00FFEA60 /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
 		EF5DBCB52115960A00FFEA60 /* TosAndPrivacyPolicyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TosAndPrivacyPolicyViewController.h; sourceTree = "<group>"; };
 		EF5DBCB62115960A00FFEA60 /* OpeningTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpeningTimeViewController.h; sourceTree = "<group>"; };
@@ -409,7 +540,6 @@
 		EF5DBCC42115960A00FFEA60 /* OpeningTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpeningTimeViewController.m; sourceTree = "<group>"; };
 		EF5DBCC52115960A00FFEA60 /* TosAndPrivacyPolicyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TosAndPrivacyPolicyViewController.m; sourceTree = "<group>"; };
 		EF5DBCC62115960A00FFEA60 /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
-		EF5DBCC72115960A00FFEA60 /* RegisterNowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterNowViewController.m; sourceTree = "<group>"; };
 		EF5DBCC82115960A00FFEA60 /* CustomerKitchenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerKitchenViewController.m; sourceTree = "<group>"; };
 		EF5DBCC92115960A00FFEA60 /* OrderDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailViewController.h; sourceTree = "<group>"; };
 		EF5DBCCB2115960A00FFEA60 /* DisputeFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisputeFormViewController.h; sourceTree = "<group>"; };
@@ -427,14 +557,12 @@
 		EF5DBCDA2115960A00FFEA60 /* SharedBranch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedBranch.h; sourceTree = "<group>"; };
 		EF5DBCDB2115960A00FFEA60 /* SharedSubMenuType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedSubMenuType.m; sourceTree = "<group>"; };
 		EF5DBCDC2115960A00FFEA60 /* SharedPic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedPic.h; sourceTree = "<group>"; };
-		EF5DBCDD2115960A00FFEA60 /* SharedCurrentCredentialsDb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedCurrentCredentialsDb.m; sourceTree = "<group>"; };
 		EF5DBCDE2115960A00FFEA60 /* SharedMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedMenu.m; sourceTree = "<group>"; };
 		EF5DBCDF2115960A00FFEA60 /* OrderTaking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderTaking.h; sourceTree = "<group>"; };
 		EF5DBCE02115960A00FFEA60 /* SharedNoteType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedNoteType.h; sourceTree = "<group>"; };
 		EF5DBCE12115960A00FFEA60 /* MenuType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuType.m; sourceTree = "<group>"; };
 		EF5DBCE22115960A00FFEA60 /* SharedRewardPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedRewardPoint.m; sourceTree = "<group>"; };
 		EF5DBCE32115960A00FFEA60 /* Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Device.h; sourceTree = "<group>"; };
-		EF5DBCE42115960A00FFEA60 /* PushSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushSync.h; sourceTree = "<group>"; };
 		EF5DBCE52115960A00FFEA60 /* OrderKitchen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderKitchen.h; sourceTree = "<group>"; };
 		EF5DBCE62115960A00FFEA60 /* SharedCustomerTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedCustomerTable.h; sourceTree = "<group>"; };
 		EF5DBCE72115960A00FFEA60 /* PromoCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PromoCode.h; sourceTree = "<group>"; };
@@ -462,7 +590,6 @@
 		EF5DBCFD2115960A00FFEA60 /* SharedPromotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedPromotion.h; sourceTree = "<group>"; };
 		EF5DBCFE2115960A00FFEA60 /* Shop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shop.m; sourceTree = "<group>"; };
 		EF5DBCFF2115960A00FFEA60 /* SharedOrderKitchen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedOrderKitchen.h; sourceTree = "<group>"; };
-		EF5DBD002115960A00FFEA60 /* CredentialsDb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CredentialsDb.h; sourceTree = "<group>"; };
 		EF5DBD012115960A00FFEA60 /* SubMenuType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubMenuType.h; sourceTree = "<group>"; };
 		EF5DBD022115960A00FFEA60 /* SharedMenuPic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedMenuPic.m; sourceTree = "<group>"; };
 		EF5DBD032115960A00FFEA60 /* DisputeReason.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisputeReason.h; sourceTree = "<group>"; };
@@ -470,7 +597,6 @@
 		EF5DBD052115960A00FFEA60 /* SharedOrderTaking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedOrderTaking.m; sourceTree = "<group>"; };
 		EF5DBD062115960A00FFEA60 /* HotDeal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotDeal.m; sourceTree = "<group>"; };
 		EF5DBD072115960A00FFEA60 /* SharedCurrentOrderTaking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedCurrentOrderTaking.m; sourceTree = "<group>"; };
-		EF5DBD082115960A00FFEA60 /* SharedPushSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedPushSync.m; sourceTree = "<group>"; };
 		EF5DBD092115960A00FFEA60 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		EF5DBD0A2115960A00FFEA60 /* SharedHotDeal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedHotDeal.m; sourceTree = "<group>"; };
 		EF5DBD0B2115960A00FFEA60 /* RewardPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RewardPoint.h; sourceTree = "<group>"; };
@@ -495,7 +621,6 @@
 		EF5DBD1E2115960A00FFEA60 /* Promotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Promotion.h; sourceTree = "<group>"; };
 		EF5DBD1F2115960A00FFEA60 /* SharedNoteType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedNoteType.m; sourceTree = "<group>"; };
 		EF5DBD202115960A00FFEA60 /* OrderTaking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderTaking.m; sourceTree = "<group>"; };
-		EF5DBD212115960A00FFEA60 /* SharedCurrentCredentialsDb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedCurrentCredentialsDb.h; sourceTree = "<group>"; };
 		EF5DBD222115960A00FFEA60 /* SharedMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedMenu.h; sourceTree = "<group>"; };
 		EF5DBD232115960A00FFEA60 /* SharedPic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedPic.m; sourceTree = "<group>"; };
 		EF5DBD242115960A00FFEA60 /* SharedSubMenuType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedSubMenuType.h; sourceTree = "<group>"; };
@@ -523,11 +648,9 @@
 		EF5DBD3B2115960A00FFEA60 /* PromoCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PromoCode.m; sourceTree = "<group>"; };
 		EF5DBD3C2115960A00FFEA60 /* SharedCustomerTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedCustomerTable.m; sourceTree = "<group>"; };
 		EF5DBD3D2115960A00FFEA60 /* OrderKitchen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderKitchen.m; sourceTree = "<group>"; };
-		EF5DBD3E2115960A00FFEA60 /* PushSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushSync.m; sourceTree = "<group>"; };
 		EF5DBD3F2115960A00FFEA60 /* Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Device.m; sourceTree = "<group>"; };
 		EF5DBD402115960A00FFEA60 /* MenuType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuType.h; sourceTree = "<group>"; };
 		EF5DBD412115960A00FFEA60 /* SharedRewardPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedRewardPoint.h; sourceTree = "<group>"; };
-		EF5DBD422115960A00FFEA60 /* SharedPushSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedPushSync.h; sourceTree = "<group>"; };
 		EF5DBD432115960A00FFEA60 /* HotDeal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotDeal.h; sourceTree = "<group>"; };
 		EF5DBD442115960A00FFEA60 /* SharedCurrentOrderTaking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedCurrentOrderTaking.h; sourceTree = "<group>"; };
 		EF5DBD452115960A00FFEA60 /* SharedMenuType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedMenuType.m; sourceTree = "<group>"; };
@@ -535,7 +658,6 @@
 		EF5DBD472115960A00FFEA60 /* DisputeReason.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisputeReason.m; sourceTree = "<group>"; };
 		EF5DBD482115960A00FFEA60 /* SubMenuType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubMenuType.m; sourceTree = "<group>"; };
 		EF5DBD492115960A00FFEA60 /* SharedMenuPic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedMenuPic.h; sourceTree = "<group>"; };
-		EF5DBD4A2115960A00FFEA60 /* CredentialsDb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CredentialsDb.m; sourceTree = "<group>"; };
 		EF5DBD4B2115960A00FFEA60 /* SharedOrderKitchen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedOrderKitchen.m; sourceTree = "<group>"; };
 		EF5DBD4C2115960A00FFEA60 /* Shop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shop.h; sourceTree = "<group>"; };
 		EF5DBD4D2115960A00FFEA60 /* SharedPromotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedPromotion.m; sourceTree = "<group>"; };
@@ -731,35 +853,33 @@
 		EF5DBE0D2115960B00FFEA60 /* Kanit-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-Medium.ttf"; sourceTree = "<group>"; };
 		EF5DBE0E2115960B00FFEA60 /* Kanit-SemiBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-SemiBoldItalic.otf"; sourceTree = "<group>"; };
 		EF5DBFFB2115A00500FFEA60 /* JummumOM.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JummumOM.entitlements; sourceTree = "<group>"; };
+		EF759F9D220027E300A6146F /* GlobalQueueManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalQueueManager.m; sourceTree = "<group>"; };
+		EF759F9E220027E300A6146F /* CommonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonViewController.m; sourceTree = "<group>"; };
+		EF759F9F220027E300A6146F /* PrinterInfo+Builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PrinterInfo+Builder.h"; sourceTree = "<group>"; };
+		EF759FA0220027E300A6146F /* SearchPortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchPortViewController.m; sourceTree = "<group>"; };
+		EF759FA1220027E300A6146F /* PrinterSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrinterSetting.m; sourceTree = "<group>"; };
+		EF759FA2220027E300A6146F /* StarIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = StarIO.framework; sourceTree = "<group>"; };
+		EF759FA3220027E300A6146F /* SettingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingManager.m; sourceTree = "<group>"; };
+		EF759FA4220027E300A6146F /* ModelCapability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelCapability.m; sourceTree = "<group>"; };
+		EF759FA5220027E300A6146F /* PrinterInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrinterInfo.h; sourceTree = "<group>"; };
+		EF759FA6220027E300A6146F /* GlobalQueueManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalQueueManager.h; sourceTree = "<group>"; };
+		EF759FA7220027E300A6146F /* CommonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonViewController.h; sourceTree = "<group>"; };
+		EF759FA8220027E300A6146F /* SMCloudServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMCloudServices.framework; sourceTree = "<group>"; };
+		EF759FA9220027E300A6146F /* StarIO_Extension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = StarIO_Extension.framework; sourceTree = "<group>"; };
+		EF759FAA220027E300A6146F /* PrinterInfo+Builder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PrinterInfo+Builder.m"; sourceTree = "<group>"; };
+		EF759FAB220027E300A6146F /* ModelCapability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelCapability.h; sourceTree = "<group>"; };
+		EF759FAC220027E300A6146F /* PrinterInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrinterInfo.m; sourceTree = "<group>"; };
+		EF759FAD220027E300A6146F /* SettingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingManager.h; sourceTree = "<group>"; };
+		EF759FAF220027E300A6146F /* Communication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Communication.h; sourceTree = "<group>"; };
+		EF759FB0220027E300A6146F /* Communication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Communication.m; sourceTree = "<group>"; };
+		EF759FB1220027E300A6146F /* PrinterSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrinterSetting.h; sourceTree = "<group>"; };
+		EF759FB2220027E300A6146F /* SearchPortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchPortViewController.h; sourceTree = "<group>"; };
 		EF880062213A77B80062D9D4 /* CustomTableViewCellReceiptSummary2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCellReceiptSummary2.xib; sourceTree = "<group>"; };
 		EF880063213A77B90062D9D4 /* CustomTableViewCellReceiptSummary2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCellReceiptSummary2.h; sourceTree = "<group>"; };
 		EF880064213A77B90062D9D4 /* CustomTableViewCellReceiptSummary2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCellReceiptSummary2.m; sourceTree = "<group>"; };
 		EF880067213A77C50062D9D4 /* printer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = printer.png; sourceTree = "<group>"; };
-		EF880068213A77C50062D9D4 /* printerWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = printerWhite.png; sourceTree = "<group>"; };
-		EF880069213A77C50062D9D4 /* printerWhiteNo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = printerWhiteNo.png; sourceTree = "<group>"; };
 		EF88006D213A77D20062D9D4 /* SharedDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedDevice.h; sourceTree = "<group>"; };
 		EF88006E213A77D20062D9D4 /* SharedDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedDevice.m; sourceTree = "<group>"; };
-		EF880071213A77DF0062D9D4 /* GlobalQueueManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalQueueManager.m; sourceTree = "<group>"; };
-		EF880072213A77DF0062D9D4 /* CommonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonViewController.m; sourceTree = "<group>"; };
-		EF880073213A77DF0062D9D4 /* PrinterInfo+Builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PrinterInfo+Builder.h"; sourceTree = "<group>"; };
-		EF880074213A77DF0062D9D4 /* SearchPortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchPortViewController.m; sourceTree = "<group>"; };
-		EF880075213A77DF0062D9D4 /* PrinterSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrinterSetting.m; sourceTree = "<group>"; };
-		EF880076213A77DF0062D9D4 /* StarIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = StarIO.framework; sourceTree = "<group>"; };
-		EF880077213A77DF0062D9D4 /* SettingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingManager.m; sourceTree = "<group>"; };
-		EF880078213A77DF0062D9D4 /* ModelCapability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelCapability.m; sourceTree = "<group>"; };
-		EF880079213A77DF0062D9D4 /* PrinterInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrinterInfo.h; sourceTree = "<group>"; };
-		EF88007A213A77DF0062D9D4 /* GlobalQueueManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalQueueManager.h; sourceTree = "<group>"; };
-		EF88007B213A77DF0062D9D4 /* CommonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonViewController.h; sourceTree = "<group>"; };
-		EF88007C213A77DF0062D9D4 /* SMCloudServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMCloudServices.framework; sourceTree = "<group>"; };
-		EF88007D213A77DF0062D9D4 /* StarIO_Extension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = StarIO_Extension.framework; sourceTree = "<group>"; };
-		EF88007E213A77DF0062D9D4 /* PrinterInfo+Builder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PrinterInfo+Builder.m"; sourceTree = "<group>"; };
-		EF88007F213A77DF0062D9D4 /* ModelCapability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelCapability.h; sourceTree = "<group>"; };
-		EF880080213A77DF0062D9D4 /* PrinterInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrinterInfo.m; sourceTree = "<group>"; };
-		EF880081213A77DF0062D9D4 /* SettingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingManager.h; sourceTree = "<group>"; };
-		EF880083213A77DF0062D9D4 /* Communication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Communication.h; sourceTree = "<group>"; };
-		EF880084213A77DF0062D9D4 /* Communication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Communication.m; sourceTree = "<group>"; };
-		EF880085213A77DF0062D9D4 /* PrinterSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrinterSetting.h; sourceTree = "<group>"; };
-		EF880086213A77DF0062D9D4 /* SearchPortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchPortViewController.h; sourceTree = "<group>"; };
 		EF880093213A78600062D9D4 /* PrinterSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrinterSettingViewController.m; sourceTree = "<group>"; };
 		EF880094213A78600062D9D4 /* PrinterSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrinterSettingViewController.h; sourceTree = "<group>"; };
 		EF880095213A78600062D9D4 /* PrinterChoosingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrinterChoosingViewController.m; sourceTree = "<group>"; };
@@ -775,10 +895,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF759FBA220027E300A6146F /* SMCloudServices.framework in Frameworks */,
+				EF18421D21FF11AD004452C5 /* libxml2.2.tbd in Frameworks */,
+				EF18421B21FF119F004452C5 /* ExternalAccessory.framework in Frameworks */,
+				EF759FB7220027E300A6146F /* StarIO.framework in Frameworks */,
 				EF88009B213A78790062D9D4 /* CoreBluetooth.framework in Frameworks */,
-				EF88008E213A77DF0062D9D4 /* SMCloudServices.framework in Frameworks */,
-				EF88008B213A77DF0062D9D4 /* StarIO.framework in Frameworks */,
-				EF88008F213A77DF0062D9D4 /* StarIO_Extension.framework in Frameworks */,
+				EF1841FF21FF0FC1004452C5 /* libeposeasyselect.a in Frameworks */,
+				EF18420121FF0FC1004452C5 /* libGprinterSDK.a in Frameworks */,
+				EF18420021FF0FC1004452C5 /* libepos2.a in Frameworks */,
+				EF759FBB220027E300A6146F /* StarIO_Extension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -799,6 +924,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EF18416E21FF0F7C004452C5 /* NTMonthYearPicker */ = {
+			isa = PBXGroup;
+			children = (
+				EF18416F21FF0F7C004452C5 /* NTMonthYearPicker.m */,
+				EF18417021FF0F7C004452C5 /* NTMonthYearPicker.h */,
+				EF18417121FF0F7C004452C5 /* NTMonthYearPicker-Prefix.pch */,
+			);
+			path = NTMonthYearPicker;
+			sourceTree = "<group>";
+		};
+		EF1841E821FF0FC1004452C5 /* Epson */ = {
+			isa = PBXGroup;
+			children = (
+				EF1841E921FF0FC1004452C5 /* libeposeasyselect.a */,
+				EF1841EA21FF0FC1004452C5 /* ePOS2.h */,
+				EF1841EB21FF0FC1004452C5 /* libepos2.a */,
+				EF1841EC21FF0FC1004452C5 /* ePOSEasySelect.h */,
+			);
+			path = Epson;
+			sourceTree = "<group>";
+		};
+		EF1841ED21FF0FC1004452C5 /* GPrinter */ = {
+			isa = PBXGroup;
+			children = (
+				EF1841EE21FF0FC1004452C5 /* GprinterReceiptCheckCommand.h */,
+				EF1841EF21FF0FC1004452C5 /* GprinterReceiptCommand.h */,
+				EF1841F021FF0FC1004452C5 /* libGprinterSDK.a */,
+				EF1841F121FF0FC1004452C5 /* GprinterBluetooth.h */,
+				EF1841F221FF0FC1004452C5 /* GprinterLabelCommand.h */,
+			);
+			path = GPrinter;
+			sourceTree = "<group>";
+		};
+		EF18420221FF10CA004452C5 /* Omise */ = {
+			isa = PBXGroup;
+			children = (
+				EF18420321FF10CA004452C5 /* OmiseTokenRequest.swift */,
+				EF18420421FF10CA004452C5 /* OmiseToken.swift */,
+				EF18420521FF10CA004452C5 /* OmiseSDK.h */,
+				EF18420621FF10CA004452C5 /* OmiseSDK.modulemap */,
+				EF18420721FF10CA004452C5 /* OmiseAuthorizingPaymentViewController.swift */,
+				EF18420821FF10CA004452C5 /* OmiseJsonParser.swift */,
+				EF18420921FF10CA004452C5 /* Globals.swift */,
+				EF18420A21FF10CA004452C5 /* Jummum-Bridging-Header.h */,
+				EF18420B21FF10CA004452C5 /* CardBrand.swift */,
+				EF18420C21FF10CA004452C5 /* OmiseCard.swift */,
+				EF18420D21FF10CA004452C5 /* CardNumber.swift */,
+				EF18420E21FF10CA004452C5 /* OmiseSDKClient.swift */,
+				EF18420F21FF10CA004452C5 /* OmiseError.swift */,
+			);
+			path = Omise;
+			sourceTree = "<group>";
+		};
 		EF5DBB62211595EA00FFEA60 = {
 			isa = PBXGroup;
 			children = (
@@ -887,7 +1065,10 @@
 		EF5DBC192115960A00FFEA60 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				EF880070213A77DF0062D9D4 /* Star */,
+				EF759F9C220027E300A6146F /* Star */,
+				EF18420221FF10CA004452C5 /* Omise */,
+				EF1841E821FF0FC1004452C5 /* Epson */,
+				EF1841ED21FF0FC1004452C5 /* GPrinter */,
 				EF5DBC1A2115960A00FFEA60 /* Encryption */,
 				EF5DBC402115960A00FFEA60 /* KeychainWrapper */,
 			);
@@ -918,10 +1099,17 @@
 		EF5DBC442115960A00FFEA60 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				EF18418A21FF0F8D004452C5 /* 3842284.png */,
+				EF18419221FF0F8D004452C5 /* badgeGray.png */,
+				EF18419721FF0F8E004452C5 /* badgeWhite.png */,
+				EF18418921FF0F8D004452C5 /* hourGlass.png */,
+				EF1841A621FF0F8E004452C5 /* hourGlass2.png */,
+				EF18419321FF0F8D004452C5 /* printerGreen.png */,
+				EF18419421FF0F8D004452C5 /* printerGreenNo.png */,
+				EF18419521FF0F8D004452C5 /* promoBanner3.jpg */,
+				EF18419621FF0F8D004452C5 /* report.png */,
 				EF88009F213BA26E0062D9D4 /* refresh.png */,
 				EF880067213A77C50062D9D4 /* printer.png */,
-				EF880068213A77C50062D9D4 /* printerWhite.png */,
-				EF880069213A77C50062D9D4 /* printerWhiteNo.png */,
 				EF5DBC9E2115960A00FFEA60 /* badge.png */,
 				EF5DBC8C2115960A00FFEA60 /* contactUs.png */,
 				EF5DBC952115960A00FFEA60 /* Icon-20.png */,
@@ -992,12 +1180,22 @@
 				EF5DBCB12115960A00FFEA60 /* OrderDetailViewController.m */,
 				EF5DBCCD2115960A00FFEA60 /* PersonalDataViewController.h */,
 				EF5DBCB92115960A00FFEA60 /* PersonalDataViewController.m */,
+				EF18414B21FF0F56004452C5 /* PrinterBrandViewController.h */,
+				EF18414A21FF0F56004452C5 /* PrinterBrandViewController.m */,
+				EF18414621FF0F55004452C5 /* PrinterChoosingEpsonViewController.h */,
+				EF18414721FF0F56004452C5 /* PrinterChoosingEpsonViewController.m */,
+				EF18414521FF0F55004452C5 /* PrinterChoosingGPrinterViewController.h */,
+				EF18414921FF0F56004452C5 /* PrinterChoosingGPrinterViewController.m */,
 				EF880096213A78600062D9D4 /* PrinterChoosingViewController.h */,
 				EF880095213A78600062D9D4 /* PrinterChoosingViewController.m */,
 				EF880094213A78600062D9D4 /* PrinterSettingViewController.h */,
 				EF880093213A78600062D9D4 /* PrinterSettingViewController.m */,
-				EF5DBCB32115960A00FFEA60 /* RegisterNowViewController.h */,
-				EF5DBCC72115960A00FFEA60 /* RegisterNowViewController.m */,
+				EF18414C21FF0F56004452C5 /* ReportDetailsByDayViewController.h */,
+				EF18414D21FF0F56004452C5 /* ReportDetailsByDayViewController.m */,
+				EF18414821FF0F56004452C5 /* ReportViewController.h */,
+				EF18414E21FF0F57004452C5 /* ReportViewController.m */,
+				EF18414F21FF0F57004452C5 /* RunningReceiptViewController.h */,
+				EF18415021FF0F57004452C5 /* RunningReceiptViewController.m */,
 				EF5DBCAB2115960A00FFEA60 /* TermsOfServiceViewController.h */,
 				EF5DBCBF2115960A00FFEA60 /* TermsOfServiceViewController.m */,
 				EF5DBCB52115960A00FFEA60 /* TosAndPrivacyPolicyViewController.h */,
@@ -1021,8 +1219,6 @@
 				EF5DBD2F2115960A00FFEA60 /* Branch.m */,
 				EF5DBD382115960A00FFEA60 /* Credentials.h */,
 				EF5DBCE92115960A00FFEA60 /* Credentials.m */,
-				EF5DBD002115960A00FFEA60 /* CredentialsDb.h */,
-				EF5DBD4A2115960A00FFEA60 /* CredentialsDb.m */,
 				EF5DBD192115960A00FFEA60 /* CreditCard.h */,
 				EF5DBD5C2115960A00FFEA60 /* CreditCard.m */,
 				EF5DBCEF2115960A00FFEA60 /* CustomerTable.h */,
@@ -1063,18 +1259,22 @@
 				EF5DBCD22115960A00FFEA60 /* Pic.m */,
 				EF5DBCD92115960A00FFEA60 /* Printer.h */,
 				EF5DBD282115960A00FFEA60 /* Printer.m */,
+				EF1841C921FF0FA9004452C5 /* PrinterMenu.h */,
+				EF1841C621FF0FA9004452C5 /* PrinterMenu.m */,
 				EF5DBCE72115960A00FFEA60 /* PromoCode.h */,
 				EF5DBD3B2115960A00FFEA60 /* PromoCode.m */,
 				EF5DBD1E2115960A00FFEA60 /* Promotion.h */,
 				EF5DBD572115960A00FFEA60 /* Promotion.m */,
 				EF5DBD392115960A00FFEA60 /* PromotionMenu.h */,
 				EF5DBCEA2115960A00FFEA60 /* PromotionMenu.m */,
-				EF5DBCE42115960A00FFEA60 /* PushSync.h */,
-				EF5DBD3E2115960A00FFEA60 /* PushSync.m */,
 				EF5DBD272115960A00FFEA60 /* Receipt.h */,
 				EF5DBCD82115960A00FFEA60 /* Receipt.m */,
 				EF5DBD5A2115960A00FFEA60 /* ReceiptPrint.h */,
 				EF5DBD1A2115960A00FFEA60 /* ReceiptPrint.m */,
+				EF1841CA21FF0FAA004452C5 /* ReportDaily.h */,
+				EF1841C521FF0FA9004452C5 /* ReportDaily.m */,
+				EF1841C321FF0FA9004452C5 /* ReportDetailsByOrder.h */,
+				EF1841C221FF0FA9004452C5 /* ReportDetailsByOrder.m */,
 				EF5DBD0B2115960A00FFEA60 /* RewardPoint.h */,
 				EF5DBD692115960A00FFEA60 /* RewardPoint.m */,
 				EF5DBD152115960A00FFEA60 /* RewardRedemption.h */,
@@ -1083,8 +1283,8 @@
 				EF5DBD162115960A00FFEA60 /* Setting.m */,
 				EF5DBCDA2115960A00FFEA60 /* SharedBranch.h */,
 				EF5DBD252115960A00FFEA60 /* SharedBranch.m */,
-				EF5DBD212115960A00FFEA60 /* SharedCurrentCredentialsDb.h */,
-				EF5DBCDD2115960A00FFEA60 /* SharedCurrentCredentialsDb.m */,
+				EF1841CB21FF0FAA004452C5 /* SharedCurrentBranch.h */,
+				EF1841C821FF0FA9004452C5 /* SharedCurrentBranch.m */,
 				EF5DBD642115960A00FFEA60 /* SharedCurrentMenu.h */,
 				EF5DBD102115960A00FFEA60 /* SharedCurrentMenu.m */,
 				EF5DBD442115960A00FFEA60 /* SharedCurrentOrderTaking.h */,
@@ -1125,14 +1325,14 @@
 				EF5DBD232115960A00FFEA60 /* SharedPic.m */,
 				EF5DBCEE2115960A00FFEA60 /* SharedPrinter.h */,
 				EF5DBD372115960A00FFEA60 /* SharedPrinter.m */,
+				EF1841C721FF0FA9004452C5 /* SharedPrinterMenu.h */,
+				EF1841C421FF0FA9004452C5 /* SharedPrinterMenu.m */,
 				EF5DBCD32115960A00FFEA60 /* SharedPromoCode.h */,
 				EF5DBD2C2115960A00FFEA60 /* SharedPromoCode.m */,
 				EF5DBCFD2115960A00FFEA60 /* SharedPromotion.h */,
 				EF5DBD4D2115960A00FFEA60 /* SharedPromotion.m */,
 				EF5DBD3A2115960A00FFEA60 /* SharedPromotionMenu.h */,
 				EF5DBCE82115960A00FFEA60 /* SharedPromotionMenu.m */,
-				EF5DBD422115960A00FFEA60 /* SharedPushSync.h */,
-				EF5DBD082115960A00FFEA60 /* SharedPushSync.m */,
 				EF5DBD362115960A00FFEA60 /* SharedReceipt.h */,
 				EF5DBCED2115960A00FFEA60 /* SharedReceipt.m */,
 				EF5DBD262115960A00FFEA60 /* SharedReceiptPrint.h */,
@@ -1178,6 +1378,34 @@
 		EF5DBD6C2115960A00FFEA60 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				EF18415F21FF0F7A004452C5 /* CustomTableViewCellButtonDetail.h */,
+				EF18416221FF0F7B004452C5 /* CustomTableViewCellButtonDetail.m */,
+				EF18415D21FF0F7A004452C5 /* CustomTableViewCellButtonDetail.xib */,
+				EF18416021FF0F7A004452C5 /* CustomTableViewCellButtonLabel.h */,
+				EF18417521FF0F7D004452C5 /* CustomTableViewCellButtonLabel.m */,
+				EF18417421FF0F7D004452C5 /* CustomTableViewCellButtonLabel.xib */,
+				EF18416621FF0F7B004452C5 /* CustomTableViewCellLogo.h */,
+				EF18415C21FF0F7A004452C5 /* CustomTableViewCellLogo.m */,
+				EF18415A21FF0F7A004452C5 /* CustomTableViewCellLogo.xib */,
+				EF18416121FF0F7B004452C5 /* CustomTableViewCellMonthYear.h */,
+				EF18417221FF0F7C004452C5 /* CustomTableViewCellMonthYear.m */,
+				EF18416521FF0F7B004452C5 /* CustomTableViewCellMonthYear.xib */,
+				EF18416921FF0F7C004452C5 /* CustomTableViewCellMonthYearBalance.h */,
+				EF18417321FF0F7D004452C5 /* CustomTableViewCellMonthYearBalance.m */,
+				EF18416721FF0F7B004452C5 /* CustomTableViewCellMonthYearBalance.xib */,
+				EF18416821FF0F7B004452C5 /* CustomTableViewCellReportDaily.h */,
+				EF18415921FF0F7A004452C5 /* CustomTableViewCellReportDaily.m */,
+				EF18416C21FF0F7C004452C5 /* CustomTableViewCellReportDaily.xib */,
+				EF18415721FF0F79004452C5 /* CustomTableViewCellReportDailyHeader.h */,
+				EF18415B21FF0F7A004452C5 /* CustomTableViewCellReportDailyHeader.m */,
+				EF18416321FF0F7B004452C5 /* CustomTableViewCellReportDailyHeader.xib */,
+				EF18416B21FF0F7C004452C5 /* CustomTableViewCellReportSummaryByDay.h */,
+				EF18415821FF0F79004452C5 /* CustomTableViewCellReportSummaryByDay.m */,
+				EF18416A21FF0F7C004452C5 /* CustomTableViewCellReportSummaryByDay.xib */,
+				EF18416D21FF0F7C004452C5 /* CustomTableViewCellSeparatorLine.h */,
+				EF18415E21FF0F7A004452C5 /* CustomTableViewCellSeparatorLine.m */,
+				EF18416421FF0F7B004452C5 /* CustomTableViewCellSeparatorLine.xib */,
+				EF18416E21FF0F7C004452C5 /* NTMonthYearPicker */,
 				EF880063213A77B90062D9D4 /* CustomTableViewCellReceiptSummary2.h */,
 				EF880064213A77B90062D9D4 /* CustomTableViewCellReceiptSummary2.m */,
 				EF880062213A77B80062D9D4 /* CustomTableViewCellReceiptSummary2.xib */,
@@ -1353,38 +1581,38 @@
 			path = font;
 			sourceTree = "<group>";
 		};
-		EF880070213A77DF0062D9D4 /* Star */ = {
+		EF759F9C220027E300A6146F /* Star */ = {
 			isa = PBXGroup;
 			children = (
-				EF880071213A77DF0062D9D4 /* GlobalQueueManager.m */,
-				EF880072213A77DF0062D9D4 /* CommonViewController.m */,
-				EF880073213A77DF0062D9D4 /* PrinterInfo+Builder.h */,
-				EF880074213A77DF0062D9D4 /* SearchPortViewController.m */,
-				EF880075213A77DF0062D9D4 /* PrinterSetting.m */,
-				EF880076213A77DF0062D9D4 /* StarIO.framework */,
-				EF880077213A77DF0062D9D4 /* SettingManager.m */,
-				EF880078213A77DF0062D9D4 /* ModelCapability.m */,
-				EF880079213A77DF0062D9D4 /* PrinterInfo.h */,
-				EF88007A213A77DF0062D9D4 /* GlobalQueueManager.h */,
-				EF88007B213A77DF0062D9D4 /* CommonViewController.h */,
-				EF88007C213A77DF0062D9D4 /* SMCloudServices.framework */,
-				EF88007D213A77DF0062D9D4 /* StarIO_Extension.framework */,
-				EF88007E213A77DF0062D9D4 /* PrinterInfo+Builder.m */,
-				EF88007F213A77DF0062D9D4 /* ModelCapability.h */,
-				EF880080213A77DF0062D9D4 /* PrinterInfo.m */,
-				EF880081213A77DF0062D9D4 /* SettingManager.h */,
-				EF880082213A77DF0062D9D4 /* Communications */,
-				EF880085213A77DF0062D9D4 /* PrinterSetting.h */,
-				EF880086213A77DF0062D9D4 /* SearchPortViewController.h */,
+				EF759FA7220027E300A6146F /* CommonViewController.h */,
+				EF759F9E220027E300A6146F /* CommonViewController.m */,
+				EF759FAE220027E300A6146F /* Communications */,
+				EF759FA6220027E300A6146F /* GlobalQueueManager.h */,
+				EF759F9D220027E300A6146F /* GlobalQueueManager.m */,
+				EF759FAB220027E300A6146F /* ModelCapability.h */,
+				EF759FA4220027E300A6146F /* ModelCapability.m */,
+				EF759FA5220027E300A6146F /* PrinterInfo.h */,
+				EF759FAC220027E300A6146F /* PrinterInfo.m */,
+				EF759F9F220027E300A6146F /* PrinterInfo+Builder.h */,
+				EF759FAA220027E300A6146F /* PrinterInfo+Builder.m */,
+				EF759FB1220027E300A6146F /* PrinterSetting.h */,
+				EF759FA1220027E300A6146F /* PrinterSetting.m */,
+				EF759FB2220027E300A6146F /* SearchPortViewController.h */,
+				EF759FA0220027E300A6146F /* SearchPortViewController.m */,
+				EF759FAD220027E300A6146F /* SettingManager.h */,
+				EF759FA3220027E300A6146F /* SettingManager.m */,
+				EF759FA8220027E300A6146F /* SMCloudServices.framework */,
+				EF759FA9220027E300A6146F /* StarIO_Extension.framework */,
+				EF759FA2220027E300A6146F /* StarIO.framework */,
 			);
 			path = Star;
 			sourceTree = "<group>";
 		};
-		EF880082213A77DF0062D9D4 /* Communications */ = {
+		EF759FAE220027E300A6146F /* Communications */ = {
 			isa = PBXGroup;
 			children = (
-				EF880083213A77DF0062D9D4 /* Communication.h */,
-				EF880084213A77DF0062D9D4 /* Communication.m */,
+				EF759FAF220027E300A6146F /* Communication.h */,
+				EF759FB0220027E300A6146F /* Communication.m */,
 			);
 			path = Communications;
 			sourceTree = "<group>";
@@ -1392,6 +1620,8 @@
 		EF880099213A78780062D9D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EF18421C21FF11AD004452C5 /* libxml2.2.tbd */,
+				EF18421A21FF119F004452C5 /* ExternalAccessory.framework */,
 				EF88009A213A78790062D9D4 /* CoreBluetooth.framework */,
 			);
 			name = Frameworks;
@@ -1509,7 +1739,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF5DBF882115960C00FFEA60 /* CustomViewVoucher.xib in Resources */,
-				EF88006C213A77C50062D9D4 /* printerWhiteNo.png in Resources */,
+				EF1841A721FF0F8E004452C5 /* hourGlass.png in Resources */,
 				EF5DBFCA2115960C00FFEA60 /* Kanit-Medium.otf in Resources */,
 				EF5DBF5E2115960C00FFEA60 /* CustomTableViewCellMenu.xib in Resources */,
 				EF5DBE9A2115960B00FFEA60 /* me.png in Resources */,
@@ -1533,10 +1763,13 @@
 				EF5DBEB42115960B00FFEA60 /* Icon-60.png in Resources */,
 				EF5DBF982115960C00FFEA60 /* CustomTableViewCellImageText.xib in Resources */,
 				EF5DBFB12115960C00FFEA60 /* Kanit-Regular.ttf in Resources */,
+				EF18417B21FF0F7D004452C5 /* CustomTableViewCellButtonDetail.xib in Resources */,
 				EF5DBEE52115960B00FFEA60 /* jummumLogoCrop2.png in Resources */,
 				EF5DBEC12115960B00FFEA60 /* Icon-Spotlight-40.png in Resources */,
 				EF5DBF8F2115960C00FFEA60 /* CustomTableViewCellProfile.xib in Resources */,
+				EF18418721FF0F7D004452C5 /* CustomTableViewCellButtonLabel.xib in Resources */,
 				EF5DBE752115960B00FFEA60 /* iOSDeviceModelMapping.plist in Resources */,
+				EF1841B321FF0F8E004452C5 /* report.png in Resources */,
 				EF5DBECF2115960B00FFEA60 /* Icon@2x.png in Resources */,
 				EF5DBFBA2115960C00FFEA60 /* Kanit-Thin.ttf in Resources */,
 				EF5DBEE82115960B00FFEA60 /* Icon-20.png in Resources */,
@@ -1547,8 +1780,10 @@
 				EF5DBFD22115960C00FFEA60 /* Kanit-LightItalic.ttf in Resources */,
 				EF5DBFA62115960C00FFEA60 /* Kanit-ThinItalic.ttf in Resources */,
 				EF5DBEBC2115960B00FFEA60 /* profilePic.png in Resources */,
+				EF18418121FF0F7D004452C5 /* CustomTableViewCellMonthYearBalance.xib in Resources */,
 				EF5DBEB52115960B00FFEA60 /* termsOfService.png in Resources */,
 				EF5DBEB92115960B00FFEA60 /* logOut.png in Resources */,
+				EF1841B121FF0F8E004452C5 /* printerGreenNo.png in Resources */,
 				EF5DBB7B211595EE00FFEA60 /* LaunchScreen.storyboard in Resources */,
 				EF5DBEA02115960B00FFEA60 /* Icon-76@2x.png in Resources */,
 				EF880065213A77B90062D9D4 /* CustomTableViewCellReceiptSummary2.xib in Resources */,
@@ -1556,6 +1791,7 @@
 				EF5DBF6B2115960C00FFEA60 /* CustomTableViewCellButton.xib in Resources */,
 				EF5DBFCD2115960C00FFEA60 /* Kanit-BlackItalic.ttf in Resources */,
 				EF5DBB78211595EE00FFEA60 /* Assets.xcassets in Resources */,
+				EF1841B421FF0F8E004452C5 /* badgeWhite.png in Resources */,
 				EF5DBE762115960B00FFEA60 /* Main.storyboard in Resources */,
 				EF5DBFB72115960C00FFEA60 /* Kanit-MediumItalic.ttf in Resources */,
 				EF5DBFC62115960C00FFEA60 /* Kanit-Bold.ttf in Resources */,
@@ -1579,9 +1815,11 @@
 				EF5DBE792115960B00FFEA60 /* Property List.plist in Resources */,
 				EF5DBFCE2115960C00FFEA60 /* Kanit-LightItalic.otf in Resources */,
 				EF5DBFBD2115960C00FFEA60 /* Kanit-Regular.otf in Resources */,
+				EF18417F21FF0F7D004452C5 /* CustomTableViewCellSeparatorLine.xib in Resources */,
 				EF5DBFD72115960C00FFEA60 /* Kanit-Medium.ttf in Resources */,
 				EF5DBFA42115960C00FFEA60 /* Kanit-ExtraLight.ttf in Resources */,
 				EF5DBEAD2115960B00FFEA60 /* jummumChef_lightGray.png in Resources */,
+				EF18418021FF0F7D004452C5 /* CustomTableViewCellMonthYear.xib in Resources */,
 				EF5DBFCC2115960C00FFEA60 /* Kanit-Light.otf in Resources */,
 				EF5DBF7B2115960C00FFEA60 /* CustomTableViewCellPromoThumbNail.xib in Resources */,
 				EF5DBFC12115960C00FFEA60 /* Kanit-ExtraLight.otf in Resources */,
@@ -1608,17 +1846,22 @@
 				EF5DBF932115960C00FFEA60 /* CustomTableViewCellLabelLabel.xib in Resources */,
 				EF5DBFD82115960C00FFEA60 /* Kanit-SemiBoldItalic.otf in Resources */,
 				EF5DBE9F2115960B00FFEA60 /* Icon.png in Resources */,
+				EF1841B021FF0F8E004452C5 /* printerGreen.png in Resources */,
 				EF5DBE9B2115960B00FFEA60 /* jummumOMLogo.png in Resources */,
 				EF5DBFB32115960C00FFEA60 /* Kanit-Italic.ttf in Resources */,
 				EF5DBFD12115960C00FFEA60 /* Kanit-BlackItalic.otf in Resources */,
+				EF18418221FF0F7D004452C5 /* CustomTableViewCellReportSummaryByDay.xib in Resources */,
 				EF5DBF0E2115960B00FFEA60 /* beep.mp3 in Resources */,
 				EF5DBFD52115960C00FFEA60 /* Prompt-Black.ttf in Resources */,
 				EF5DBFB42115960C00FFEA60 /* Kanit-ExtraBold.otf in Resources */,
 				EF5DBEA92115960B00FFEA60 /* Icon-76@3x.png in Resources */,
 				EF5DBFBF2115960C00FFEA60 /* Kanit-ExtraBold.ttf in Resources */,
+				EF18417E21FF0F7D004452C5 /* CustomTableViewCellReportDailyHeader.xib in Resources */,
 				EF5DBFA32115960C00FFEA60 /* Prompt-ThinItalic.ttf in Resources */,
 				EF5DBFB82115960C00FFEA60 /* Kanit-Black.otf in Resources */,
 				EF5DBFB52115960C00FFEA60 /* Prompt-Light.ttf in Resources */,
+				EF1841C121FF0F8E004452C5 /* hourGlass2.png in Resources */,
+				EF18417821FF0F7D004452C5 /* CustomTableViewCellLogo.xib in Resources */,
 				EF5DBFC32115960C00FFEA60 /* Prompt-Bold.ttf in Resources */,
 				EF5DBFAF2115960C00FFEA60 /* Kanit-Thin.otf in Resources */,
 				EF5DBFA92115960C00FFEA60 /* Kanit-BoldItalic.ttf in Resources */,
@@ -1635,12 +1878,15 @@
 				EF5DBF822115960C00FFEA60 /* CustomTableViewCellQuantity.xib in Resources */,
 				EF5DBFC72115960C00FFEA60 /* Prompt-Regular.ttf in Resources */,
 				EF5DBECD2115960B00FFEA60 /* Icon-60@2x.png in Resources */,
+				EF1841AF21FF0F8E004452C5 /* badgeGray.png in Resources */,
 				EF5DBEC82115960B00FFEA60 /* Icon-72@2x.png in Resources */,
 				EF5DBFC82115960C00FFEA60 /* Prompt-ExtraLightItalic.ttf in Resources */,
 				EF5DBFD62115960C00FFEA60 /* Kanit-ExtraLightItalic.ttf in Resources */,
 				EF5DBEE92115960B00FFEA60 /* Icon-Small-50.png in Resources */,
+				EF1841B221FF0F8E004452C5 /* promoBanner3.jpg in Resources */,
 				EF5DBF792115960C00FFEA60 /* CustomCollectionReusableView.xib in Resources */,
-				EF88006B213A77C50062D9D4 /* printerWhite.png in Resources */,
+				EF1841A821FF0F8E004452C5 /* 3842284.png in Resources */,
+				EF18418321FF0F7D004452C5 /* CustomTableViewCellReportDaily.xib in Resources */,
 				EF8800A0213BA26F0062D9D4 /* refresh.png in Resources */,
 				EF5DBFAB2115960C00FFEA60 /* Prompt-BoldItalic.ttf in Resources */,
 				EF5DBFD42115960C00FFEA60 /* Prompt-Italic.ttf in Resources */,
@@ -1688,60 +1934,71 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF5DBF082115960B00FFEA60 /* OpeningTimeViewController.m in Sources */,
+				EF18418421FF0F7D004452C5 /* NTMonthYearPicker.m in Sources */,
 				EF5DBF632115960C00FFEA60 /* CustomViewController.m in Sources */,
 				EF5DBF502115960C00FFEA60 /* SubMenuType.m in Sources */,
 				EF5DBF212115960B00FFEA60 /* SharedNote.m in Sources */,
 				EF5DBF0F2115960B00FFEA60 /* Pic.m in Sources */,
+				EF18418821FF0F7D004452C5 /* CustomTableViewCellButtonLabel.m in Sources */,
 				EF5DBF812115960C00FFEA60 /* CustomTableViewCellNote.m in Sources */,
 				EF5DBF3A2115960B00FFEA60 /* SharedRewardRedemption.m in Sources */,
-				EF5DBF162115960B00FFEA60 /* SharedCurrentCredentialsDb.m in Sources */,
 				EF5DBF3E2115960B00FFEA60 /* OrderTaking.m in Sources */,
+				EF759FB8220027E300A6146F /* SettingManager.m in Sources */,
 				EF5DBF582115960C00FFEA60 /* CreditCard.m in Sources */,
 				EF5DBF2C2115960B00FFEA60 /* SharedHotDeal.m in Sources */,
 				EF5DBF592115960C00FFEA60 /* RewardRedemption.m in Sources */,
-				EF880089213A77DF0062D9D4 /* SearchPortViewController.m in Sources */,
+				EF18415321FF0F57004452C5 /* PrinterBrandViewController.m in Sources */,
 				EF5DBFA02115960C00FFEA60 /* CustomTableViewCellLabelSwitch.m in Sources */,
+				EF18415221FF0F57004452C5 /* PrinterChoosingGPrinterViewController.m in Sources */,
 				EF5DBF832115960C00FFEA60 /* CustomTableViewCellOrderSummary.m in Sources */,
 				EF5DBF4D2115960C00FFEA60 /* Device.m in Sources */,
 				EF5DBF742115960C00FFEA60 /* CustomTableViewCellText.m in Sources */,
 				EF5DBF962115960C00FFEA60 /* CustomCollectionReusableView.m in Sources */,
 				EF5DBF032115960B00FFEA60 /* MainTabBarController.m in Sources */,
 				EF5DBF562115960C00FFEA60 /* SharedSpecialPriceProgram.m in Sources */,
+				EF18421021FF10CA004452C5 /* OmiseTokenRequest.swift in Sources */,
 				EF5DBF7F2115960C00FFEA60 /* CustomTableViewCellSearchBar.m in Sources */,
 				EF5DBF2D2115960B00FFEA60 /* NoteType.m in Sources */,
 				EF880098213A78610062D9D4 /* PrinterChoosingViewController.m in Sources */,
 				EF5DBF242115960B00FFEA60 /* OrderNote.m in Sources */,
+				EF1841CF21FF0FAA004452C5 /* PrinterMenu.m in Sources */,
 				EF5DBF442115960B00FFEA60 /* SharedCurrentUserAccount.m in Sources */,
-				EF880091213A77DF0062D9D4 /* PrinterInfo.m in Sources */,
+				EF18415421FF0F57004452C5 /* ReportDetailsByDayViewController.m in Sources */,
 				EF5DBF272115960B00FFEA60 /* SharedMenuPic.m in Sources */,
 				EF880066213A77B90062D9D4 /* CustomTableViewCellReceiptSummary2.m in Sources */,
 				EF5DBF902115960C00FFEA60 /* CustomTableViewCellRewardDetail.m in Sources */,
+				EF18415521FF0F57004452C5 /* ReportViewController.m in Sources */,
 				EF5DBF3C2115960B00FFEA60 /* SharedShop.m in Sources */,
+				EF18421321FF10CA004452C5 /* OmiseJsonParser.swift in Sources */,
 				EF5DBF4E2115960C00FFEA60 /* SharedMenuType.m in Sources */,
 				EF5DBF232115960B00FFEA60 /* SharedTableNo.m in Sources */,
 				EF5DBB73211595EA00FFEA60 /* ViewController.m in Sources */,
+				EF18417921FF0F7D004452C5 /* CustomTableViewCellReportDailyHeader.m in Sources */,
 				EF5DBF492115960C00FFEA60 /* PromoCode.m in Sources */,
 				EF5DBF892115960C00FFEA60 /* CustomTableViewCellReceiptSummary.m in Sources */,
-				EF5DBF4C2115960C00FFEA60 /* PushSync.m in Sources */,
+				EF18417A21FF0F7D004452C5 /* CustomTableViewCellLogo.m in Sources */,
 				EF5DBF9F2115960C00FFEA60 /* CustomTableViewCellReward.m in Sources */,
-				EF880092213A77DF0062D9D4 /* Communication.m in Sources */,
 				EF5DBF532115960C00FFEA60 /* SharedPromotion.m in Sources */,
 				EF5DBF0B2115960B00FFEA60 /* CustomerKitchenViewController.m in Sources */,
-				EF5DBF512115960C00FFEA60 /* CredentialsDb.m in Sources */,
+				EF18417721FF0F7D004452C5 /* CustomTableViewCellReportDaily.m in Sources */,
 				EF5DBF5D2115960C00FFEA60 /* CustomTableViewCellCreditCard.m in Sources */,
 				EF5DBF412115960B00FFEA60 /* Printer.m in Sources */,
 				EF5DBF2F2115960B00FFEA60 /* SpecialPriceProgram.m in Sources */,
 				EF5DBF642115960C00FFEA60 /* CustomTableViewCellProfile.m in Sources */,
 				EF5DBF1D2115960B00FFEA60 /* SharedUserRewardRedemptionUsed.m in Sources */,
 				EF5DBF432115960B00FFEA60 /* Branch.m in Sources */,
+				EF1841D021FF0FAA004452C5 /* SharedCurrentBranch.m in Sources */,
 				EF5DBF9E2115960C00FFEA60 /* CustomTableViewCellImageLabelRemove.m in Sources */,
 				EF5DBF732115960C00FFEA60 /* CustomTableViewCellPromoThumbNail.m in Sources */,
 				EF5DBF2E2115960B00FFEA60 /* SharedOrderNote.m in Sources */,
+				EF759FBC220027E300A6146F /* PrinterInfo+Builder.m in Sources */,
+				EF1841CC21FF0FAA004452C5 /* ReportDetailsByOrder.m in Sources */,
 				EF5DBF5A2115960C00FFEA60 /* RewardPoint.m in Sources */,
 				EF5DBF5C2115960C00FFEA60 /* CustomTableViewHeaderFooterButton.m in Sources */,
+				EF18417D21FF0F7D004452C5 /* CustomTableViewCellButtonDetail.m in Sources */,
 				EF5DBF072115960B00FFEA60 /* MeViewController.m in Sources */,
+				EF759FB4220027E300A6146F /* CommonViewController.m in Sources */,
 				EF5DBF452115960B00FFEA60 /* MenuTypeNote.m in Sources */,
-				EF5DBF2B2115960B00FFEA60 /* SharedPushSync.m in Sources */,
 				EF5DBF4F2115960C00FFEA60 /* DisputeReason.m in Sources */,
 				EF5DBF422115960B00FFEA60 /* SharedPromoCode.m in Sources */,
 				EF88006F213A77D20062D9D4 /* SharedDevice.m in Sources */,
@@ -1750,18 +2007,21 @@
 				EF5DBF382115960B00FFEA60 /* Dispute.m in Sources */,
 				EF5DBE7A2115960B00FFEA60 /* NSData+Encryption.m in Sources */,
 				EF5DBF9B2115960C00FFEA60 /* CustomTableViewCellMenu.m in Sources */,
+				EF1841CD21FF0FAA004452C5 /* SharedPrinterMenu.m in Sources */,
 				EF5DBE772115960B00FFEA60 /* HomeModel.m in Sources */,
-				EF880087213A77DF0062D9D4 /* GlobalQueueManager.m in Sources */,
 				EF5DBF172115960B00FFEA60 /* SharedMenu.m in Sources */,
-				EF88008D213A77DF0062D9D4 /* ModelCapability.m in Sources */,
 				EF5DBEFF2115960B00FFEA60 /* OrderDetailViewController.m in Sources */,
 				EF5DBF372115960B00FFEA60 /* TableNo.m in Sources */,
+				EF18415621FF0F57004452C5 /* RunningReceiptViewController.m in Sources */,
 				EF5DBF332115960B00FFEA60 /* UserPromotionUsed.m in Sources */,
 				EF5DBF482115960C00FFEA60 /* SharedPrinter.m in Sources */,
 				EF880097213A78610062D9D4 /* PrinterSettingViewController.m in Sources */,
+				EF759FB9220027E300A6146F /* ModelCapability.m in Sources */,
 				EF5DBF352115960B00FFEA60 /* SharedLogIn.m in Sources */,
+				EF18421421FF10CA004452C5 /* Globals.swift in Sources */,
 				EF5DBF142115960B00FFEA60 /* Receipt.m in Sources */,
 				EF5DBF252115960B00FFEA60 /* SharedDispute.m in Sources */,
+				EF18417C21FF0F7D004452C5 /* CustomTableViewCellSeparatorLine.m in Sources */,
 				EF5DBB7E211595EE00FFEA60 /* main.m in Sources */,
 				EF5DBF112115960B00FFEA60 /* InvoiceComposer.m in Sources */,
 				EF5DBE742115960B00FFEA60 /* Utility.m in Sources */,
@@ -1769,8 +2029,6 @@
 				EF5DBF1F2115960B00FFEA60 /* SharedReceipt.m in Sources */,
 				EF5DBF712115960C00FFEA60 /* CustomTableViewCellVoucherCode.m in Sources */,
 				EF5DBE7B2115960B00FFEA60 /* NSData+AES.m in Sources */,
-				EF880090213A77DF0062D9D4 /* PrinterInfo+Builder.m in Sources */,
-				EF88008A213A77DF0062D9D4 /* PrinterSetting.m in Sources */,
 				EF5DBF462115960B00FFEA60 /* SharedUserAccount.m in Sources */,
 				EF5DBF152115960B00FFEA60 /* SharedSubMenuType.m in Sources */,
 				EF5DBF5B2115960C00FFEA60 /* Message.m in Sources */,
@@ -1779,48 +2037,61 @@
 				EF5DBF522115960C00FFEA60 /* SharedOrderKitchen.m in Sources */,
 				EF5DBF342115960B00FFEA60 /* Note.m in Sources */,
 				EF5DBE972115960B00FFEA60 /* KeychainWrapper.m in Sources */,
+				EF759FB3220027E300A6146F /* GlobalQueueManager.m in Sources */,
 				EF5DBF202115960B00FFEA60 /* SharedUserPromotionUsed.m in Sources */,
+				EF18421821FF10CA004452C5 /* OmiseSDKClient.swift in Sources */,
 				EF5DBF102115960B00FFEA60 /* UserRewardRedemptionUsed.m in Sources */,
-				EF88008C213A77DF0062D9D4 /* SettingManager.m in Sources */,
+				EF18421721FF10CA004452C5 /* CardNumber.swift in Sources */,
 				EF5DBF1B2115960B00FFEA60 /* Credentials.m in Sources */,
+				EF18415121FF0F57004452C5 /* PrinterChoosingEpsonViewController.m in Sources */,
 				EF5DBF192115960B00FFEA60 /* SharedRewardPoint.m in Sources */,
 				EF5DBF912115960C00FFEA60 /* CustomTableViewCellLabel.m in Sources */,
 				EF88009E213A788F0062D9D4 /* NewVersionUpdateViewController.m in Sources */,
 				EF5DBF1E2115960B00FFEA60 /* Menu.m in Sources */,
 				EF5DBF782115960C00FFEA60 /* CustomTableViewCellDisputeDetail.m in Sources */,
 				EF5DBF992115960C00FFEA60 /* CustomTableViewCellPromoBanner.m in Sources */,
+				EF18421521FF10CA004452C5 /* CardBrand.swift in Sources */,
+				EF18421121FF10CA004452C5 /* OmiseToken.swift in Sources */,
 				EF5DBF402115960B00FFEA60 /* SharedBranch.m in Sources */,
 				EF5DBF3D2115960B00FFEA60 /* SharedNoteType.m in Sources */,
 				EF5DBF862115960C00FFEA60 /* CustomTableViewCellLabelRemark.m in Sources */,
+				EF759FB5220027E300A6146F /* SearchPortViewController.m in Sources */,
 				EF5DBEFB2115960B00FFEA60 /* ForgotPasswordViewController.m in Sources */,
-				EF5DBF0A2115960B00FFEA60 /* RegisterNowViewController.m in Sources */,
+				EF759FB6220027E300A6146F /* PrinterSetting.m in Sources */,
 				EF5DBF092115960B00FFEA60 /* TosAndPrivacyPolicyViewController.m in Sources */,
 				EF5DBF8D2115960C00FFEA60 /* CustomTableViewCellLabelLabel.m in Sources */,
 				EF5DBF222115960B00FFEA60 /* SharedSetting.m in Sources */,
+				EF18421921FF10CA004452C5 /* OmiseError.swift in Sources */,
 				EF5DBF4A2115960C00FFEA60 /* SharedCustomerTable.m in Sources */,
 				EF5DBF282115960B00FFEA60 /* SharedOrderTaking.m in Sources */,
+				EF18418521FF0F7D004452C5 /* CustomTableViewCellMonthYear.m in Sources */,
 				EF5DBF062115960B00FFEA60 /* TermsOfServiceViewController.m in Sources */,
 				EF5DBF6E2115960C00FFEA60 /* CustomCollectionViewCellNote.m in Sources */,
 				EF5DBE782115960B00FFEA60 /* AppDelegate.m in Sources */,
 				EF5DBF3B2115960B00FFEA60 /* UserAccount.m in Sources */,
+				EF759FBD220027E300A6146F /* PrinterInfo.m in Sources */,
 				EF5DBF702115960C00FFEA60 /* CustomTableViewHeaderFooterOkCancel.m in Sources */,
 				EF5DBF772115960C00FFEA60 /* CustomTableViewCellImageTextButtonHalf.m in Sources */,
 				EF5DBF692115960C00FFEA60 /* CustomTableViewCellOrder.m in Sources */,
 				EF5DBF682115960C00FFEA60 /* CustomTableViewCellTotal.m in Sources */,
 				EF5DBF002115960B00FFEA60 /* LogInViewController.m in Sources */,
 				EF5DBF872115960C00FFEA60 /* CustomTableViewCellRedemption.m in Sources */,
+				EF18421221FF10CA004452C5 /* OmiseAuthorizingPaymentViewController.swift in Sources */,
 				EF5DBF042115960B00FFEA60 /* DisputeFormViewController.m in Sources */,
 				EF5DBF942115960C00FFEA60 /* CustomTableViewCellImageText.m in Sources */,
+				EF1841CE21FF0FAA004452C5 /* ReportDaily.m in Sources */,
 				EF5DBF022115960B00FFEA60 /* PersonalDataViewController.m in Sources */,
 				EF5DBF392115960B00FFEA60 /* ReceiptPrint.m in Sources */,
 				EF5DBF542115960C00FFEA60 /* SharedMenuTypeNote.m in Sources */,
 				EF5DBF292115960B00FFEA60 /* HotDeal.m in Sources */,
 				EF5DBF2A2115960B00FFEA60 /* SharedCurrentOrderTaking.m in Sources */,
+				EF759FBE220027E300A6146F /* Communication.m in Sources */,
 				EF5DBF6D2115960C00FFEA60 /* CustomTableViewCellQuantity.m in Sources */,
 				EF5DBF1A2115960B00FFEA60 /* SharedPromotionMenu.m in Sources */,
 				EF5DBF552115960C00FFEA60 /* SharedDisputeReason.m in Sources */,
 				EF5DBF8C2115960C00FFEA60 /* CustomTableViewCellLabelText.m in Sources */,
 				EF5DBF0D2115960B00FFEA60 /* ConfirmDisputeViewController.m in Sources */,
+				EF18417621FF0F7D004452C5 /* CustomTableViewCellReportSummaryByDay.m in Sources */,
 				EF5DBF4B2115960C00FFEA60 /* OrderKitchen.m in Sources */,
 				EF5DBF132115960B00FFEA60 /* SharedReceiptPrint.m in Sources */,
 				EF5DBF312115960B00FFEA60 /* SharedCurrentMenu.m in Sources */,
@@ -1830,11 +2101,12 @@
 				EF5DBF182115960B00FFEA60 /* MenuType.m in Sources */,
 				EF5DBF9C2115960C00FFEA60 /* CustomTableViewCellButton.m in Sources */,
 				EF5DBF362115960B00FFEA60 /* Setting.m in Sources */,
+				EF18418621FF0F7D004452C5 /* CustomTableViewCellMonthYearBalance.m in Sources */,
 				EF5DBF752115960C00FFEA60 /* CustomTableViewHeaderLabel.m in Sources */,
 				EF5DBF3F2115960B00FFEA60 /* SharedPic.m in Sources */,
+				EF18421621FF10CA004452C5 /* OmiseCard.swift in Sources */,
 				EF5DBEFD2115960B00FFEA60 /* LaunchScreenViewController.m in Sources */,
 				EF5DBF572115960C00FFEA60 /* Promotion.m in Sources */,
-				EF880088213A77DF0062D9D4 /* CommonViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1916,6 +2188,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1975,6 +2248,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -2004,12 +2278,18 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Resource/StarMicronics",
 					"$(PROJECT_DIR)/Resource/Library/Star",
+					"$(PROJECT_DIR)/Resource/Library/StarMicronics",
 				);
 				INFOPLIST_FILE = JummumOM/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Resource/Library/Epson",
+					"$(PROJECT_DIR)/Resource/Library/GPrinter",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.JummumCo.JummumShop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2029,12 +2309,18 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Resource/StarMicronics",
 					"$(PROJECT_DIR)/Resource/Library/Star",
+					"$(PROJECT_DIR)/Resource/Library/StarMicronics",
 				);
 				INFOPLIST_FILE = JummumOM/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Resource/Library/Epson",
+					"$(PROJECT_DIR)/Resource/Library/GPrinter",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.JummumCo.JummumShop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2046,6 +2332,7 @@
 		EF5DBB9B211595EE00FFEA60 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DF8AZLDC5D;
@@ -2065,6 +2352,7 @@
 		EF5DBB9C211595EE00FFEA60 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DF8AZLDC5D;
@@ -2084,6 +2372,7 @@
 		EF5DBB9E211595EE00FFEA60 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DF8AZLDC5D;
 				INFOPLIST_FILE = JummumOMUITests/Info.plist;
@@ -2102,6 +2391,7 @@
 		EF5DBB9F211595EE00FFEA60 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DF8AZLDC5D;
 				INFOPLIST_FILE = JummumOMUITests/Info.plist;

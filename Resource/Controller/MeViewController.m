@@ -13,7 +13,12 @@
 #import "CustomTableViewCellLabelSwitch.h"
 #import "Branch.h"
 #import "Setting.h"
-
+#import "CustomerTable.h"
+#import "MenuType.h"
+#import "Menu.h"
+#import "NoteType.h"
+#import "Note.h"
+#import "PrinterMenu.h"
 
 @interface MeViewController ()
 {
@@ -56,10 +61,11 @@ static NSString * const reuseIdentifierLabelSwitch = @"CustomTableViewCellLabelS
     NSString *message = [Setting getValue:@"059m" example:@"ข้อกำหนดและเงื่อนไข"];
     NSString *message2 = [Setting getValue:@"060m" example:@"ตั้งค่าระบบการสั่งอาหารด้วยตนเอง"];
     NSString *message5 = [Setting getValue:@"104t" example:@"ตั้งค่าเครื่องพิมพ์"];
+    NSString *message6 = @"รายงาน";
     NSString *message3 = [Setting getValue:@"101m" example:@"ติดต่อ JUMMUM"];
     NSString *message4 = [Setting getValue:@"061m" example:@"Log out"];
-    _aboutUsList = @[message,message2,message5,message3,message4];
-    _aboutUsImageList = @[@"termsOfService.png",@"selfService.png",@"printer.png",@"contactUs.png",@"logOut.png"];
+    _aboutUsList = @[message,message2,message5,message6,message3,message4];
+    _aboutUsImageList = @[@"termsOfService.png",@"selfService.png",@"printer.png",@"report.png",@"contactUs.png",@"logOut.png"];
     tbvMe.delegate = self;
     tbvMe.dataSource = self;
     
@@ -195,11 +201,16 @@ static NSString * const reuseIdentifierLabelSwitch = @"CustomTableViewCellLabelS
             break;
             case 3:
             {
+                [self performSegueWithIdentifier:@"segReport" sender:self];
+            }
+                break;
+            case 4:
+            {
                 _pageType = 2;
                 [self performSegueWithIdentifier:@"segTosAndPrivacyPolicy" sender:self];
             }
                 break;
-            case 4:
+            case 5:
             {
                 [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"logInSession"];
                 [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"rememberMe"];
@@ -208,6 +219,7 @@ static NSString * const reuseIdentifierLabelSwitch = @"CustomTableViewCellLabelS
                 
                 
                 NSString *message = [Setting getValue:@"062m" example:@"ออกจากระบบสำเร็จ"];
+                [self removeBranchData];
                 [self showAlert:@"" message:message method:@selector(unwindToLogIn)];
             }
                 break;
@@ -243,5 +255,17 @@ static NSString * const reuseIdentifierLabelSwitch = @"CustomTableViewCellLabelS
 - (void)handleSingleTap:(UITapGestureRecognizer *)gestureRecognizer
 {
     [self performSegueWithIdentifier:@"segPersonalData" sender:self];
+}
+
+-(void)removeBranchData
+{
+    [Setting removeAllObjects];
+    [CustomerTable removeAllObjects];
+    [MenuType removeAllObjects];
+    [Menu removeAllObjects];
+    [NoteType removeAllObjects];
+    [Note removeAllObjects];
+    [Printer removeAllObjects];
+    [PrinterMenu removeAllObjects];
 }
 @end
