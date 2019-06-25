@@ -49,7 +49,7 @@ static NSString * const reuseIdentifierButtonDetail = @"CustomTableViewCellButto
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    if(textField.tag == 40)
+    if(textField.tag == 1)
     {
         NSString *strDate = textField.text;
         if([strDate isEqualToString:@""])
@@ -66,7 +66,7 @@ static NSString * const reuseIdentifierButtonDetail = @"CustomTableViewCellButto
 
 - (void)onDatePicked:(UITapGestureRecognizer *)gestureRecognizer
 {
-    UITextField *textField = (UITextField *)[self.view viewWithTag:40];
+    UITextField *textField = (UITextField *)[self.view viewWithTag:1];
     if([textField isFirstResponder])
     {
         NSDate *selectedDate = [Utility addMonth:picker.date numberOfMonth:1];
@@ -76,7 +76,7 @@ static NSString * const reuseIdentifierButtonDetail = @"CustomTableViewCellButto
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    if(textField.tag == 40)
+    if(textField.tag == 1)
     {
         _strSelectedMonthYear = textField.text;
         NSString *strMonthYear = [Utility formatDate:textField.text fromFormat:@"MMM yyyy" toFormat:@"yyyy-MM"];
@@ -108,6 +108,7 @@ static NSString * const reuseIdentifierButtonDetail = @"CustomTableViewCellButto
     tbvData.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     
+//    [picker setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
     [picker removeFromSuperview];
     
     
@@ -212,7 +213,7 @@ static NSString * const reuseIdentifierButtonDetail = @"CustomTableViewCellButto
             CustomTableViewCellMonthYear *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifierMonthYear];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             
-            cell.txtMonthYear.tag = 40;
+            cell.txtMonthYear.tag = 1;
             cell.txtMonthYear.delegate = self;
             cell.txtMonthYear.inputView = picker;
             [cell.txtMonthYear setInputAccessoryView:self.toolBar];

@@ -1338,7 +1338,7 @@ static NSString * const reuseIdentifierSeparatorLine = @"CustomTableViewCellSepa
             [self presentViewController:alert animated:YES completion:nil];
         }
         else
-        {
+        {            
             Receipt *receipt = receiptList[0];
             [self printReviewOrderBill:receipt];
         }
@@ -1545,7 +1545,7 @@ static NSString * const reuseIdentifierSeparatorLine = @"CustomTableViewCellSepa
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     NSMutableArray *printerSettingList = appDelegate.settingManager.settings;
     for(int i=0; i<[printerSettingList count]; i++)
-    {
+    {        
         NSMutableArray *printerOrderTakingList = [[NSMutableArray alloc]init];
         Printer *printer = _printerList[i];
         for(int j=0; j<[orderTakingList count]; j++)
@@ -1596,7 +1596,7 @@ static NSString * const reuseIdentifierSeparatorLine = @"CustomTableViewCellSepa
         
         if(printer.printerID == printReceiptAtPrinterNo)
         {
-            UIImage *imgReviewBill = [self screenCaptureBill:receipt];
+            UIImage *imgReviewBill = [self screenCaptureBill:receipt];         
             [imageToPrintList addObject:imgReviewBill];
         }
         

@@ -67,7 +67,7 @@
     else
     {
         NSString *title = [Setting getValue:@"002t" example:@"Oop!"];
-        NSString *message = [Setting getValue:@"003m" example:@"คุณต้องการส่งคำร้อง & คืนเงิน ใช่หรือไม่"];
+        NSString *message = [Setting getValue:@"002m" example:@"คุณต้องการส่งคำร้อง & คืนเงิน ใช่หรือไม่"];
         strMessageHeader = title;
         strMessageSubTitle = message;
     }

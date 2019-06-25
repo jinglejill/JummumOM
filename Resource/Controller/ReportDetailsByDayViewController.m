@@ -254,7 +254,7 @@ static NSString * const reuseIdentifierMonthYearBalance = @"CustomTableViewCellM
             
             float lblValueWidth = 80;
             cell.lblTitleWidth.constant = self.view.frame.size.width - 16 - lblValueWidth - 8;
-            [cell.lblTitle sizeToFit];
+            [cell.lblTitle sizeToFit];            
             cell.lblTitleHeight.constant = cell.lblTitle.frame.size.height;
             
             return cell;

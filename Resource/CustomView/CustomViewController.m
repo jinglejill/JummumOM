@@ -81,7 +81,7 @@ CGFloat animatedDistance;
 //    demoView.frame = frame;
 //    [self.view addSubview:demoView];
 //    demoView.layer.zPosition = 1;
-//    
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -1349,32 +1349,7 @@ CGFloat animatedDistance;
         {
     //        MessageView.showErrorEpos(result, method:"addCut")
             return false;
-        }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-//        result = [epsonPrinter addImage:image x:0 y:0 width:image.size.width height:image.size.height color:EPOS2_COLOR_1 mode:EPOS2_MODE_MONO halftone:EPOS2_HALFTONE_THRESHOLD brightness:(double)EPOS2_PARAM_DEFAULT compress:EPOS2_COMPRESS_AUTO];
-//
-//        if (result != EPOS2_SUCCESS)
-//        {
-//    //            MessageView.showErrorEpos(result, method:"addImage")
-//            return false;
-//        }
-//
-//
-//        result = [epsonPrinter addCut:EPOS2_CUT_FEED];
-//        if (result != EPOS2_SUCCESS)
-//        {
-//    //            MessageView.showErrorEpos(result, method:"addCut")
-//            return false;
-//        }
+        }        
     }
     
 

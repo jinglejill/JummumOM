@@ -138,7 +138,7 @@ static NSString * const reuseIdentifierHeaderFooterOkCancel = @"CustomTableViewH
     tbvData.separatorColor = [UIColor clearColor];
     tbvData.backgroundColor = [UIColor whiteColor];
     _dispute = [[Dispute alloc]init];
-    
+    _dispute.refundAmount = fromType == 3?receipt.netTotal:0;
     
     
     tbvAction.delegate = self;
@@ -195,11 +195,11 @@ static NSString * const reuseIdentifierHeaderFooterOkCancel = @"CustomTableViewH
     
     if([tableView isEqual:tbvData])
     {
-        if(fromType == 1 || fromType == 3)
-        {
-            return 3;
-        }
-        else if(fromType == 2 || fromType == 4)
+//        if(fromType == 1 || fromType == 3)
+//        {
+//            return 3;
+//        }
+//        else if(fromType == 2 || fromType == 4)
         {
             return 5;
         }
@@ -218,116 +218,116 @@ static NSString * const reuseIdentifierHeaderFooterOkCancel = @"CustomTableViewH
     
     if([tableView isEqual:tbvData])
     {
-        if(fromType == 1 || fromType == 3)
-        {
-            if(item == 0)
-            {
-                UITableViewCell *cell =  [tableView dequeueReusableCellWithIdentifier:@"cell"];
-                if (!cell) {
-                    cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-                }
-                cell.backgroundColor = [UIColor whiteColor];
-                
-                
-                NSString *message = [Setting getValue:@"021m" example:@"กรุณากรอกรายละเอียดด้านล่างนี้"];
-                cell.textLabel.text = message;
-                cell.textLabel.font = [UIFont fontWithName:@"Prompt-Regular" size:15];
-                cell.textLabel.textColor = cSystem4;;
-                
-                
-                return cell;
-            }
-            else if(item == 1)
-            {
-                CustomTableViewCellLabelText *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifierLabelText];
-                cell.selectionStyle = UITableViewCellSelectionStyleNone;
-                
-                
-                NSString *message = [Setting getValue:@"022m" example:@"เหตุผลในการขอคืนเงิน"];
-                NSString *strTitle = message;
-                
-                
-                
-                UIFont *font = [UIFont fontWithName:@"Prompt-Regular" size:15];
-                UIColor *color = cSystem2;
-                NSDictionary *attribute = @{NSForegroundColorAttributeName:color ,NSFontAttributeName: font};
-                NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:@"* " attributes:attribute];
-                
-                
-                UIFont *font2 = [UIFont fontWithName:@"Prompt-Regular" size:15];
-                UIColor *color2 = cSystem4;
-                NSDictionary *attribute2 = @{NSForegroundColorAttributeName:color2 ,NSFontAttributeName: font2};
-                NSMutableAttributedString *attrString2 = [[NSMutableAttributedString alloc] initWithString:strTitle attributes:attribute2];
-                
-                
-                [attrString appendAttributedString:attrString2];
-                cell.lblTitle.attributedText = attrString;
-                
-                
-                
-                NSString *message2 = [Setting getValue:@"023m" example:@"กรุณาเลือกเหตุผลในการขอเงินคืน"];
-                cell.txtValue.tag = item;
-                cell.txtValue.placeholder = message2;
-                cell.txtValue.delegate = self;
-                cell.txtValue.inputView = pickerVw;
-                [cell.txtValue setInputAccessoryView:self.toolBar];
-                [cell.txtValue removeTarget:self action:nil forControlEvents:UIControlEventAllEvents];
-                
-                
-                DisputeReason *disputeReason = [DisputeReason getDisputeReason:_dispute.disputeReasonID];
-                cell.txtValue.text = disputeReason.text;
-                cell.lblRemark.text = @"";
-                
-                
-                return cell;
-            }
-            else if(item == 2)
-            {
-                CustomTableViewCellLabelText *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifierLabelText];
-                cell.selectionStyle = UITableViewCellSelectionStyleNone;
-                
-                
-                NSString *title = [Setting getValue:@"024t" example:@"เบอร์โทร."];
-                NSString *message = [Setting getValue:@"024m" example:@"กรุณาใส่เบอร์โทรติดต่อกลับ เพื่อเจ้าหน้าที่จะโทรสอบถามข้อมูลเพิ่มเติมสำหรับการโอนเงินคืนท่าน"];
-                NSString *strTitle = title;
-                NSString *strRemark = message;
-                
-                
-                
-                UIFont *font = [UIFont fontWithName:@"Prompt-Regular" size:15];
-                UIColor *color = cSystem2;
-                NSDictionary *attribute = @{NSForegroundColorAttributeName:color ,NSFontAttributeName: font};
-                NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:@"* " attributes:attribute];
-                
-                
-                UIFont *font2 = [UIFont fontWithName:@"Prompt-Regular" size:15];
-                UIColor *color2 = cSystem4;
-                NSDictionary *attribute2 = @{NSForegroundColorAttributeName:color2 ,NSFontAttributeName: font2};
-                NSMutableAttributedString *attrString2 = [[NSMutableAttributedString alloc] initWithString:strTitle attributes:attribute2];
-                
-                
-                [attrString appendAttributedString:attrString2];
-                cell.lblTitle.attributedText = attrString;
-                
-                
-                
-                cell.txtValue.tag = 4;
-                cell.txtValue.delegate = self;
-                cell.txtValue.placeholder = @"xxx-xxx-xxx";
-                cell.txtValue.text = [Utility setPhoneNoFormat:_dispute.phoneNo];
-                cell.txtValue.keyboardType = UIKeyboardTypePhonePad;
-                [cell.txtValue setInputAccessoryView:self.toolBar];
-                [cell.txtValue addTarget:self action:@selector(txtPhoneNoDidChange:) forControlEvents:UIControlEventEditingChanged];
-                
-                
-                cell.lblRemark.text = strRemark;
-                [cell.lblRemark sizeToFit];
-                cell.lblRemarkHeight.constant = cell.lblRemark.frame.size.height;
-                
-                return cell;
-            }
-        }
-        else if(fromType == 2 || fromType == 4)
+//        if(fromType == 1 || fromType == 3)
+//        {
+//            if(item == 0)
+//            {
+//                UITableViewCell *cell =  [tableView dequeueReusableCellWithIdentifier:@"cell"];
+//                if (!cell) {
+//                    cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+//                }
+//                cell.backgroundColor = [UIColor whiteColor];
+//
+//
+//                NSString *message = [Setting getValue:@"021m" example:@"กรุณากรอกรายละเอียดด้านล่างนี้"];
+//                cell.textLabel.text = message;
+//                cell.textLabel.font = [UIFont fontWithName:@"Prompt-Regular" size:15];
+//                cell.textLabel.textColor = cSystem4;;
+//
+//
+//                return cell;
+//            }
+//            else if(item == 1)
+//            {
+//                CustomTableViewCellLabelText *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifierLabelText];
+//                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//
+//
+//                NSString *message = [Setting getValue:@"022m" example:@"เหตุผลในการขอคืนเงิน"];
+//                NSString *strTitle = message;
+//
+//
+//
+//                UIFont *font = [UIFont fontWithName:@"Prompt-Regular" size:15];
+//                UIColor *color = cSystem2;
+//                NSDictionary *attribute = @{NSForegroundColorAttributeName:color ,NSFontAttributeName: font};
+//                NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:@"* " attributes:attribute];
+//
+//
+//                UIFont *font2 = [UIFont fontWithName:@"Prompt-Regular" size:15];
+//                UIColor *color2 = cSystem4;
+//                NSDictionary *attribute2 = @{NSForegroundColorAttributeName:color2 ,NSFontAttributeName: font2};
+//                NSMutableAttributedString *attrString2 = [[NSMutableAttributedString alloc] initWithString:strTitle attributes:attribute2];
+//
+//
+//                [attrString appendAttributedString:attrString2];
+//                cell.lblTitle.attributedText = attrString;
+//
+//
+//
+//                NSString *message2 = [Setting getValue:@"023m" example:@"กรุณาเลือกเหตุผลในการขอเงินคืน"];
+//                cell.txtValue.tag = item;
+//                cell.txtValue.placeholder = message2;
+//                cell.txtValue.delegate = self;
+//                cell.txtValue.inputView = pickerVw;
+//                [cell.txtValue setInputAccessoryView:self.toolBar];
+//                [cell.txtValue removeTarget:self action:nil forControlEvents:UIControlEventAllEvents];
+//
+//
+//                DisputeReason *disputeReason = [DisputeReason getDisputeReason:_dispute.disputeReasonID];
+//                cell.txtValue.text = disputeReason.text;
+//                cell.lblRemark.text = @"";
+//
+//
+//                return cell;
+//            }
+//            else if(item == 2)
+//            {
+//                CustomTableViewCellLabelText *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifierLabelText];
+//                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//
+//
+//                NSString *title = [Setting getValue:@"024t" example:@"เบอร์โทร."];
+//                NSString *message = [Setting getValue:@"024m" example:@"กรุณาใส่เบอร์โทรติดต่อกลับ เพื่อเจ้าหน้าที่จะโทรสอบถามข้อมูลเพิ่มเติมสำหรับการโอนเงินคืนท่าน"];
+//                NSString *strTitle = title;
+//                NSString *strRemark = message;
+//
+//
+//
+//                UIFont *font = [UIFont fontWithName:@"Prompt-Regular" size:15];
+//                UIColor *color = cSystem2;
+//                NSDictionary *attribute = @{NSForegroundColorAttributeName:color ,NSFontAttributeName: font};
+//                NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:@"* " attributes:attribute];
+//
+//
+//                UIFont *font2 = [UIFont fontWithName:@"Prompt-Regular" size:15];
+//                UIColor *color2 = cSystem4;
+//                NSDictionary *attribute2 = @{NSForegroundColorAttributeName:color2 ,NSFontAttributeName: font2};
+//                NSMutableAttributedString *attrString2 = [[NSMutableAttributedString alloc] initWithString:strTitle attributes:attribute2];
+//
+//
+//                [attrString appendAttributedString:attrString2];
+//                cell.lblTitle.attributedText = attrString;
+//
+//
+//
+//                cell.txtValue.tag = 4;
+//                cell.txtValue.delegate = self;
+//                cell.txtValue.placeholder = @"xxx-xxx-xxx";
+//                cell.txtValue.text = [Utility setPhoneNoFormat:_dispute.phoneNo];
+//                cell.txtValue.keyboardType = UIKeyboardTypePhonePad;
+//                [cell.txtValue setInputAccessoryView:self.toolBar];
+//                [cell.txtValue addTarget:self action:@selector(txtPhoneNoDidChange:) forControlEvents:UIControlEventEditingChanged];
+//
+//
+//                cell.lblRemark.text = strRemark;
+//                [cell.lblRemark sizeToFit];
+//                cell.lblRemarkHeight.constant = cell.lblRemark.frame.size.height;
+//
+//                return cell;
+//            }
+//        }
+//        else if(fromType == 2 || fromType == 4)
         {
             if(item == 0)
             {
@@ -548,29 +548,29 @@ static NSString * const reuseIdentifierHeaderFooterOkCancel = @"CustomTableViewH
     NSInteger item = indexPath.item;
     if([tableView isEqual:tbvData])
     {
-        if(fromType == 1 || fromType == 3)
-        {
-            if(item == 0)
-            {
-                return 44;
-            }
-            else if(item == 1)
-            {
-                return 122-8-16-8;
-            }
-            else if(item == 2)
-            {
-                NSString *message = [Setting getValue:@"024m" example:@"กรุณาใส่เบอร์โทรติดต่อกลับ เพื่อเจ้าหน้าที่จะโทรสอบถามข้อมูลเพิ่มเติมสำหรับการโอนเงินคืนท่าน"];
-                CustomTableViewCellLabelText *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifierLabelText];
-                NSString *strRemark = message;
-                
-                
-                cell.lblRemark.text = strRemark;
-                [cell.lblRemark sizeToFit];
-                return 122-16+cell.lblRemark.frame.size.height-8;
-            }
-        }
-        else if(fromType == 2 || fromType == 4)
+//        if(fromType == 1 || fromType == 3)
+//        {
+//            if(item == 0)
+//            {
+//                return 44;
+//            }
+//            else if(item == 1)
+//            {
+//                return 122-8-16-8;
+//            }
+//            else if(item == 2)
+//            {
+//                NSString *message = [Setting getValue:@"024m" example:@"กรุณาใส่เบอร์โทรติดต่อกลับ เพื่อเจ้าหน้าที่จะโทรสอบถามข้อมูลเพิ่มเติมสำหรับการโอนเงินคืนท่าน"];
+//                CustomTableViewCellLabelText *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifierLabelText];
+//                NSString *strRemark = message;
+//
+//
+//                cell.lblRemark.text = strRemark;
+//                [cell.lblRemark sizeToFit];
+//                return 122-16+cell.lblRemark.frame.size.height-8;
+//            }
+//        }
+//        else if(fromType == 2 || fromType == 4)
         {
             if(item == 0)
             {
@@ -662,30 +662,30 @@ static NSString * const reuseIdentifierHeaderFooterOkCancel = @"CustomTableViewH
         [DisputeReason setSharedData:items[0]];
         [tbvData reloadData];
     }
-    else if(self.homeModel.propCurrentDB == dbReceipt)
-    {
-        [self removeOverlayViews];
-        NSMutableArray *receiptList = items[0];
-        Receipt *downloadReceipt = receiptList[0];
-        if(fromType == 3 && downloadReceipt.status == 2)
-        {
-            [self submit];
-        }
-        else if(fromType == 4 && (downloadReceipt.status == 5 || downloadReceipt.status == 6))
-        {
-            [self submit];
-        }
-        else
-        {
-            NSString *message = [Setting getValue:@"025m" example:@"สถานะบิลนี้มีการเปลี่ยนแปลง กรุณาตรวจสอบอีกครั้งก่อนทำรายการ"];
-            receipt.status = downloadReceipt.status;
-            receipt.statusRoute = downloadReceipt.statusRoute;
-            receipt.modifiedUser = downloadReceipt.modifiedUser;
-            receipt.modifiedDate = downloadReceipt.modifiedDate;
-            NSString *strMessage = message;
-            [self showAlert:@"" message:strMessage method:@selector(goBack:)];
-        }
-    }
+//    else if(self.homeModel.propCurrentDB == dbReceipt)
+//    {
+//        [self removeOverlayViews];
+//        NSMutableArray *receiptList = items[0];
+//        Receipt *downloadReceipt = receiptList[0];
+//        if(fromType == 3 && downloadReceipt.status == 2)
+//        {
+//            [self submit];
+//        }
+//        else if(fromType == 4 && (downloadReceipt.status == 5 || downloadReceipt.status == 6))
+//        {
+//            [self submit];
+//        }
+//        else
+//        {
+//            NSString *message = [Setting getValue:@"025m" example:@"สถานะบิลนี้มีการเปลี่ยนแปลง กรุณาตรวจสอบอีกครั้งก่อนทำรายการ"];
+//            receipt.status = downloadReceipt.status;
+//            receipt.statusRoute = downloadReceipt.statusRoute;
+//            receipt.modifiedUser = downloadReceipt.modifiedUser;
+//            receipt.modifiedDate = downloadReceipt.modifiedDate;
+//            NSString *strMessage = message;
+//            [self showAlert:@"" message:strMessage method:@selector(goBack:)];
+//        }
+//    }
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow: (NSInteger)row inComponent:(NSInteger)component
@@ -752,50 +752,75 @@ static NSString * const reuseIdentifierHeaderFooterOkCancel = @"CustomTableViewH
 
 -(void)submit:(id)sender
 {
-    if(fromType == 3)
-    {
-        [self.view endEditing:YES];
-        if(![self validate])
-        {
-            return;
-        }
-        
-        
-        [self loadingOverlayView];
-        _dispute.receiptID = receipt.receiptID;
-        _dispute.type = fromType;
-        _dispute.modifiedUser = [Utility modifiedUser];
-        _dispute.modifiedDate = [Utility currentDateTime];
-        
-
-        [self.homeModel insertItems:dbDisputeCancel withData:@[_dispute,@([Branch getCurrentBranch].branchID)] actionScreen:@"insert dispute cancel"];
-    }
-    else if(fromType == 4)
-    {
-        [self submit];
-    }
-}
-
--(void)submit
-{
+//    if(fromType == 3)
+//    {
+//        [self.view endEditing:YES];
+//        if(![self validate])
+//        {
+//            return;
+//        }
+//
+//
+//        [self loadingOverlayView];
+//        _dispute.receiptID = receipt.receiptID;
+//        _dispute.type = fromType;
+////        _dispute.refundAmount = receipt.netTotal;
+//        _dispute.modifiedUser = [Utility modifiedUser];
+//        _dispute.modifiedDate = [Utility currentDateTime];
+//
+//
+//        [self.homeModel insertItems:dbDisputeCancel withData:@[_dispute,@([Branch getCurrentBranch].branchID)] actionScreen:@"insert dispute cancel"];
+//    }
+//    else if(fromType == 4)
+//    {
+//        [self submit];
+//    }
+    
+    
+    
     [self.view endEditing:YES];
-    
-    
     if(![self validate])
     {
         return;
     }
+
+
     [self loadingOverlayView];
-    
-    
     _dispute.receiptID = receipt.receiptID;
-    _dispute.type = fromType;//==3?1:2;
+    _dispute.type = fromType;
+//        _dispute.refundAmount = receipt.netTotal;
     _dispute.modifiedUser = [Utility modifiedUser];
     _dispute.modifiedDate = [Utility currentDateTime];
-    
-
-    [self.homeModel insertItems:dbDispute withData:@[_dispute,@(receipt.branchID)] actionScreen:@"insert dispute"];
+    if(fromType == 3)
+    {
+        [self.homeModel insertItems:dbDisputeCancel withData:@[_dispute,@([Branch getCurrentBranch].branchID)] actionScreen:@"insert dispute cancel"];
+    }
+    else if(fromType == 4)
+    {
+        [self.homeModel insertItems:dbDispute withData:@[_dispute,@(receipt.branchID)] actionScreen:@"insert dispute"];
+    }
 }
+
+//-(void)submit
+//{
+//    [self.view endEditing:YES];
+//
+//
+//    if(![self validate])
+//    {
+//        return;
+//    }
+//    [self loadingOverlayView];
+//
+//
+//    _dispute.receiptID = receipt.receiptID;
+//    _dispute.type = fromType;//==3?1:2;
+//    _dispute.modifiedUser = [Utility modifiedUser];
+//    _dispute.modifiedDate = [Utility currentDateTime];
+//
+//
+//    [self.homeModel insertItems:dbDispute withData:@[_dispute,@(receipt.branchID)] actionScreen:@"insert dispute"];
+//}
 
 -(void)cancel:(id)sender
 {
@@ -804,29 +829,29 @@ static NSString * const reuseIdentifierHeaderFooterOkCancel = @"CustomTableViewH
 
 -(BOOL)validate
 {
-    if(fromType == 3)
-    {
-        {
-            UITextField *textField = [self.view viewWithTag:1];
-            if([Utility isStringEmpty:textField.text])
-            {
-                NSString *message = [Setting getValue:@"026m" example:@"กรุณาเลือกเหตุผลที่ขอคืนเงิน"];
-                [self blinkAlertMsg:message];
-                return NO;
-            }
-        }       
-        
-        {
-            UITextField *textField = [self.view viewWithTag:4];
-            if([Utility isStringEmpty:textField.text])
-            {
-                NSString *message = [Setting getValue:@"027m" example:@"กรุณาใส่เบอร์โทร"];
-                [self blinkAlertMsg:message];
-                return NO;
-            }
-        }
-    }
-    else if(fromType == 4)
+//    if(fromType == 3)
+//    {
+//        {
+//            UITextField *textField = [self.view viewWithTag:1];
+//            if([Utility isStringEmpty:textField.text])
+//            {
+//                NSString *message = [Setting getValue:@"026m" example:@"กรุณาเลือกเหตุผลที่ขอคืนเงิน"];
+//                [self blinkAlertMsg:message];
+//                return NO;
+//            }
+//        }
+//
+//        {
+//            UITextField *textField = [self.view viewWithTag:4];
+//            if([Utility isStringEmpty:textField.text])
+//            {
+//                NSString *message = [Setting getValue:@"027m" example:@"กรุณาใส่เบอร์โทร"];
+//                [self blinkAlertMsg:message];
+//                return NO;
+//            }
+//        }
+//    }
+//    else if(fromType == 4)
     {
         {
             UITextField *textField = [self.view viewWithTag:1];
@@ -923,7 +948,7 @@ static NSString * const reuseIdentifierHeaderFooterOkCancel = @"CustomTableViewH
 
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
-    NSInteger textFieldTag = fromType == 3?2:4;
+    NSInteger textFieldTag = 4;//fromType == 3?2:4;
         
     if(textField.tag == textFieldTag)
     {
@@ -938,7 +963,7 @@ static NSString * const reuseIdentifierHeaderFooterOkCancel = @"CustomTableViewH
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField
 {
-    NSInteger textFieldTag = fromType == 3?2:4;
+    NSInteger textFieldTag = 4;//fromType == 3?2:4;
     
     if(textField.tag == textFieldTag)
     {
