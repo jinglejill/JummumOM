@@ -8,6 +8,8 @@
 
 #import "InvoiceComposer.h"
 #import "Utility.h"
+#import "Setting.h"
+#import "Branch.h"
 //#import "ReportEndDay.h"
 
 
@@ -85,63 +87,6 @@
     {
         htmlContent = [htmlContent stringByReplacingOccurrencesOfString:@"#HIDE#" withString:@""];
     }
-    
-    
-    
-//    //items part
-//    NSString *allItems = @"";
-////    for(int i=0; i<[items count]; i++)
-//    for(int i=0; i<1; i++)
-//    {
-//        NSString *itemHtmlContent = [NSString stringWithContentsOfFile:_pathToItemsTotalHtml
-//                                                              encoding:NSUTF8StringEncoding
-//                                                                 error:NULL];
-//        
-//        
-//        NSDictionary *dicItem = items[i];
-//        itemHtmlContent = [itemHtmlContent stringByReplacingOccurrencesOfString:@"#QUANTITY#" withString:[dicItem valueForKey:@"quantity"]];
-//        itemHtmlContent = [itemHtmlContent stringByReplacingOccurrencesOfString:@"#TAKE_AWAY#" withString:[dicItem valueForKey:@"takeAway"]];
-//        itemHtmlContent = [itemHtmlContent stringByReplacingOccurrencesOfString:@"#MENU#" withString:[dicItem valueForKey:@"menu"]];
-//        
-//        
-//        
-//        //removeTypeNote
-//        NSString *strRemoveTypeNote = [dicItem valueForKey:@"removeTypeNote"];
-//        if([Utility isStringEmpty:strRemoveTypeNote])
-//        {
-//            itemHtmlContent = [itemHtmlContent stringByReplacingOccurrencesOfString:@"#REMOVE_TYPE_NOTE#" withString:@""];
-//        }
-//        else
-//        {
-//            strRemoveTypeNote = [NSString stringWithFormat:@"<br><span style='font-size: 22px;'><u>ไม่ใส่</u> %@</span>",strRemoveTypeNote];
-//            itemHtmlContent = [itemHtmlContent stringByReplacingOccurrencesOfString:@"#REMOVE_TYPE_NOTE#" withString:strRemoveTypeNote];
-//        }
-//        
-//        
-//        //addTypeNote
-//        NSString *strAddTypeNote = [dicItem valueForKey:@"addTypeNote"];
-//        if([Utility isStringEmpty:strAddTypeNote])
-//        {
-//            itemHtmlContent = [itemHtmlContent stringByReplacingOccurrencesOfString:@"#ADD_TYPE_NOTE#" withString:@""];
-//        }
-//        else
-//        {
-//            strAddTypeNote = [NSString stringWithFormat:@"<br><span style='font-size: 22px;'><u>เพิ่ม</u> %@</span>",strAddTypeNote];
-//            itemHtmlContent = [itemHtmlContent stringByReplacingOccurrencesOfString:@"#ADD_TYPE_NOTE#" withString:strAddTypeNote];
-//        }
-//        
-//        
-//        
-//        itemHtmlContent = [itemHtmlContent stringByReplacingOccurrencesOfString:@"#PRO#" withString:[dicItem valueForKey:@"pro"]];
-////        itemHtmlContent = [itemHtmlContent stringByReplacingOccurrencesOfString:@"#TOTAL_PRICE_PER_ITEM#" withString:[dicItem valueForKey:@"totalPricePerItem"]];
-//        itemHtmlContent = [itemHtmlContent stringByReplacingOccurrencesOfString:@"#TOTAL_PRICE_PER_ITEM#" withString:subTotalAmount];
-//        
-//        
-//        allItems = [NSString stringWithFormat:@"%@%@",allItems,itemHtmlContent];
-//    }
-//    
-//    htmlContent = [htmlContent stringByReplacingOccurrencesOfString:@"#ITEMS#" withString:allItems];
-    
     
     
     //pay by cash part
@@ -262,7 +207,9 @@
         }
         else
         {
-            strRemoveTypeNote = [NSString stringWithFormat:@"<br><span style='font-size: 22px;'><u>ไม่ใส่</u> %@</span>",strRemoveTypeNote];
+            Branch *branch = [Branch getCurrentBranch];
+            NSString *message = branch.wordNo;
+            strRemoveTypeNote = [NSString stringWithFormat:@"<br><span style='font-size: 22px;'><u>%@</u> %@</span>",message,strRemoveTypeNote];
             itemHtmlContent = [itemHtmlContent stringByReplacingOccurrencesOfString:@"#REMOVE_TYPE_NOTE#" withString:strRemoveTypeNote];
         }
         
@@ -275,7 +222,9 @@
         }
         else
         {
-            strAddTypeNote = [NSString stringWithFormat:@"<br><span style='font-size: 22px;'><u>เพิ่ม</u> %@</span>",strAddTypeNote];
+            Branch *branch = [Branch getCurrentBranch];
+            NSString *message = branch.wordAdd;
+            strAddTypeNote = [NSString stringWithFormat:@"<br><span style='font-size: 22px;'><u>%@</u> %@</span>",message,strAddTypeNote];
             itemHtmlContent = [itemHtmlContent stringByReplacingOccurrencesOfString:@"#ADD_TYPE_NOTE#" withString:strAddTypeNote];
         }
         
@@ -424,7 +373,9 @@
         }
         else
         {
-            strRemoveTypeNote = [NSString stringWithFormat:@"<br><span style='font-size: 22px;'><u>ไม่ใส่</u> %@</span>",strRemoveTypeNote];
+            Branch *branch = [Branch getCurrentBranch];
+            NSString *message = branch.wordNo;
+            strRemoveTypeNote = [NSString stringWithFormat:@"<br><span style='font-size: 22px;'><u>%@</u> %@</span>",message,strRemoveTypeNote];
             itemHtmlContent = [itemHtmlContent stringByReplacingOccurrencesOfString:@"#REMOVE_TYPE_NOTE#" withString:strRemoveTypeNote];
         }
         
@@ -437,7 +388,9 @@
         }
         else
         {
-            strAddTypeNote = [NSString stringWithFormat:@"<br><span style='font-size: 22px;'><u>เพิ่ม</u> %@</span>",strAddTypeNote];
+            Branch *branch = [Branch getCurrentBranch];
+            NSString *message = branch.wordAdd;
+            strAddTypeNote = [NSString stringWithFormat:@"<br><span style='font-size: 22px;'><u>%@</u> %@</span>",message,strAddTypeNote];
             itemHtmlContent = [itemHtmlContent stringByReplacingOccurrencesOfString:@"#ADD_TYPE_NOTE#" withString:strAddTypeNote];
         }
         
@@ -509,7 +462,9 @@
         }
         else
         {
-            strRemoveTypeNote = [NSString stringWithFormat:@"<br><span style='font-size: 22px;'><u>ไม่ใส่</u> %@</span>",strRemoveTypeNote];
+            Branch *branch = [Branch getCurrentBranch];
+            NSString *message = branch.wordNo;
+            strRemoveTypeNote = [NSString stringWithFormat:@"<br><span style='font-size: 22px;'><u>%@</u> %@</span>",message,strRemoveTypeNote];
             itemHtmlContent = [itemHtmlContent stringByReplacingOccurrencesOfString:@"#REMOVE_TYPE_NOTE#" withString:strRemoveTypeNote];
         }
         
@@ -522,7 +477,9 @@
         }
         else
         {
-            strAddTypeNote = [NSString stringWithFormat:@"<br><span style='font-size: 22px;'><u>เพิ่ม</u> %@</span>",strAddTypeNote];
+            Branch *branch = [Branch getCurrentBranch];
+            NSString *message = branch.wordAdd;
+            strAddTypeNote = [NSString stringWithFormat:@"<br><span style='font-size: 22px;'><u>%@</u> %@</span>",message,strAddTypeNote];
             itemHtmlContent = [itemHtmlContent stringByReplacingOccurrencesOfString:@"#ADD_TYPE_NOTE#" withString:strAddTypeNote];
         }
         
@@ -632,7 +589,9 @@
         }
         else
         {
-            strRemoveTypeNote = [NSString stringWithFormat:@"<br><span style='font-size: 40px;'><u>ไม่ใส่</u> %@</span>",strRemoveTypeNote];
+            Branch *branch = [Branch getCurrentBranch];
+            NSString *message = branch.wordNo;
+            strRemoveTypeNote = [NSString stringWithFormat:@"<br><span style='font-size: 40px;'><u>%@</u> %@</span>",message,strRemoveTypeNote];
             
             
             if(strRemoveTypeNote)
@@ -655,7 +614,9 @@
         }
         else
         {
-            strAddTypeNote = [NSString stringWithFormat:@"<br><span style='font-size: 40px;'><u>เพิ่ม</u> %@</span>",strAddTypeNote];
+            Branch *branch = [Branch getCurrentBranch];
+            NSString *message = branch.wordAdd;
+            strAddTypeNote = [NSString stringWithFormat:@"<br><span style='font-size: 40px;'><u>%@</u> %@</span>",message,strAddTypeNote];
             
             
             if(strAddTypeNote)
@@ -705,392 +666,5 @@
     
     return htmlContent;
 }
-//- (NSString *)renderKitchenBillWithRestaurantName:(NSString *)restaurantName customerType:(NSString *)customerType waiterName:(NSString *)waiterName menuType:(NSString *)menuType sequenceNo:(NSString *)sequenceNo sendToKitchenTime:(NSString *)sendToKitchenTime totalQuantity:(NSString *)totalQuantity items:(NSMutableArray *)items
-//{
-//    NSString* htmlContent = [NSString stringWithContentsOfFile:_pathToKitchenBillHtml
-//                                                      encoding:NSUTF8StringEncoding
-//                                                         error:NULL];
-//
-//    htmlContent = [htmlContent stringByReplacingOccurrencesOfString:@"#RESTAURANT_NAME#" withString:restaurantName];
-//    htmlContent = [htmlContent stringByReplacingOccurrencesOfString:@"#CUSTOMER_TYPE#" withString:customerType];
-//    htmlContent = [htmlContent stringByReplacingOccurrencesOfString:@"#WAITER_NAME#" withString:waiterName];
-//    htmlContent = [htmlContent stringByReplacingOccurrencesOfString:@"#MENU_TYPE#" withString:menuType];
-//    htmlContent = [htmlContent stringByReplacingOccurrencesOfString:@"#SEQUENCE_NO#" withString:sequenceNo];
-//    htmlContent = [htmlContent stringByReplacingOccurrencesOfString:@"#SEND_TO_KITCHEN_TIME#" withString:sendToKitchenTime];
-//    
-//    
-//    htmlContent = [htmlContent stringByReplacingOccurrencesOfString:@"#TOTAL_QUANTITY#" withString:totalQuantity];
-//    
-//    
-//    
-//    //items part
-//    NSString *allItems = @"";
-//    for(int i=0; i<[items count]; i++)
-//    {
-//        NSString *itemHtmlContent = [NSString stringWithContentsOfFile:_pathToKitchenItemsHtml
-//                                                              encoding:NSUTF8StringEncoding
-//                                                                 error:NULL];
-//        
-//        NSDictionary *dicItem = items[i];
-//        itemHtmlContent = [itemHtmlContent stringByReplacingOccurrencesOfString:@"#QUANTITY#" withString:[dicItem valueForKey:@"quantity"]];
-//        itemHtmlContent = [itemHtmlContent stringByReplacingOccurrencesOfString:@"#TAKE_AWAY#" withString:[dicItem valueForKey:@"takeAway"]];
-//        itemHtmlContent = [itemHtmlContent stringByReplacingOccurrencesOfString:@"#MENU#" withString:[dicItem valueForKey:@"menu"]];
-//        
-//        //removeTypeNote
-//        NSString *strRemoveTypeNote = [dicItem valueForKey:@"removeTypeNote"];
-//        if([Utility isStringEmpty:strRemoveTypeNote])
-//        {
-//            itemHtmlContent = [itemHtmlContent stringByReplacingOccurrencesOfString:@"#REMOVE_TYPE_NOTE#" withString:@""];
-//        }
-//        else
-//        {
-//            strRemoveTypeNote = [NSString stringWithFormat:@"<br><span style='font-size: 40px;'><u>ไม่ใส่</u> %@</span>",strRemoveTypeNote];
-//            itemHtmlContent = [itemHtmlContent stringByReplacingOccurrencesOfString:@"#REMOVE_TYPE_NOTE#" withString:strRemoveTypeNote];
-//        }
-//        
-//        
-//        //addTypeNote
-//        NSString *strAddTypeNote = [dicItem valueForKey:@"addTypeNote"];
-//        if([Utility isStringEmpty:strAddTypeNote])
-//        {
-//            itemHtmlContent = [itemHtmlContent stringByReplacingOccurrencesOfString:@"#ADD_TYPE_NOTE#" withString:@""];
-//        }
-//        else
-//        {
-//            strAddTypeNote = [NSString stringWithFormat:@"<br><span style='font-size: 40px;'><u>เพิ่ม</u> %@</span>",strAddTypeNote];
-//            itemHtmlContent = [itemHtmlContent stringByReplacingOccurrencesOfString:@"#ADD_TYPE_NOTE#" withString:strAddTypeNote];
-//        }
-//        
-//        
-//        itemHtmlContent = [itemHtmlContent stringByReplacingOccurrencesOfString:@"#PRO#" withString:[dicItem valueForKey:@"pro"]];
-//        itemHtmlContent = [itemHtmlContent stringByReplacingOccurrencesOfString:@"#TOTAL_PRICE_PER_ITEM#" withString:[dicItem valueForKey:@"totalPricePerItem"]];
-//        
-//        
-//        allItems = [NSString stringWithFormat:@"%@%@",allItems,itemHtmlContent];
-//    }
-//    
-//    htmlContent = [htmlContent stringByReplacingOccurrencesOfString:@"#ITEMS#" withString:allItems];
-//    
-//    
-//    return htmlContent;
-//}
-
-//- (NSString *)renderReportEndDayWithRestaurantName:(NSString *)restaurantName endDayDate:(NSString *)endDayDate reportEndDayList:(NSMutableArray *)reportEndDayList salesAndDiscountList:(NSMutableArray *)salesAndDiscountList countReceiptAndServingPersonList:(NSMutableArray *)countReceiptAndServingPersonList cashAmountList:(NSMutableArray *)cashAmountList creditCardAmountList:(NSMutableArray *)creditCardAmountList
-//{
-//    NSString* htmlContent = [NSString stringWithContentsOfFile:_pathToEndDayHtml
-//                                                      encoding:NSUTF8StringEncoding
-//                                                         error:NULL];
-//
-//    htmlContent = [htmlContent stringByReplacingOccurrencesOfString:@"#RESTAURANT_NAME#" withString:restaurantName];
-//    htmlContent = [htmlContent stringByReplacingOccurrencesOfString:@"#END_DAY_DATE#" withString:endDayDate];
-//
-//
-//
-//    //items part
-//    int i=0;
-//    NSString *allSalesBySubMenuTypeHtmlContent = @"";
-//    NSString *previousCustomerType = @"";
-//    NSString *previousMenuType = @"";
-//    NSString *previousSubMenuType = @"";
-//    NSInteger previousCustomerTypeID = 0;
-//    for(ReportEndDay *item in reportEndDayList)
-//    {
-//        if(![item.customerType isEqualToString:previousCustomerType])
-//        {
-//            //customer type
-//            NSString *customerTypeHtmlContent = [NSString stringWithContentsOfFile:_pathToEndDayCustomerTypeHtml
-//                                                                          encoding:NSUTF8StringEncoding
-//                                                                             error:NULL];
-//            customerTypeHtmlContent = [customerTypeHtmlContent stringByReplacingOccurrencesOfString:@"#CUSTOMER_TYPE#" withString:item.customerType];
-//
-//
-//            allSalesBySubMenuTypeHtmlContent = [NSString stringWithFormat:@"%@%@",allSalesBySubMenuTypeHtmlContent,customerTypeHtmlContent];
-//
-//
-//
-//
-//            //menu type
-//            NSInteger quantity = [ReportEndDay getSumQuantityWithCustomerTypeID:item.customerTypeID menuTypeID:item.menuTypeID reportEndDayList:reportEndDayList];
-//            float sales = [ReportEndDay getSumSalesWithCustomerTypeID:item.customerTypeID menuTypeID:item.menuTypeID reportEndDayList:reportEndDayList];
-//            NSString *strQuantity = [Utility formatDecimal:quantity withMinFraction:0 andMaxFraction:0];
-//            NSString *strSales = [Utility formatDecimal:sales withMinFraction:2 andMaxFraction:2];
-//            NSString *menuTypeHtmlContent = [NSString stringWithContentsOfFile:_pathToEndDayMenuTypeHtml
-//                                                                      encoding:NSUTF8StringEncoding
-//                                                                         error:NULL];
-//            menuTypeHtmlContent = [menuTypeHtmlContent stringByReplacingOccurrencesOfString:@"#QUANTITY#" withString:strQuantity];
-//            menuTypeHtmlContent = [menuTypeHtmlContent stringByReplacingOccurrencesOfString:@"#MENU#" withString:item.menuType];
-//            menuTypeHtmlContent = [menuTypeHtmlContent stringByReplacingOccurrencesOfString:@"#SALES#" withString:strSales];
-//
-//
-//            allSalesBySubMenuTypeHtmlContent = [NSString stringWithFormat:@"%@%@",allSalesBySubMenuTypeHtmlContent,menuTypeHtmlContent];
-//
-//
-//        }
-//        else
-//        {
-//            if(![item.menuType isEqualToString:previousMenuType])
-//            {
-//                //menu type
-//                NSInteger quantity = [ReportEndDay getSumQuantityWithCustomerTypeID:item.customerTypeID menuTypeID:item.menuTypeID reportEndDayList:reportEndDayList];
-//                float sales = [ReportEndDay getSumSalesWithCustomerTypeID:item.customerTypeID menuTypeID:item.menuTypeID reportEndDayList:reportEndDayList];
-//                NSString *strQuantity = [Utility formatDecimal:quantity withMinFraction:0 andMaxFraction:0];
-//                NSString *strSales = [Utility formatDecimal:sales withMinFraction:2 andMaxFraction:2];
-//                NSString *menuTypeHtmlContent = [NSString stringWithContentsOfFile:_pathToEndDayMenuTypeHtml
-//                                                                          encoding:NSUTF8StringEncoding
-//                                                                             error:NULL];
-//                menuTypeHtmlContent = [menuTypeHtmlContent stringByReplacingOccurrencesOfString:@"#QUANTITY#" withString:strQuantity];
-//                menuTypeHtmlContent = [menuTypeHtmlContent stringByReplacingOccurrencesOfString:@"#MENU#" withString:item.menuType];
-//                menuTypeHtmlContent = [menuTypeHtmlContent stringByReplacingOccurrencesOfString:@"#SALES#" withString:strSales];
-//
-//
-//                allSalesBySubMenuTypeHtmlContent = [NSString stringWithFormat:@"%@%@",allSalesBySubMenuTypeHtmlContent,menuTypeHtmlContent];
-//            }
-//        }
-//
-//
-//
-//
-//        //sub menu type
-//        if(item.countSubMenuType != 1)
-//        {
-//            NSString *strQuantity = [Utility formatDecimal:item.quantity withMinFraction:0 andMaxFraction:0];
-//            NSString *strSales = [Utility formatDecimal:item.sales withMinFraction:2 andMaxFraction:2];
-//            NSString *subMenuTypeHtmlContent = [NSString stringWithContentsOfFile:_pathToEndDaySubMenuTypeHtml
-//                                                                         encoding:NSUTF8StringEncoding
-//                                                                            error:NULL];
-//            subMenuTypeHtmlContent = [subMenuTypeHtmlContent stringByReplacingOccurrencesOfString:@"#QUANTITY#" withString:strQuantity];
-//            subMenuTypeHtmlContent = [subMenuTypeHtmlContent stringByReplacingOccurrencesOfString:@"#MENU#" withString:item.subMenuType];
-//            subMenuTypeHtmlContent = [subMenuTypeHtmlContent stringByReplacingOccurrencesOfString:@"#SALES#" withString:strSales];
-//
-//
-//            allSalesBySubMenuTypeHtmlContent = [NSString stringWithFormat:@"%@%@",allSalesBySubMenuTypeHtmlContent,subMenuTypeHtmlContent];
-//        }
-//
-//
-//
-//        if(i+1<[reportEndDayList count])
-//        {
-//            ReportEndDay *nextReportEndDay = reportEndDayList[i+1];
-//            if(![item.customerType isEqualToString:nextReportEndDay.customerType])
-//            {
-//                //ใส่สรุปของ customer type
-//                float quantity = [ReportEndDay getSumQuantityWithCustomerTypeID:item.customerTypeID reportEndDayList:reportEndDayList];
-//                float sales = [ReportEndDay getSumSalesWithCustomerTypeID:item.customerTypeID reportEndDayList:reportEndDayList];
-//                float discountValue = [ReportEndDay getDiscountValueWithCustomerTypeID:item.customerTypeID reportEndDayList:salesAndDiscountList];
-//                float afterDiscount = sales-discountValue;
-//                NSString *strQuantity = [Utility formatDecimal:quantity withMinFraction:0 andMaxFraction:0];
-//                NSString *strSales = [Utility formatDecimal:sales withMinFraction:2 andMaxFraction:2];
-//                NSString *strDiscountValue = [Utility formatDecimal:discountValue withMinFraction:2 andMaxFraction:2];
-//                NSString *strAfterDiscount = [Utility formatDecimal:afterDiscount withMinFraction:2 andMaxFraction:2];
-//
-//                NSString *customerTypeFooterHtmlContent = [NSString stringWithContentsOfFile:_pathToEndDayCustomerTypeFooterHtml
-//                                                                                    encoding:NSUTF8StringEncoding
-//                                                                                       error:NULL];
-//                customerTypeFooterHtmlContent = [customerTypeFooterHtmlContent stringByReplacingOccurrencesOfString:@"#SALES#" withString:strSales];
-//                customerTypeFooterHtmlContent = [customerTypeFooterHtmlContent stringByReplacingOccurrencesOfString:@"#DISCOUNT_VALUE#" withString:strDiscountValue];
-//                customerTypeFooterHtmlContent = [customerTypeFooterHtmlContent stringByReplacingOccurrencesOfString:@"#CUSTOMER_TYPE#" withString:item.customerType];
-//                customerTypeFooterHtmlContent = [customerTypeFooterHtmlContent stringByReplacingOccurrencesOfString:@"#QUANTITY#" withString:strQuantity];
-//                customerTypeFooterHtmlContent = [customerTypeFooterHtmlContent stringByReplacingOccurrencesOfString:@"#AFTER_DISCOUNT#" withString:strAfterDiscount];
-//                customerTypeFooterHtmlContent = [customerTypeFooterHtmlContent stringByReplacingOccurrencesOfString:@"#HIDDEN#" withString:@"style='display:none'"];
-//
-//                allSalesBySubMenuTypeHtmlContent = [NSString stringWithFormat:@"%@%@",allSalesBySubMenuTypeHtmlContent,customerTypeFooterHtmlContent];
-//            }
-//        }
-//        else if(i == [reportEndDayList count] - 1)
-//        {
-//            //ใส่สรุปของ customer type
-//            float quantity = [ReportEndDay getSumQuantityWithCustomerTypeID:item.customerTypeID reportEndDayList:reportEndDayList];
-//            float sales = [ReportEndDay getSumSalesWithCustomerTypeID:item.customerTypeID reportEndDayList:reportEndDayList];
-//            float discountValue = [ReportEndDay getDiscountValueWithCustomerTypeID:item.customerTypeID reportEndDayList:salesAndDiscountList];
-//            float afterDiscount = sales-discountValue;
-//            NSString *strQuantity = [Utility formatDecimal:quantity withMinFraction:0 andMaxFraction:0];
-//            NSString *strSales = [Utility formatDecimal:sales withMinFraction:2 andMaxFraction:2];
-//            NSString *strDiscountValue = [Utility formatDecimal:discountValue withMinFraction:2 andMaxFraction:2];
-//            NSString *strAfterDiscount = [Utility formatDecimal:afterDiscount withMinFraction:2 andMaxFraction:2];
-//
-//            NSString *customerTypeFooterHtmlContent = [NSString stringWithContentsOfFile:_pathToEndDayCustomerTypeFooterHtml
-//                                                                                encoding:NSUTF8StringEncoding
-//                                                                                   error:NULL];
-//            customerTypeFooterHtmlContent = [customerTypeFooterHtmlContent stringByReplacingOccurrencesOfString:@"#SALES#" withString:strSales];
-//            customerTypeFooterHtmlContent = [customerTypeFooterHtmlContent stringByReplacingOccurrencesOfString:@"#DISCOUNT_VALUE#" withString:strDiscountValue];
-//            customerTypeFooterHtmlContent = [customerTypeFooterHtmlContent stringByReplacingOccurrencesOfString:@"#CUSTOMER_TYPE#" withString:item.customerType];
-//            customerTypeFooterHtmlContent = [customerTypeFooterHtmlContent stringByReplacingOccurrencesOfString:@"#QUANTITY#" withString:strQuantity];
-//            customerTypeFooterHtmlContent = [customerTypeFooterHtmlContent stringByReplacingOccurrencesOfString:@"#AFTER_DISCOUNT#" withString:strAfterDiscount];
-//            customerTypeFooterHtmlContent = [customerTypeFooterHtmlContent stringByReplacingOccurrencesOfString:@"#HIDDEN#" withString:@"style='display:none'"];
-//
-//
-//            allSalesBySubMenuTypeHtmlContent = [NSString stringWithFormat:@"%@%@",allSalesBySubMenuTypeHtmlContent,customerTypeFooterHtmlContent];
-//        }
-//
-//
-//        previousCustomerType = item.customerType;
-//        previousMenuType = item.menuType;
-//        previousSubMenuType = item.subMenuType;
-//        previousCustomerTypeID = item.customerTypeID;
-//        i++;
-//    }
-//
-//
-//
-//    //สรุปรวมทุก customer type
-//    //customer type
-//    NSString *strAllCustomerType = @"รวมทุกช่องทาง";
-//    NSString *customerTypeHtmlContent = [NSString stringWithContentsOfFile:_pathToEndDayCustomerTypeHtml
-//                                                                  encoding:NSUTF8StringEncoding
-//                                                                     error:NULL];
-//    customerTypeHtmlContent = [customerTypeHtmlContent stringByReplacingOccurrencesOfString:@"#CUSTOMER_TYPE#" withString:strAllCustomerType];
-//
-//
-//    allSalesBySubMenuTypeHtmlContent = [NSString stringWithFormat:@"%@%@",allSalesBySubMenuTypeHtmlContent,customerTypeHtmlContent];
-//
-//
-//
-//    //สรุปรวมทุก customer type
-//    //ใส่สรุปของ customer type
-//    float quantity = [ReportEndDay getSumQuantityWithReportEndDayList:reportEndDayList];
-//    float sales = [ReportEndDay getSumSalesWithReportEndDayList:reportEndDayList];
-//    float discountValue = [ReportEndDay getSumDiscountValueWithReportEndDayList:salesAndDiscountList];
-//    float afterDiscount = sales-discountValue;
-//    float vat = [ReportEndDay getSumVatWithReportEndDayList:salesAndDiscountList];
-//    float round = [ReportEndDay getSumRoundWithReportEndDayList:salesAndDiscountList];
-//    float totalAmount = afterDiscount + vat + round;
-//    NSString *strQuantity = [Utility formatDecimal:quantity withMinFraction:0 andMaxFraction:0];
-//    NSString *strSales = [Utility formatDecimal:sales withMinFraction:2 andMaxFraction:2];
-//    NSString *strDiscountValue = [Utility formatDecimal:discountValue withMinFraction:2 andMaxFraction:2];
-//    NSString *strAfterDiscount = [Utility formatDecimal:afterDiscount withMinFraction:2 andMaxFraction:2];
-//    NSString *strVat = [Utility formatDecimal:vat withMinFraction:2 andMaxFraction:2];
-//    NSString *strRound = [Utility formatDecimal:round withMinFraction:2 andMaxFraction:2];
-//    NSString *strTotalAmount = [Utility formatDecimal:totalAmount withMinFraction:2 andMaxFraction:2];
-//    NSString *customerTypeFooterHtmlContent = [NSString stringWithContentsOfFile:_pathToEndDayCustomerTypeFooterHtml
-//                                                                        encoding:NSUTF8StringEncoding
-//                                                                           error:NULL];
-//    customerTypeFooterHtmlContent = [customerTypeFooterHtmlContent stringByReplacingOccurrencesOfString:@"#SALES#" withString:strSales];
-//    customerTypeFooterHtmlContent = [customerTypeFooterHtmlContent stringByReplacingOccurrencesOfString:@"#DISCOUNT_VALUE#" withString:strDiscountValue];
-//    customerTypeFooterHtmlContent = [customerTypeFooterHtmlContent stringByReplacingOccurrencesOfString:@"#CUSTOMER_TYPE#" withString:strAllCustomerType];
-//    customerTypeFooterHtmlContent = [customerTypeFooterHtmlContent stringByReplacingOccurrencesOfString:@"#QUANTITY#" withString:strQuantity];
-//    customerTypeFooterHtmlContent = [customerTypeFooterHtmlContent stringByReplacingOccurrencesOfString:@"#AFTER_DISCOUNT#" withString:strAfterDiscount];
-//
-//    customerTypeFooterHtmlContent = [customerTypeFooterHtmlContent stringByReplacingOccurrencesOfString:@"#VAT#" withString:strVat];
-//    customerTypeFooterHtmlContent = [customerTypeFooterHtmlContent stringByReplacingOccurrencesOfString:@"#ROUND#" withString:strRound];
-//    customerTypeFooterHtmlContent = [customerTypeFooterHtmlContent stringByReplacingOccurrencesOfString:@"#TOTAL_AMOUNT#" withString:strTotalAmount];
-//    customerTypeFooterHtmlContent = [customerTypeFooterHtmlContent stringByReplacingOccurrencesOfString:@"#HIDDEN#" withString:@""];
-//
-//
-//    allSalesBySubMenuTypeHtmlContent = [NSString stringWithFormat:@"%@%@",allSalesBySubMenuTypeHtmlContent,customerTypeFooterHtmlContent];
-//
-//
-//
-//    //PAYMENT method
-//    NSString *strPaymentMethod = @"วิธีการชำระเงิน";
-//    NSString *paymentMethodHtmlContent = [NSString stringWithContentsOfFile:_pathToEndDayCustomerTypeHtml
-//                                                                  encoding:NSUTF8StringEncoding
-//                                                                     error:NULL];
-//    paymentMethodHtmlContent = [paymentMethodHtmlContent stringByReplacingOccurrencesOfString:@"#CUSTOMER_TYPE#" withString:strPaymentMethod];
-//
-//
-//    allSalesBySubMenuTypeHtmlContent = [NSString stringWithFormat:@"%@%@",allSalesBySubMenuTypeHtmlContent,paymentMethodHtmlContent];
-//    for(ReportEndDay *item in cashAmountList)
-//    {
-//        NSString *strSales = [Utility formatDecimal:item.cashAmount withMinFraction:2 andMaxFraction:2];
-//        NSString *paymentMethodHtmlContent = [NSString stringWithContentsOfFile:_pathToEndDayPaymentMethodHtml
-//                                                                       encoding:NSUTF8StringEncoding
-//                                                                          error:NULL];
-//        paymentMethodHtmlContent = [paymentMethodHtmlContent stringByReplacingOccurrencesOfString:@"#PAYMENT_TYPE#" withString:@"ชำระด้วย Cash"];
-//        paymentMethodHtmlContent = [paymentMethodHtmlContent stringByReplacingOccurrencesOfString:@"#SALES#" withString:strSales];
-//
-//
-//        allSalesBySubMenuTypeHtmlContent = [NSString stringWithFormat:@"%@%@",allSalesBySubMenuTypeHtmlContent,paymentMethodHtmlContent];
-//    }
-//
-//
-//
-//
-//    //pay by credit card
-//    int j=0;
-//    for(ReportEndDay *item in creditCardAmountList)
-//    {
-//        //sum header
-//        if(j==0)
-//        {
-//            float sales = [ReportEndDay getSumCreditCardAmountWithReportEndDayList:creditCardAmountList];
-//            NSString *strSales = [Utility formatDecimal:sales withMinFraction:2 andMaxFraction:2];
-//            NSString *paymentMethodHtmlContent = [NSString stringWithContentsOfFile:_pathToEndDayPaymentMethodHtml
-//                                                                           encoding:NSUTF8StringEncoding
-//                                                                              error:NULL];
-//            paymentMethodHtmlContent = [paymentMethodHtmlContent stringByReplacingOccurrencesOfString:@"#PAYMENT_TYPE#" withString:@"ชำระด้วย Credit card"];
-//            paymentMethodHtmlContent = [paymentMethodHtmlContent stringByReplacingOccurrencesOfString:@"#SALES#" withString:strSales];
-//
-//
-//            allSalesBySubMenuTypeHtmlContent = [NSString stringWithFormat:@"%@%@",allSalesBySubMenuTypeHtmlContent,paymentMethodHtmlContent];
-//        }
-//
-//
-//
-//
-//
-//        NSString *strCreditCardType = [NSString stringWithFormat:@" - %@",item.creditCardType];
-//        NSString *strSales = [Utility formatDecimal:item.creditCardAmount withMinFraction:2 andMaxFraction:2];
-//        NSString *paymentMethodHtmlContent = [NSString stringWithContentsOfFile:_pathToEndDayPaymentMethodHtml
-//                                                                       encoding:NSUTF8StringEncoding
-//                                                                          error:NULL];
-//        paymentMethodHtmlContent = [paymentMethodHtmlContent stringByReplacingOccurrencesOfString:@"#PAYMENT_TYPE#" withString:strCreditCardType];
-//        paymentMethodHtmlContent = [paymentMethodHtmlContent stringByReplacingOccurrencesOfString:@"#SALES#" withString:strSales];
-//
-//
-//        allSalesBySubMenuTypeHtmlContent = [NSString stringWithFormat:@"%@%@",allSalesBySubMenuTypeHtmlContent,paymentMethodHtmlContent];
-//        j++;
-//    }
-//
-//
-//
-//
-//
-//
-//
-//    //summary by customerType
-//    for(ReportEndDay *item in countReceiptAndServingPersonList)
-//    {
-//
-//        NSString *customerTypeSummaryHtmlContent = [NSString stringWithContentsOfFile:_pathToEndDayCustomerTypeSummaryHtml encoding:NSUTF8StringEncoding error:NULL];
-//
-//        float salesByCustomerType = [ReportEndDay getSumSalesWithCustomerTypeID:item.customerTypeID reportEndDayList:salesAndDiscountList];
-//        float discountValueByCustomerType = [ReportEndDay getSumDiscountValueWithCustomerTypeID:item.customerTypeID reportEndDayList:salesAndDiscountList];
-//        float vatByCustomerType = [ReportEndDay getSumVatWithCustomerTypeID:item.customerTypeID reportEndDayList:salesAndDiscountList];
-//        float roundByCustomerType = [ReportEndDay getSumRoundWithCustomerTypeID:item.customerTypeID reportEndDayList:salesAndDiscountList];
-//        float sales = salesByCustomerType-discountValueByCustomerType+vatByCustomerType+roundByCustomerType;
-//        float avgReceiptSales = sales/item.countReceipt;
-//        float avgCustomerSales = sales/item.servingPerson;
-//        NSString *strCountReceipt = [Utility formatDecimal:item.countReceipt withMinFraction:0 andMaxFraction:0];
-//        NSString *strServingPerson = [Utility formatDecimal:item.servingPerson withMinFraction:0 andMaxFraction:0];
-//        NSString *strSales = [Utility formatDecimal:sales withMinFraction:2 andMaxFraction:2];
-//        NSString *strAvgReceiptSales = [Utility formatDecimal:avgReceiptSales withMinFraction:2 andMaxFraction:2];
-//        NSString *strAvgCustomerSales = [Utility formatDecimal:avgCustomerSales withMinFraction:2 andMaxFraction:2];
-//
-//
-//        customerTypeSummaryHtmlContent = [customerTypeSummaryHtmlContent stringByReplacingOccurrencesOfString:@"#CUSTOMER_TYPE#" withString:item.customerType];
-//        customerTypeSummaryHtmlContent = [customerTypeSummaryHtmlContent stringByReplacingOccurrencesOfString:@"#SALES#" withString:strSales];
-//        customerTypeSummaryHtmlContent = [customerTypeSummaryHtmlContent stringByReplacingOccurrencesOfString:@"#COUNT_RECEIPT#" withString:strCountReceipt];
-//        customerTypeSummaryHtmlContent = [customerTypeSummaryHtmlContent stringByReplacingOccurrencesOfString:@"#AVG_RECEIPT_SALES#" withString:strAvgReceiptSales];
-//        customerTypeSummaryHtmlContent = [customerTypeSummaryHtmlContent stringByReplacingOccurrencesOfString:@"#SERVING_PERSON#" withString:strServingPerson];
-//        customerTypeSummaryHtmlContent = [customerTypeSummaryHtmlContent stringByReplacingOccurrencesOfString:@"#AVG_CUSTOMER_SALES#" withString:strAvgCustomerSales];
-//
-//
-//        allSalesBySubMenuTypeHtmlContent = [NSString stringWithFormat:@"%@%@",allSalesBySubMenuTypeHtmlContent,customerTypeSummaryHtmlContent];
-//
-//    }
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//    htmlContent = [htmlContent stringByReplacingOccurrencesOfString:@"#END_DAY_ITEMS#" withString:allSalesBySubMenuTypeHtmlContent];
-//
-//
-//    return htmlContent;
-//}
 
 @end

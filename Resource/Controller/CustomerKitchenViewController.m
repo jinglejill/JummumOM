@@ -767,7 +767,8 @@ static NSString * const reuseIdentifierSeparatorLine = @"CustomTableViewCellSepa
             NSString *strAddTypeNote = [OrderNote getNoteNameListInTextWithOrderTakingID:orderTaking.orderTakingID noteType:1];
             if(![Utility isStringEmpty:strRemoveTypeNote])
             {
-                NSString *message = [Setting getValue:@"011m" example:@"ไม่ใส่"];
+                Branch *branch = [Branch getCurrentBranch];
+                NSString *message = branch.wordNo;
                 UIFont *font = [UIFont fontWithName:@"Prompt-Regular" size:13.0f];
                 NSDictionary *attribute = @{NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle),NSFontAttributeName: font};
                 attrStringRemove = [[NSMutableAttributedString alloc] initWithString:message attributes:attribute];
@@ -783,7 +784,8 @@ static NSString * const reuseIdentifierSeparatorLine = @"CustomTableViewCellSepa
             }
             if(![Utility isStringEmpty:strAddTypeNote])
             {
-                NSString *message = [Setting getValue:@"012m" example:@"เพิ่ม"];
+                Branch *branch = [Branch getCurrentBranch];
+                NSString *message = branch.wordAdd;
                 UIFont *font = [UIFont fontWithName:@"Prompt-Regular" size:13.0f];
                 NSDictionary *attribute = @{NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle),NSFontAttributeName: font};
                 attrStringAdd = [[NSMutableAttributedString alloc] initWithString:message attributes:attribute];
@@ -1004,7 +1006,8 @@ static NSString * const reuseIdentifierSeparatorLine = @"CustomTableViewCellSepa
             NSString *strAddTypeNote = [OrderNote getNoteNameListInTextWithOrderTakingID:orderTaking.orderTakingID noteType:1];
             if(![Utility isStringEmpty:strRemoveTypeNote])
             {
-                NSString *message = [Setting getValue:@"011m" example:@"ไม่ใส่"];
+                Branch *branch = [Branch getCurrentBranch];
+                NSString *message = branch.wordNo;
                 UIFont *font = [UIFont fontWithName:@"Prompt-Regular" size:13.0f];
                 NSDictionary *attribute = @{NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle),NSFontAttributeName: font};
                 attrStringRemove = [[NSMutableAttributedString alloc] initWithString:message attributes:attribute];
@@ -1019,7 +1022,8 @@ static NSString * const reuseIdentifierSeparatorLine = @"CustomTableViewCellSepa
             }
             if(![Utility isStringEmpty:strAddTypeNote])
             {
-                NSString *message = [Setting getValue:@"012m" example:@"เพิ่ม"];
+                Branch *branch = [Branch getCurrentBranch];
+                NSString *message = branch.wordAdd;
                 UIFont *font = [UIFont fontWithName:@"Prompt-Regular" size:13.0f];
                 NSDictionary *attribute = @{NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle),NSFontAttributeName: font};
                 attrStringAdd = [[NSMutableAttributedString alloc] initWithString:message attributes:attribute];
@@ -1136,7 +1140,8 @@ static NSString * const reuseIdentifierSeparatorLine = @"CustomTableViewCellSepa
             NSString *strAddTypeNote = [OrderNote getNoteNameListInTextWithOrderTakingID:orderTaking.orderTakingID noteType:1];
             if(![Utility isStringEmpty:strRemoveTypeNote])
             {
-                NSString *message = [Setting getValue:@"011m" example:@"ไม่ใส่"];
+                Branch *branch = [Branch getCurrentBranch];
+                NSString *message = branch.wordNo;
                 UIFont *font = [UIFont fontWithName:@"Prompt-Regular" size:13.0f];
                 NSDictionary *attribute = @{NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle),NSFontAttributeName: font};
                 attrStringRemove = [[NSMutableAttributedString alloc] initWithString:message attributes:attribute];
@@ -1151,7 +1156,8 @@ static NSString * const reuseIdentifierSeparatorLine = @"CustomTableViewCellSepa
             }
             if(![Utility isStringEmpty:strAddTypeNote])
             {
-                NSString *message = [Setting getValue:@"012m" example:@"เพิ่ม"];
+                Branch *branch = [Branch getCurrentBranch];
+                NSString *message = branch.wordAdd;
                 UIFont *font = [UIFont fontWithName:@"Prompt-Regular" size:13.0f];
                 NSDictionary *attribute = @{NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle),NSFontAttributeName: font};
                 attrStringAdd = [[NSMutableAttributedString alloc] initWithString:message attributes:attribute];
@@ -1338,7 +1344,7 @@ static NSString * const reuseIdentifierSeparatorLine = @"CustomTableViewCellSepa
             [self presentViewController:alert animated:YES completion:nil];
         }
         else
-        {            
+        {
             Receipt *receipt = receiptList[0];
             [self printReviewOrderBill:receipt];
         }
@@ -1545,7 +1551,7 @@ static NSString * const reuseIdentifierSeparatorLine = @"CustomTableViewCellSepa
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     NSMutableArray *printerSettingList = appDelegate.settingManager.settings;
     for(int i=0; i<[printerSettingList count]; i++)
-    {        
+    {
         NSMutableArray *printerOrderTakingList = [[NSMutableArray alloc]init];
         Printer *printer = _printerList[i];
         for(int j=0; j<[orderTakingList count]; j++)
@@ -1596,7 +1602,7 @@ static NSString * const reuseIdentifierSeparatorLine = @"CustomTableViewCellSepa
         
         if(printer.printerID == printReceiptAtPrinterNo)
         {
-            UIImage *imgReviewBill = [self screenCaptureBill:receipt];         
+            UIImage *imgReviewBill = [self screenCaptureBill:receipt];
             [imageToPrintList addObject:imgReviewBill];
         }
         
@@ -1725,9 +1731,11 @@ static NSString * const reuseIdentifierSeparatorLine = @"CustomTableViewCellSepa
         NSString *strAddTypeNote = [OrderNote getNoteNameListInTextWithOrderTakingID:orderTaking.orderTakingID noteType:1];
         if(![Utility isStringEmpty:strRemoveTypeNote])
         {
+            Branch *branch = [Branch getCurrentBranch];
+            NSString *message = branch.wordNo;
             UIFont *font = [UIFont fontWithName:@"Prompt-Regular" size:16];
             NSDictionary *attribute = @{NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle),NSFontAttributeName: font};
-            attrStringRemove = [[NSMutableAttributedString alloc] initWithString:@"ไม่ใส่" attributes:attribute];
+            attrStringRemove = [[NSMutableAttributedString alloc] initWithString:message attributes:attribute];
             
             
             UIFont *font2 = [UIFont fontWithName:@"Prompt-Regular" size:16];
@@ -1739,9 +1747,11 @@ static NSString * const reuseIdentifierSeparatorLine = @"CustomTableViewCellSepa
         }
         if(![Utility isStringEmpty:strAddTypeNote])
         {
+            Branch *branch = [Branch getCurrentBranch];
+            NSString *message = branch.wordAdd;
             UIFont *font = [UIFont fontWithName:@"Prompt-Regular" size:16];
             NSDictionary *attribute = @{NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle),NSFontAttributeName: font};
-            attrStringAdd = [[NSMutableAttributedString alloc] initWithString:@"เพิ่ม" attributes:attribute];
+            attrStringAdd = [[NSMutableAttributedString alloc] initWithString:message attributes:attribute];
             
             
             UIFont *font2 = [UIFont fontWithName:@"Prompt-Regular" size:16];
