@@ -42,7 +42,9 @@
 @synthesize imgVwLogoText;
 @synthesize lblLogInTop;
 @synthesize lblLogInBottom;
-
+@synthesize lblLogIn;
+@synthesize imgVwLogoTextWidth;
+@synthesize imgVwLogoTextHeight;
 
 -(IBAction)unwindToLogIn:(UIStoryboardSegue *)segue
 {
@@ -86,7 +88,14 @@
     if(bottom+286+40>self.view.frame.size.height)
     {
         //hide jummum text
-        imgVwLogoText.hidden = YES;
+        //        imgVwLogoText.hidden = YES;
+//        lblLogIn.text = @"JUMMUM OM";
+        
+        imgVwLogoTextWidth.constant = 100;
+        imgVwLogoTextHeight.constant = 29;
+        lblLogIn.hidden = YES;
+        lblLogInTop.constant = 0;
+        lblLogInBottom.constant = 0;
     }
     
     btnLogIn.backgroundColor = cSystem2;

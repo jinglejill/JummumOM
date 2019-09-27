@@ -12,6 +12,7 @@
 @interface LogInViewController : CustomViewController
 
 @property (strong, nonatomic) IBOutlet UIImageView *imgVwLogoText;
+@property (strong, nonatomic) IBOutlet UILabel *lblLogIn;
 @property (strong, nonatomic) IBOutlet UITextField *txtEmail;
 @property (strong, nonatomic) IBOutlet UITextField *txtPassword;
 @property (strong, nonatomic) IBOutlet UIButton *btnRememberMe;
@@ -22,6 +23,8 @@
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *lblLogInTop;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *lblOrBottom;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *lblLogInBottom;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *imgVwLogoTextWidth;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *imgVwLogoTextHeight;
 
 - (IBAction)rememberMe:(id)sender;
 - (IBAction)logIn:(id)sender;

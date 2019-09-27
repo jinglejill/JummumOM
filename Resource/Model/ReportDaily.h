@@ -22,6 +22,7 @@
 @property (nonatomic) float netTotal;
 @property (nonatomic) float transactionFeeValue;
 @property (nonatomic) float jummumPayValue;
+@property (nonatomic) float refundAmount;
 @property (nonatomic) NSInteger status;//not transfer, transferred
 @property (nonatomic) NSInteger receiptID;
 @property (retain, nonatomic) NSString *receiptNoID;

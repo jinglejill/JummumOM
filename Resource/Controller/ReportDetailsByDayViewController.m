@@ -159,7 +159,7 @@ static NSString * const reuseIdentifierMonthYearBalance = @"CustomTableViewCellM
         }
         else if(section == 1)
         {
-            return 11;
+            return 12;
         }
     }
     return 0;
@@ -204,7 +204,7 @@ static NSString * const reuseIdentifierMonthYearBalance = @"CustomTableViewCellM
             [cell.lblReceiptDate sizeToFit];
             cell.lblReceiptDateWidth.constant = cell.lblReceiptDate.frame.size.width;
             cell.lblBalance.font = [UIFont fontWithName:@"Prompt-SemiBold" size:14];
-            cell.lblBalance.text = [Utility formatDecimal:reportDaily.netTotal withMinFraction:2 andMaxFraction:2];
+            cell.lblBalance.text = [Utility formatDecimal:reportDaily.balance withMinFraction:2 andMaxFraction:2];
             cell.lblStatusWidth.constant = 0;
             cell.lblStatusLeading.constant = 0;
             cell.lblStatus.hidden = YES;
@@ -254,7 +254,7 @@ static NSString * const reuseIdentifierMonthYearBalance = @"CustomTableViewCellM
             
             float lblValueWidth = 80;
             cell.lblTitleWidth.constant = self.view.frame.size.width - 16 - lblValueWidth - 8;
-            [cell.lblTitle sizeToFit];            
+            [cell.lblTitle sizeToFit];
             cell.lblTitleHeight.constant = cell.lblTitle.frame.size.height;
             
             return cell;
@@ -349,6 +349,15 @@ static NSString * const reuseIdentifierMonthYearBalance = @"CustomTableViewCellM
                     cell.lblValue.textColor = cSystem1;
                 }
                     break;
+                case 11:
+                {
+                    cell.lblTitle.text = @"เงินคืนลูกค้า";
+                    cell.lblValue.text = [Utility encloseWithBracket:[Utility formatDecimal:reportDaily.refundAmount withMinFraction:2 andMaxFraction:2]];
+                    cell.hidden = reportDaily.refundAmount == 0;
+                    cell.lblTitle.textColor = cSystem2;
+                    cell.lblValue.textColor = cSystem2;
+                }
+                    break;
                 default:
                     break;
             }
@@ -379,15 +388,16 @@ static NSString * const reuseIdentifierMonthYearBalance = @"CustomTableViewCellM
         else if(section == 1)
         {
             Branch *branch = [Branch getCurrentBranch];
+            ReportDaily *reportDaily = _reportDailyList[item];
             NSInteger countServiceCharge = branch.serviceChargePercent == 0?0:1;
             NSInteger countVat = branch.percentVat == 0?0:1;
             NSInteger countNetTotal = countServiceCharge + countVat == 0?0:1;
             NSInteger countBeforeVat = (branch.serviceChargePercent>0 && branch.percentVat>0) || (branch.serviceChargePercent == 0 && branch.percentVat>0 && branch.priceIncludeVat)?1:0;
-            NSInteger countRow = 7 + countServiceCharge + countVat + countNetTotal + countBeforeVat;
+            NSInteger countRefundAmount = reportDaily.refundAmount == 0?0:1;
+            NSInteger countRow = 7 + countServiceCharge + countVat + countNetTotal + countBeforeVat + countRefundAmount;
             
             
             float section0Height = 0;
-            ReportDaily *reportDaily = _reportDailyList[item];
             if(reportDaily.expand)
             {
                 NSMutableArray *reportDetailsByOrderList = [self getOrderWithReceiptID:reportDaily.receiptID];
@@ -456,7 +466,8 @@ static NSString * const reuseIdentifierMonthYearBalance = @"CustomTableViewCellM
         else if(section == 1)
         {
             Branch *branch = [Branch getCurrentBranch];
-            
+            NSInteger reportItem = tableView.tag;
+            ReportDaily *reportDaily = _reportDailyList[reportItem];
             switch (item) {
                 case 0:
                 case 1:
@@ -474,6 +485,8 @@ static NSString * const reuseIdentifierMonthYearBalance = @"CustomTableViewCellM
                     return branch.serviceChargePercent + branch.percentVat == 0?0:44;
                 case 8:
                     return (branch.serviceChargePercent>0 && branch.percentVat>0) || (branch.serviceChargePercent == 0 && branch.percentVat>0 && branch.priceIncludeVat)?44:0;
+                case 11:
+                    return reportDaily.refundAmount == 0?0:44;
                 default:
                     break;
             }

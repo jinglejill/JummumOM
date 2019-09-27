@@ -195,7 +195,7 @@ static NSString * const reuseIdentifierButtonDetail = @"CustomTableViewCellButto
     }
     else
     {
-        return 12;
+        return 13;
     }
     return 0;
 }
@@ -277,7 +277,7 @@ static NSString * const reuseIdentifierButtonDetail = @"CustomTableViewCellButto
                 cell.lblValue.text = [Utility encloseWithBracket:[Utility formatDecimal:reportDaily.specialPriceDiscount withMinFraction:2 andMaxFraction:2]];
             }
                 break;
-                case 2:
+            case 2:
             {
                 cell.lblTitle.text = @"ส่วนลด 2";
                 cell.lblValue.text = [Utility encloseWithBracket:[Utility formatDecimal:reportDaily.discountProgramValue withMinFraction:2 andMaxFraction:2]];
@@ -339,6 +339,15 @@ static NSString * const reuseIdentifierButtonDetail = @"CustomTableViewCellButto
                 break;
             case 11:
             {
+                cell.lblTitle.text = @"เงินคืนลูกค้า";
+                cell.lblValue.text = [Utility encloseWithBracket:[Utility formatDecimal:reportDaily.refundAmount withMinFraction:2 andMaxFraction:2]];
+                cell.hidden = reportDaily.refundAmount == 0;
+                cell.lblTitle.textColor = cSystem2;
+                cell.lblValue.textColor = cSystem2;
+            }
+                break;
+            case 12:
+            {
                 CustomTableViewCellButtonDetail *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifierButtonDetail];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 
@@ -346,7 +355,7 @@ static NSString * const reuseIdentifierButtonDetail = @"CustomTableViewCellButto
                 cell.btnShowDetail.tag = reportItem;
                 [self setButtonDesign:cell.btnShowDetail];
                 [cell.btnShowDetail addTarget:self action:@selector(showDetail:) forControlEvents:UIControlEventTouchUpInside];
-                
+                cell.hidden = NO;
                 return cell;
             }
             default:
@@ -381,7 +390,8 @@ static NSString * const reuseIdentifierButtonDetail = @"CustomTableViewCellButto
                 NSInteger countVat = branch.percentVat == 0?0:1;
                 NSInteger countNetTotal = countServiceCharge + countVat == 0?0:1;
                 NSInteger countBeforeVat = (branch.serviceChargePercent>0 && branch.percentVat>0) || (branch.serviceChargePercent == 0 && branch.percentVat>0 && branch.priceIncludeVat)?1:0;
-                NSInteger countRow = 7 + countServiceCharge + countVat + countNetTotal + countBeforeVat + 1;
+                NSInteger countRefundAmount = reportDaily.refundAmount == 0?0:1;
+                NSInteger countRow = 7 + countServiceCharge + countVat + countNetTotal + countBeforeVat + countRefundAmount + 1;
                 
                 return 44+countRow*44;
             }
@@ -394,7 +404,8 @@ static NSString * const reuseIdentifierButtonDetail = @"CustomTableViewCellButto
     else
     {
         Branch *branch = [Branch getCurrentBranch];
-    
+        NSInteger reportItem = tableView.tag;
+        ReportDaily *reportDaily = _reportDailyList[reportItem];
         switch (item)
         {
             case 0:
@@ -402,9 +413,6 @@ static NSString * const reuseIdentifierButtonDetail = @"CustomTableViewCellButto
             case 2:
             case 3:
             case 4:
-            case 9:
-            case 10:
-            case 11:
                 return 44;
             case 5:
                 return branch.serviceChargePercent == 0?0:44;
@@ -414,6 +422,13 @@ static NSString * const reuseIdentifierButtonDetail = @"CustomTableViewCellButto
                 return branch.serviceChargePercent + branch.percentVat == 0?0:44;
             case 8:
                 return (branch.serviceChargePercent>0 && branch.percentVat>0) || (branch.serviceChargePercent == 0 && branch.percentVat>0 && branch.priceIncludeVat)?44:0;
+            case 9:
+            case 10:
+                return 44;
+            case 11:
+                return reportDaily.refundAmount == 0?0:44;
+            case 12:
+                return 44;
             default:
                 break;
         }
