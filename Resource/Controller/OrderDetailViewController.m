@@ -389,7 +389,7 @@ static NSString * const reuseIdentifierSeparatorLine = @"CustomTableViewCellSepa
                     
                     NSString *message = [Setting getValue:@"064m" example:@"%ld รายการ"];
                     NSString *strTitle = [NSString stringWithFormat:message,[orderTakingList count]];
-                    NSString *strTotal = [Utility formatDecimal:[OrderTaking getSumSpecialPrice:orderTakingList] withMinFraction:2 andMaxFraction:2];
+                    NSString *strTotal = [Utility formatDecimal:receipt.totalAmount withMinFraction:2 andMaxFraction:2];
                     strTotal = [Utility addPrefixBahtSymbol:strTotal];
                     cell.lblTitle.text = strTitle;
                     cell.lblAmount.text = strTotal;
@@ -1432,8 +1432,9 @@ static NSString * const reuseIdentifierSeparatorLine = @"CustomTableViewCellSepa
             cell.lblNoteHeight.constant = cell.lblNote.frame.size.height;
             
             
+            float totalAmount = (orderTaking.specialPrice+orderTaking.takeAwayPrice+orderTaking.notePrice) * orderTaking.quantity;
             
-            float totalAmount = orderTaking.specialPrice * orderTaking.quantity;
+//            float totalAmount = orderTaking.specialPrice * orderTaking.quantity;
             NSString *strTotalAmount = [Utility formatDecimal:totalAmount withMinFraction:2 andMaxFraction:2];
             cell.lblTotalAmount.text = [Utility addPrefixBahtSymbol:strTotalAmount];
             
